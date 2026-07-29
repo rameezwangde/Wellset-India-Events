@@ -17,6 +17,16 @@
   --color-muted-text: #625e59;
   --color-border: #eadfd4;
 
+  /* About Page specific colors */
+  --color-deep-burgundy: #da2f1d;
+  --color-primary-red: #da2f1d;
+  --color-dark-wine: #da2f1d;
+  --color-soft-ivory: #F8F4EE;
+  --color-warm-beige: #EDE3D6;
+  --color-pure-charcoal: #191919;
+  --color-muted-grey: #6F6965;
+  --color-pure-white: #FFFFFF;
+
   --font-sans: var(--font-inter), Arial, Helvetica, sans-serif;
   --font-condensed: var(--font-condensed), Arial, Helvetica, sans-serif;
   --font-script: var(--font-script), cursive;

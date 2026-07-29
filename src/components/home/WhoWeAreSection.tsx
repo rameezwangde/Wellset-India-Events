@@ -167,13 +167,15 @@ export function WhoWeAreSection() {
                     transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
                     className="absolute inset-0 rounded-[28px] overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.18)]"
                   >
-                    <Image
-                      src={featureImages[activeFeature].src}
-                      alt={featureImages[activeFeature].alt}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover"
-                    />
+                    <div className="absolute inset-0 bg-[#da2f1d]/5 flex flex-col items-center justify-center border-4 border-[#da2f1d]/10">
+                      <div className="text-[120px] font-condensed font-bold text-[#da2f1d]/10 leading-none mb-4">
+                        0{activeFeature + 1}
+                      </div>
+                      <div className="w-16 h-1 bg-[#da2f1d]/30 rounded-full mb-6" />
+                      <div className="text-[#18181b]/40 font-bold uppercase tracking-widest px-8 text-center">
+                        {featureImages[activeFeature].alt}
+                      </div>
+                    </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent pointer-events-none" />
                     
                     {/* Active feature label on image */}
@@ -369,13 +371,14 @@ export function WhoWeAreSection() {
               className="relative flex-1 overflow-hidden group"
               style={{ borderRadius: i === 0 ? "24px 0 0 0" : i === 3 ? "0 24px 0 0" : "0" }}
             >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                sizes="25vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-              />
+              <div className="absolute inset-0 bg-[#18181b] flex flex-col items-center justify-center p-6 border-r border-[#ffffff]/5">
+                <div className="text-[120px] font-condensed font-bold text-[#f8f1e8]/5 group-hover:text-[#da2f1d]/20 transition-colors duration-500 leading-none mb-2">
+                  0{i + 1}
+                </div>
+                <div className="text-[#f8f1e8]/30 group-hover:text-[#f8f1e8]/70 text-xs font-bold uppercase tracking-[0.3em] transition-colors duration-500 text-center">
+                  {img.alt}
+                </div>
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
               <div className="absolute inset-0 bg-[#da2f1d]/0 group-hover:bg-[#da2f1d]/20 transition-colors duration-500" />
               <motion.div

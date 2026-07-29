@@ -289,19 +289,18 @@ export function CampaignsThatMoveIndia() {
                       : "0 24px 60px rgba(81, 31, 24, 0.2)",
                   }}
                 >
-                  {/* Background Image */}
-                  <div className="absolute inset-0 w-full h-full">
-                    {camp.image ? (
-                      <Image
-                        src={camp.image}
-                        alt={camp.imageAlt}
-                        fill
-                        sizes="(max-width: 768px) 85vw, 320px"
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                    ) : (
-                      <ServiceImagePlaceholder title={camp.title} />
-                    )}
+                  {/* CSS Design Placeholder */}
+                  <div className="absolute inset-0 w-full h-full bg-[#18181b] overflow-hidden flex flex-col justify-between group-hover:bg-[#da2f1d] transition-colors duration-700 p-6">
+                    {/* Pattern Overlay */}
+                    <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, var(--color-warm-white) 1px, transparent 1px)', backgroundSize: '16px 16px' }} />
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#da2f1d]/20 to-transparent rounded-bl-full" />
+                    
+                    <div className="relative z-10 w-full">
+                      <div className="w-12 h-1 bg-[#da2f1d] group-hover:bg-[#fffaf4] transition-colors duration-500 mb-4" />
+                      <div className="text-4xl md:text-5xl font-condensed font-bold text-[#f8f1e8] opacity-20 group-hover:opacity-40 transition-opacity duration-500">
+                        0{i + 1}
+                      </div>
+                    </div>
                   </div>
 
                   {/* Gradient Overlay */}
