@@ -43,10 +43,6 @@ export function HeroSection() {
           >
             <div className="bg-burgundy text-white font-bold uppercase text-[12px] tracking-wider px-4 py-1.5 flex items-center justify-center relative w-[110px] h-[28px] rounded-sm">
               <span className="relative z-10">SINCE 2006</span>
-              <div className="absolute -right-2 top-0 h-full flex flex-col justify-between py-[2px]">
-                <div className="w-[3px] h-[11px] bg-burgundy transform rotate-[20deg]" />
-                <div className="w-[3px] h-[11px] bg-burgundy transform rotate-[20deg]" />
-              </div>
             </div>
           </motion.div>
 
