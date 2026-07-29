@@ -42,18 +42,18 @@ const features = [
 ];
 
 const stats = [
-  { value: "20+", label: "Years of Experience", icon: Calendar },
-  { value: "500+", label: "Cities Covered", icon: Globe },
-  { value: "1000+", label: "Campaigns Done", icon: Award },
-  { value: "300+", label: "Happy Clients", icon: TrendingUp },
+  { value: "Pan India", label: "Reach", icon: Globe },
+  { value: "2,500+", label: "Towns & Cities Covered", icon: MapPin },
+  { value: "150+", label: "Brands Served", icon: Award },
+  { value: "300+", label: "Campaigns Executed", icon: TrendingUp },
 ];
 
 const images = {
-  img01: { src: "/images/Government & NGO Awareness Campaigns.JPG", alt: "Wellset NGO campaign" },
-  img02: { src: "/images/Conference, Events & Exhibition.JPG", alt: "Wellset conference" },
-  img03: { src: "/images/BTL Activations.jpg", alt: "Wellset BTL activation" },
-  img04: { src: "/images/Mall Activation.jpg", alt: "Wellset mall activation" },
-  img05: { src: "/images/Nukkad Natak.JPG", alt: "Wellset Nukkad Natak" },
+  img01: { src: "/images/illustrations/ngo_campaign_ill_1785325380269.png", alt: "Wellset NGO campaign" },
+  img02: { src: "/images/illustrations/conference_event_ill_1785325426980.png", alt: "Wellset conference" },
+  img03: { src: "/images/illustrations/btl_activation_ill_1785325326209.png", alt: "Wellset BTL activation" },
+  img04: { src: "/images/illustrations/canopy_activation_ill_1785325294026.png", alt: "Wellset canopy activation" },
+  img05: { src: "/images/illustrations/nukkad_natak_ill_1785325352350.png", alt: "Wellset Nukkad Natak" },
 };
 
 // Map each feature to a specific image
@@ -234,29 +234,39 @@ export function WhoWeAreSection() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true, margin: "-40px" }}
                       transition={{ duration: 0.6, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-                      className={`group flex items-start gap-5 p-5 rounded-2xl border transition-all duration-500 cursor-default ${
+                      className={`group relative flex items-start gap-5 p-6 rounded-2xl border transition-all duration-500 ease-out cursor-default overflow-hidden ${
                         isActive
-                          ? "bg-white border-[#da2f1d]/15 shadow-[0_12px_35px_rgba(83,28,21,0.08)] scale-[1.02]"
-                          : "bg-white/30 border-white/40 opacity-50 scale-100"
+                          ? "bg-white border-[#da2f1d]/20 shadow-[0_20px_50px_-12px_rgba(218,47,29,0.15)] scale-[1.03]"
+                          : "bg-white/40 backdrop-blur-md border-white/60 opacity-60 hover:opacity-80 hover:bg-white/50 scale-100 shadow-sm"
                       }`}
                     >
-                      <div className={`shrink-0 w-12 h-12 rounded-xl flex items-center justify-center border transition-all duration-500 ${
+                      {/* Active indicator bar */}
+                      <div 
+                        className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 rounded-r-full transition-all duration-500 ease-out ${
+                          isActive ? "h-1/2 bg-[#da2f1d] shadow-[2px_0_12px_rgba(218,47,29,0.6)] opacity-100" : "h-0 bg-transparent opacity-0"
+                        }`}
+                      />
+
+                      {/* Icon container */}
+                      <div className={`relative shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 ease-out z-10 ${
                         isActive
-                          ? "bg-[#da2f1d] border-transparent shadow-[0_6px_20px_rgba(158,27,27,0.3)]"
-                          : "bg-[#da2f1d]/8 border-[#da2f1d]/15"
+                          ? "bg-gradient-to-br from-[#da2f1d] to-[#aa1f12] text-white shadow-[0_8px_20px_rgba(218,47,29,0.35)] border-transparent"
+                          : "bg-white border border-white text-[#da2f1d] shadow-sm shadow-black/5"
                       }`}>
-                        <feature.icon className={`w-5 h-5 transition-colors duration-300 ${
-                          isActive ? "text-white" : "text-[#da2f1d]"
-                        }`} strokeWidth={1.5} />
+                        {/* Subtle inner glow for active icon */}
+                        {isActive && <div className="absolute inset-0 bg-white/20 rounded-2xl blur-md -z-10 mix-blend-overlay pointer-events-none" />}
+                        <feature.icon className="w-6 h-6" strokeWidth={isActive ? 2 : 1.5} />
                       </div>
-                      <div className="pt-0.5">
-                        <h4 className={`font-bold text-[17px] mb-1 transition-colors duration-500 ${
+                      
+                      {/* Text content */}
+                      <div className="pt-1 relative z-10">
+                        <h4 className={`font-bold text-[18px] mb-1.5 transition-colors duration-500 ${
                           isActive ? "text-[#da2f1d]" : "text-[#181818]"
                         }`}>
                           {feature.title}
                         </h4>
                         <p className={`text-[15px] leading-[1.6] transition-all duration-500 ${
-                          isActive ? "text-[#5E5E5E] max-h-[100px] opacity-100" : "text-[#999] max-h-[100px] opacity-70"
+                          isActive ? "text-[#4a4a4a] opacity-100 transform translate-y-0" : "text-[#777] opacity-80 transform translate-y-1"
                         }`}>
                           {feature.desc}
                         </p>
@@ -324,10 +334,10 @@ export function WhoWeAreSection() {
                 </div>
                 
                 <div className="flex flex-col items-center overflow-hidden">
-                  <span className="text-white font-bold text-[40px] md:text-[36px] lg:text-[48px] xl:text-[56px] leading-[1.1] block tracking-tight shadow-black/10 drop-shadow-sm group-hover:translate-y-[-2px] transition-transform duration-300">
+                  <span className={`text-white font-bold ${stat.value === "Pan India" ? "text-[28px] md:text-[24px] lg:text-[32px] xl:text-[40px]" : "text-[40px] md:text-[36px] lg:text-[48px] xl:text-[56px]"} leading-[1.1] block tracking-tight shadow-black/10 drop-shadow-sm group-hover:translate-y-[-2px] transition-transform duration-300`}>
                     {stat.value}
                   </span>
-                  <span className="text-white/80 font-semibold text-[11px] lg:text-[13px] uppercase tracking-[0.2em] mt-2 group-hover:text-white transition-colors duration-300">
+                  <span className="text-white/80 font-semibold text-[11px] lg:text-[13px] uppercase tracking-[0.2em] mt-2 group-hover:text-white transition-colors duration-300 text-center">
                     {stat.label}
                   </span>
                 </div>

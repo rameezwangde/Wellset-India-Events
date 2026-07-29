@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 import { 
   Users, ShoppingBag, GraduationCap, Truck, Building2, Gift, Landmark, 
-  Megaphone, ArrowRight, Sparkles, MapPin, BarChart, Handshake
+  Megaphone, ArrowRight, Sparkles, MapPin, BarChart, Handshake, Globe
 } from "lucide-react";
 
 // --- Data ---
@@ -13,7 +13,7 @@ const campaigns = [
     id: 1,
     title: "Canopy Activation",
     description: ["Targeted outreach.", "Direct engagement."],
-    image: "/images/canopy activation.jpg",
+    image: "/images/illustrations/canopy_activation_ill_1785325294026.png",
     imageAlt: "Wellset canopy activation",
     icon: MapPin,
     rotation: -2,
@@ -23,7 +23,7 @@ const campaigns = [
     id: 2,
     title: "BTL Activations",
     description: ["Below the line.", "Above the noise."],
-    image: "/images/BTL Activations.jpg",
+    image: "/images/illustrations/btl_activation_ill_1785325326209.png",
     imageAlt: "Wellset BTL activations",
     icon: Megaphone,
     rotation: 1,
@@ -33,7 +33,7 @@ const campaigns = [
     id: 3,
     title: "Nukkad Natak",
     description: ["Street plays.", "Powerful storytelling."],
-    image: "/images/Nukkad Natak.JPG",
+    image: "/images/illustrations/nukkad_natak_ill_1785325352350.png",
     imageAlt: "Wellset nukkad natak",
     icon: Users,
     rotation: -1,
@@ -43,7 +43,7 @@ const campaigns = [
     id: 4,
     title: "Government & NGO Awareness Campaigns",
     description: ["Spreading awareness.", "Creating change."],
-    image: "/images/Government & NGO Awareness Campaigns.JPG",
+    image: "/images/illustrations/ngo_campaign_ill_1785325380269.png",
     imageAlt: "Wellset government awareness campaign",
     icon: Landmark,
     rotation: 0,
@@ -54,7 +54,7 @@ const campaigns = [
     id: 5,
     title: "Conference, Events & Exhibition",
     description: ["Immersive experiences.", "Lasting impressions."],
-    image: "/images/Conference, Events & Exhibition.JPG",
+    image: "/images/illustrations/conference_event_ill_1785325426980.png",
     imageAlt: "Wellset events and exhibition",
     icon: Building2,
     rotation: 1,
@@ -64,7 +64,7 @@ const campaigns = [
     id: 6,
     title: "Mall Activation",
     description: ["High footfall.", "High impact."],
-    image: "/images/Mall Activation.jpg",
+    image: "/images/illustrations/rural_marketing_ill_1785325415453.png",
     imageAlt: "Wellset mall activation",
     icon: ShoppingBag,
     rotation: -1,
@@ -73,10 +73,10 @@ const campaigns = [
 ];
 
 const stats = [
-  { value: "20+", label: "Years of Experience", icon: Users },
-  { value: "500+", label: "Cities & Towns Covered", icon: MapPin },
-  { value: "1000+", label: "Successful Campaigns", icon: BarChart },
-  { value: "300+", label: "Happy Clients", icon: Handshake },
+  { value: "Pan India", label: "Reach", icon: Globe },
+  { value: "2,500+", label: "Towns & Cities Covered", icon: MapPin },
+  { value: "150+", label: "Brands Served", icon: Handshake },
+  { value: "300+", label: "Campaigns Executed", icon: BarChart },
 ];
 
 
@@ -157,7 +157,7 @@ function CampaignStats() {
               </div>
               
               <div className="flex flex-col">
-                <span className="text-white font-bold text-[28px] lg:text-[36px] leading-[1.1] tracking-tight">
+                <span className={`text-white font-bold ${stat.value === "Pan India" ? "text-[22px] lg:text-[28px]" : "text-[28px] lg:text-[36px]"} leading-[1.1] tracking-tight`}>
                   {stat.value}
                 </span>
                 <span className="text-white/80 font-medium text-[12px] lg:text-[13px]">

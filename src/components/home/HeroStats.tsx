@@ -6,23 +6,23 @@ import { Calendar, MapPin, Users, ShieldCheck } from "lucide-react";
 const stats = [
   {
     icon: Calendar,
-    title: "20+",
-    subtitle: "Years of\nExperience",
+    title: "Pan India",
+    subtitle: "Reach",
   },
   {
     icon: MapPin,
-    title: "500+",
-    subtitle: "Cities & Towns\nCovered",
+    title: "2,500+",
+    subtitle: "Towns & Cities\nCovered",
   },
   {
     icon: Users,
-    title: "Thousands",
-    subtitle: "of Successful\nCampaigns",
+    title: "150+",
+    subtitle: "Brands Served",
   },
   {
     icon: ShieldCheck,
-    title: "Trusted by",
-    subtitle: "Brands, Government\n& NGOs",
+    title: "300+",
+    subtitle: "Campaigns\nExecuted",
   },
 ];
 
@@ -53,8 +53,6 @@ export function HeroStats() {
           const isLastDesktop = index === stats.length - 1;
           const isRightColMobile = index % 2 === 1;
 
-          const isSmallTitle = stat.title === "Thousands" || stat.title === "Trusted by";
-
           return (
             <motion.div
               key={index}
@@ -65,10 +63,7 @@ export function HeroStats() {
                 <Icon strokeWidth={1.5} className="w-[20px] h-[20px]" />
               </div>
               <h4
-                className={`font-sans font-bold leading-[1.1] mb-1 ${isSmallTitle
-                  ? "text-burgundy text-[19px]" // Kept slightly smaller for these two specific words so they don't break the column width
-                  : "text-charcoal text-[21px]"
-                  }`}
+                className={`font-sans font-bold leading-[1.1] mb-1 ${stat.title === "Pan India" ? "text-[18px]" : "text-[21px]"} text-charcoal`}
               >
                 {stat.title}
               </h4>
