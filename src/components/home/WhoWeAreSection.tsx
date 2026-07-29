@@ -1,12 +1,13 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import {
   motion,
   useScroll,
   useTransform,
-  useSpring,
+  useMotionValueEvent,
+  AnimatePresence,
 } from "framer-motion";
 import { Target, MapPin, Users, BarChart2, Sparkles, Calendar, Globe, Award, TrendingUp, ArrowRight, CheckCircle } from "lucide-react";
 
@@ -55,31 +56,46 @@ const images = {
   img05: { src: "/images/Nukkad Natak.JPG", alt: "Wellset Nukkad Natak" },
 };
 
+// Map each feature to a specific image
+const featureImages = [
+  images.img03, // Nationwide Execution
+  images.img02, // Local Expertise
+  images.img04, // People-First Approach
+  images.img01, // End-to-End Delivery
+  images.img05, // Creative Activations
+];
+
 // ─── Component ───────────────────────────────────────────────────────────────
 
 export function WhoWeAreSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
+  const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const [activeFeature, setActiveFeature] = useState(0);
-  
-  // Map each feature to a specific image
-  const featureImages = [
-    images.img03, // Nationwide Execution
-    images.img02, // Local Expertise
-    images.img04, // People-First Approach
-    images.img01, // End-to-End Delivery
-    images.img05, // Creative Activations
-  ];
+
+  // Track scroll progress within the scroll-driven area
+  const { scrollYProgress } = useScroll({
+    target: scrollAreaRef,
+    offset: ["start start", "end end"],
+  });
+
+  // Map scroll progress → active feature index
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    const segmentSize = 1 / features.length;
+    const newIndex = Math.min(
+      features.length - 1,
+      Math.floor(latest / segmentSize)
+    );
+    if (newIndex !== activeFeature) {
+      setActiveFeature(newIndex);
+    }
+  });
 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#f7f0e7]"
+      className="relative w-full bg-[#f7f0e7]"
     >
       {/* Section Header */}
       <div className="relative w-full max-w-[1400px] mx-auto px-8 lg:px-20 pt-10 lg:pt-12 pb-4">
@@ -128,104 +144,142 @@ export function WhoWeAreSection() {
       </div>
 
       {/* ══════════════════════════════════════════
-          PART 2: STORY — Split scroll narrative
+          PART 2: STORY — Scroll-driven sticky narrative
           ══════════════════════════════════════════ */}
-      <div className="relative w-full max-w-[1400px] mx-auto px-8 lg:px-20 pt-8 lg:pt-12 pb-12 lg:pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+      <div
+        ref={scrollAreaRef}
+        className="relative w-full"
+        style={{ height: `${features.length * 100}vh` }}
+      >
+        {/* Sticky container — stays pinned while user scrolls through features */}
+        <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center">
+          <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-20">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-          {/* Left: Sticky image stack */}
-          <div className="relative lg:sticky lg:top-24">
-            <div className="relative w-full" style={{ aspectRatio: "3/4" }}>
-              {/* Main image */}
-              <motion.div
-                key={activeFeature}
-                initial={{ opacity: 0, scale: 0.92, filter: "blur(8px)" }}
-                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="w-full h-full rounded-[28px] overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.18)]"
-              >
-                <Image
-                  src={featureImages[activeFeature].src}
-                  alt={featureImages[activeFeature].alt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-[1200ms] ease-out hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
-              </motion.div>
+              {/* Left: Image with crossfade */}
+              <div className="relative w-full" style={{ aspectRatio: "3/4" }}>
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeFeature}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.03 }}
+                    transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    className="absolute inset-0 rounded-[28px] overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.18)]"
+                  >
+                    <Image
+                      src={featureImages[activeFeature].src}
+                      alt={featureImages[activeFeature].alt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent pointer-events-none" />
+                    
+                    {/* Active feature label on image */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.3 }}
+                      className="absolute bottom-8 left-8 right-8 z-20"
+                    >
+                      <span className="text-white/60 text-[12px] font-bold uppercase tracking-[0.15em]">
+                        {String(activeFeature + 1).padStart(2, "0")} / {String(features.length).padStart(2, "0")}
+                      </span>
+                    </motion.div>
+                  </motion.div>
+                </AnimatePresence>
 
-
-
-              {/* Badge */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-                className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-md rounded-2xl px-5 py-4 shadow-[0_15px_40px_rgba(0,0,0,0.12)] border border-white/80 z-30 flex items-center gap-3"
-              >
-                <div className="w-10 h-10 rounded-full bg-[#9E1B1B]/10 flex items-center justify-center">
-                  <TrendingUp className="w-5 h-5 text-[#9E1B1B]" />
+                {/* Progress dots */}
+                <div className="absolute -right-6 lg:-right-10 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-30">
+                  {features.map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="w-[6px] rounded-full transition-all duration-500"
+                      animate={{
+                        height: activeFeature === i ? 32 : 6,
+                        backgroundColor: activeFeature === i ? "#9E1B1B" : "rgba(158,27,27,0.2)",
+                      }}
+                    />
+                  ))}
                 </div>
-                <div>
-                  <div className="font-bold text-[20px] text-[#181818] leading-none">100%</div>
-                  <div className="text-[10px] font-bold text-[#9E1B1B] uppercase tracking-widest mt-0.5">Commitment</div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
 
-          {/* Right: Narrative content */}
-          <div className="flex flex-col gap-12 lg:pt-8">
-            {/* Feature list */}
-            <div className="space-y-4">
-              {features.map((feature, i) => (
+                {/* Badge */}
                 <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: 40, filter: "blur(4px)" }}
-                  whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.6, delay: i * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  className={`group flex items-start gap-5 p-5 rounded-2xl border transition-all duration-400 cursor-default ${
-                    activeFeature === i 
-                      ? "bg-white border-[#9E1B1B]/15 shadow-[0_12px_35px_rgba(83,28,21,0.08)]" 
-                      : "bg-white/50 border-white/60 hover:bg-white/80"
-                  }`}
-                  onMouseEnter={() => setActiveFeature(i)}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.8 }}
+                  className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-md rounded-2xl px-5 py-4 shadow-[0_15px_40px_rgba(0,0,0,0.12)] border border-white/80 z-30 flex items-center gap-3"
                 >
-                  <div className={`shrink-0 w-12 h-12 rounded-xl flex items-center justify-center border transition-all duration-300 ${
-                    activeFeature === i
-                      ? "bg-[#9E1B1B] border-transparent"
-                      : "bg-[#9E1B1B]/8 border-[#9E1B1B]/15"
-                  }`}>
-                    <feature.icon className={`w-5 h-5 transition-colors duration-300 ${
-                      activeFeature === i ? "text-white" : "text-[#9E1B1B]"
-                    }`} strokeWidth={1.5} />
+                  <div className="w-10 h-10 rounded-full bg-[#9E1B1B]/10 flex items-center justify-center">
+                    <TrendingUp className="w-5 h-5 text-[#9E1B1B]" />
                   </div>
-                  <div className="pt-0.5">
-                    <h4 className={`font-bold text-[17px] mb-1 transition-colors duration-300 ${
-                      activeFeature === i ? "text-[#9E1B1B]" : "text-[#181818]"
-                    }`}>
-                      {feature.title}
-                    </h4>
-                    <p className="text-[#5E5E5E] text-[15px] leading-[1.6]">{feature.desc}</p>
+                  <div>
+                    <div className="font-bold text-[20px] text-[#181818] leading-none">100%</div>
+                    <div className="text-[10px] font-bold text-[#9E1B1B] uppercase tracking-widest mt-0.5">Commitment</div>
                   </div>
                 </motion.div>
-              ))}
-            </div>
+              </div>
 
-            {/* CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              <button className="group flex items-center gap-3 bg-[#9E1B1B] hover:bg-[#7d0f14] text-white rounded-full px-8 py-4 font-bold text-[16px] transition-all duration-300 hover:shadow-[0_14px_40px_rgba(158,27,27,0.35)] hover:scale-105">
-                Learn More About Us
-                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-              </button>
-            </motion.div>
+              {/* Right: Feature cards with scroll-driven highlight */}
+              <div className="flex flex-col gap-4 lg:pt-0">
+                {features.map((feature, i) => {
+                  const isActive = activeFeature === i;
+                  return (
+                    <motion.div
+                      key={i}
+                      ref={(el) => { featureRefs.current[i] = el; }}
+                      initial={{ opacity: 0, x: 40 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: "-40px" }}
+                      transition={{ duration: 0.6, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+                      className={`group flex items-start gap-5 p-5 rounded-2xl border transition-all duration-500 cursor-default ${
+                        isActive
+                          ? "bg-white border-[#9E1B1B]/15 shadow-[0_12px_35px_rgba(83,28,21,0.08)] scale-[1.02]"
+                          : "bg-white/30 border-white/40 opacity-50 scale-100"
+                      }`}
+                    >
+                      <div className={`shrink-0 w-12 h-12 rounded-xl flex items-center justify-center border transition-all duration-500 ${
+                        isActive
+                          ? "bg-[#9E1B1B] border-transparent shadow-[0_6px_20px_rgba(158,27,27,0.3)]"
+                          : "bg-[#9E1B1B]/8 border-[#9E1B1B]/15"
+                      }`}>
+                        <feature.icon className={`w-5 h-5 transition-colors duration-300 ${
+                          isActive ? "text-white" : "text-[#9E1B1B]"
+                        }`} strokeWidth={1.5} />
+                      </div>
+                      <div className="pt-0.5">
+                        <h4 className={`font-bold text-[17px] mb-1 transition-colors duration-500 ${
+                          isActive ? "text-[#9E1B1B]" : "text-[#181818]"
+                        }`}>
+                          {feature.title}
+                        </h4>
+                        <p className={`text-[15px] leading-[1.6] transition-all duration-500 ${
+                          isActive ? "text-[#5E5E5E] max-h-[100px] opacity-100" : "text-[#999] max-h-[100px] opacity-70"
+                        }`}>
+                          {feature.desc}
+                        </p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+
+                {/* CTA */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                  className="mt-4"
+                >
+                  <button className="group flex items-center gap-3 bg-[#9E1B1B] hover:bg-[#7d0f14] text-white rounded-full px-8 py-4 font-bold text-[16px] transition-all duration-300 hover:shadow-[0_14px_40px_rgba(158,27,27,0.35)] hover:scale-105">
+                    Learn More About Us
+                    <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                  </button>
+                </motion.div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -233,7 +287,7 @@ export function WhoWeAreSection() {
       {/* ══════════════════════════════════════════
           PART 3: TRUST — Stats bar
           ══════════════════════════════════════════ */}
-      <div className="relative w-full px-8 lg:px-20 pb-20">
+      <div className="relative w-full px-8 lg:px-20 pb-20 pt-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
