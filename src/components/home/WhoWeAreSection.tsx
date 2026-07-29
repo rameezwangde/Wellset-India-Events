@@ -235,42 +235,48 @@ export function WhoWeAreSection() {
           ══════════════════════════════════════════ */}
       <div className="relative w-full px-8 lg:px-20 pb-20">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.8 }}
-          className="relative w-full max-w-[1400px] mx-auto rounded-[28px] overflow-hidden"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative w-full max-w-[1200px] mx-auto rounded-[32px] overflow-hidden"
           style={{
-            background: "linear-gradient(120deg, #7d0710 0%, #9E1B1B 40%, #c72a32 100%)",
-            boxShadow: "0 30px 70px rgba(158,27,27,0.3), inset 0 1px 0 rgba(255,255,255,0.15)",
+            background: "linear-gradient(145deg, #7c0710 0%, #a61720 50%, #c4212b 100%)",
+            boxShadow: "0 40px 100px -20px rgba(158,27,27,0.4), inset 0 1px 1px rgba(255,255,255,0.25)",
           }}
         >
-          {/* Decorative glow */}
-          <div className="absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-[60px] pointer-events-none" />
-          <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-black/20 rounded-full blur-[60px] pointer-events-none" />
+          {/* Subtle noise pattern & decorative shapes for a premium feel */}
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url('https://grainy-gradients.vercel.app/noise.svg')" }}></div>
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-b from-white/10 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-t from-black/20 to-transparent rounded-full blur-3xl translate-y-1/2 -translate-x-1/3 pointer-events-none" />
 
-          <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 p-8 lg:p-12 gap-6">
+          <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 p-10 lg:p-14 gap-8 md:gap-4 lg:gap-8">
             {stats.map((stat, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 * i }}
+                transition={{ duration: 0.6, delay: 0.15 * i, ease: "easeOut" }}
                 className="group relative flex flex-col items-center justify-center text-center py-4"
               >
+                {/* Dividers */}
                 {i !== 0 && (
-                  <div className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 w-px h-[60%] bg-white/15" />
+                  <div className="hidden md:block absolute left-[-16px] lg:left-[-16px] xl:left-[-16px] top-1/2 -translate-y-1/2 w-px h-[70%] bg-gradient-to-b from-transparent via-white/20 to-transparent" />
                 )}
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-4 border border-white/20 group-hover:bg-white/20 transition-colors duration-300">
-                  <stat.icon className="w-5 h-5 text-white" strokeWidth={1.5} />
+                
+                <div className="w-[56px] h-[56px] rounded-2xl bg-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)] backdrop-blur-sm flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-white/20 transition-all duration-400">
+                  <stat.icon className="w-6 h-6 text-white drop-shadow-md" strokeWidth={1.5} />
                 </div>
-                <span className="text-white font-bold text-[clamp(30px,4vw,52px)] leading-none block mb-2">
-                  {stat.value}
-                </span>
-                <span className="text-white/75 font-semibold text-[12px] lg:text-[13px] uppercase tracking-[0.15em]">
-                  {stat.label}
-                </span>
+                
+                <div className="flex flex-col items-center overflow-hidden">
+                  <span className="text-white font-bold text-[40px] md:text-[36px] lg:text-[48px] xl:text-[56px] leading-[1.1] block tracking-tight shadow-black/10 drop-shadow-sm group-hover:translate-y-[-2px] transition-transform duration-300">
+                    {stat.value}
+                  </span>
+                  <span className="text-white/80 font-semibold text-[11px] lg:text-[13px] uppercase tracking-[0.2em] mt-2 group-hover:text-white transition-colors duration-300">
+                    {stat.label}
+                  </span>
+                </div>
               </motion.div>
             ))}
           </div>

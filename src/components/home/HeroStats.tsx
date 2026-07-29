@@ -66,8 +66,8 @@ export function HeroStats() {
               </div>
               <h4
                 className={`font-sans font-bold leading-[1.1] mb-1 ${isSmallTitle
-                    ? "text-burgundy text-[19px]" // Kept slightly smaller for these two specific words so they don't break the column width
-                    : "text-charcoal text-[21px]"
+                  ? "text-burgundy text-[19px]" // Kept slightly smaller for these two specific words so they don't break the column width
+                  : "text-charcoal text-[21px]"
                   }`}
               >
                 {stat.title}
