@@ -184,7 +184,7 @@ export function WhoWeAreSection() {
               d="M 100 250 Q 250 100 450 350" fill="none" stroke="rgba(158,27,27,0.14)" strokeWidth="1.5" strokeDasharray="6 8" 
             />
             <motion.circle r="3" fill="#9E1B1B">
-              <motion.animateMotion dur="15s" repeatCount="indefinite" path="M 100 250 Q 250 100 450 350" />
+              <animateMotion dur="15s" repeatCount="indefinite" path="M 100 250 Q 250 100 450 350" />
             </motion.circle>
           </svg>
 
