@@ -94,7 +94,7 @@ export function WhoWeAreSection() {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative w-full min-h-screen overflow-x-clip overflow-y-visible py-24 lg:py-32"
+      className="relative w-full min-h-screen overflow-x-clip overflow-y-visible pt-8 lg:pt-12 pb-10 lg:pb-16"
       style={{
         background: `
           radial-gradient(circle at 26% 46%, rgba(167,19,28,0.08), transparent 32%),
@@ -111,7 +111,7 @@ export function WhoWeAreSection() {
 
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-8 lg:px-12 flex flex-col justify-center h-full">
         
-        <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-16 lg:gap-8 items-center w-full mb-16 lg:mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-16 lg:gap-8 items-center w-full mb-8 lg:mb-10">
           
           {/* Left Side: Creative Image Collage */}
         <motion.div
@@ -188,13 +188,30 @@ export function WhoWeAreSection() {
             </motion.circle>
           </svg>
 
-          {/* Main Image 01 (z-10) */}
+          {/* Floating Badge (Top Left) */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="absolute top-[-5%] left-[5%] bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-[0_15px_35px_rgba(109,15,20,0.15)] border border-white/60 flex items-center gap-4 z-50 max-md:hidden"
+            style={{ x: xTransformOpposite, y: yTransform }}
+          >
+            <div className="w-10 h-10 rounded-full bg-[#9E1B1B]/10 flex items-center justify-center shrink-0">
+              <TrendingUp className="w-5 h-5 text-[#9E1B1B]" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[#181818] font-bold text-[18px] leading-tight">100%</span>
+              <span className="text-[#5E5E5E] text-[10px] font-bold uppercase tracking-wider">Commitment</span>
+            </div>
+          </motion.div>
+
+          {/* Main Image 01 (z-40) */}
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            style={{ x: xTransform, y: yTransform, width: "clamp(300px, 26vw, 430px)", aspectRatio: "4/5", left: "25%", top: "18%" }}
-            className="absolute z-10 origin-center rotate-[0deg] max-md:w-[72vw] max-md:left-[14vw] max-md:top-[10%] max-md:!rotate-0 max-lg:left-[50%] max-lg:top-[50%] max-lg:-translate-x-[50%] max-lg:-translate-y-[50%]"
+            style={{ x: xTransform, y: yTransform, width: "clamp(300px, 26vw, 430px)", aspectRatio: "4/5", left: "25%", top: "5%" }}
+            className="absolute z-40 origin-center rotate-[0deg] max-md:w-[72vw] max-md:left-[14vw] max-md:top-[10%] max-md:!rotate-0 max-lg:left-[50%] max-lg:top-[50%] max-lg:-translate-x-[50%] max-lg:-translate-y-[50%]"
           >
             <motion.div
               style={placeholderStyle}

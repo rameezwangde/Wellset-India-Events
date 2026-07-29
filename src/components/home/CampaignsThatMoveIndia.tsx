@@ -185,7 +185,7 @@ export function CampaignsThatMoveIndia() {
 
   return (
     <section 
-      className="relative w-full overflow-hidden flex flex-col pt-[50px] pb-0 lg:pt-[70px] min-h-screen lg:min-h-0 lg:h-auto"
+      className="relative w-full overflow-hidden flex flex-col pt-4 lg:pt-8 pb-0 min-h-screen lg:min-h-0 lg:h-auto"
       style={{
         background: `
           radial-gradient(circle at 50% 45%, rgba(181, 32, 39, 0.045), transparent 34%),
@@ -280,62 +280,60 @@ export function CampaignsThatMoveIndia() {
                   <div className="hidden lg:block absolute inset-0 bg-[#a40d16] opacity-15 blur-[25px] rounded-full scale-105 pointer-events-none" />
                 )}
 
-                {/* Card Body */}
                 <div 
-                  className="w-full h-full relative flex flex-col min-h-[330px]"
+                  className="w-full relative flex flex-col overflow-hidden h-[360px] lg:h-[400px]"
                   style={{
-                    background: "rgba(255, 251, 246, 0.96)",
-                    border: isFeatured ? "1px solid rgba(158, 27, 27, 0.22)" : "1px solid rgba(145, 15, 24, 0.10)",
                     borderRadius: "24px",
                     boxShadow: isFeatured 
-                      ? "0 28px 65px rgba(91, 24, 22, 0.16)"
-                      : "0 24px 60px rgba(81, 31, 24, 0.12), 0 8px 20px rgba(81, 31, 24, 0.07)",
+                      ? "0 28px 65px rgba(91, 24, 22, 0.3)"
+                      : "0 24px 60px rgba(81, 31, 24, 0.2)",
                   }}
                 >
-                  <div className="absolute inset-0 rounded-[24px] border border-white/60 pointer-events-none" />
-
-                  {/* Image Area */}
-                  <div 
-                    className="relative w-full overflow-hidden shrink-0"
-                    style={{
-                      height: isFeatured ? "180px" : "165px",
-                      borderRadius: "23px 23px 12px 12px"
-                    }}
-                  >
+                  {/* Background Image */}
+                  <div className="absolute inset-0 w-full h-full">
                     {camp.image ? (
                       <Image
                         src={camp.image}
                         alt={camp.imageAlt}
                         fill
-                        sizes="(max-width: 768px) 82vw, 300px"
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 768px) 85vw, 320px"
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                     ) : (
                       <ServiceImagePlaceholder title={camp.title} />
                     )}
-                    {camp.image && (
-                      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-500" />
-                    )}
+                  </div>
+
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 transition-opacity duration-500 group-hover:opacity-90" />
+                  
+                  {/* Hover Border Glow */}
+                  <div className="absolute inset-0 rounded-[24px] border border-white/20 group-hover:border-[#c72a32]/50 transition-colors duration-500 z-20 pointer-events-none" />
+
+                  {/* Top Badge */}
+                  <div className="absolute top-5 right-5 w-[42px] h-[42px] bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 shadow-lg z-20 group-hover:bg-[#9E1B1B] transition-colors duration-300">
+                    <camp.icon className="w-5 h-5 text-white" />
                   </div>
 
                   {/* Content Area */}
-                  <div className="flex-1 flex flex-col relative items-center text-center p-[18px] lg:px-[14px] lg:pt-[18px] lg:pb-[16px]">
-                    
-                    {/* Overlapping Icon Badge */}
-                    <div className="absolute -top-[20px] left-1/2 -translate-x-1/2 w-[40px] h-[40px] bg-[#9E1B1B] rounded-full flex items-center justify-center shadow-md border-[3px] border-[#fffbf6] transition-transform duration-300 z-10">
-                      <camp.icon className="w-4 h-4 text-white" />
-                    </div>
-
-                    <h4 className={`font-bold text-[#171717] mb-[6px] ${isFeatured ? 'text-[20px]' : 'text-[16px]'} leading-[1.12]`}>
-                      {camp.title}
-                    </h4>
-                    
-                    <div className={`text-[#666] leading-[1.4] flex flex-col items-center ${isFeatured ? 'text-[14px]' : 'text-[12px]'}`}>
-                      <span>{camp.description[0]}</span>
-                      <span>{camp.description[1]}</span>
+                  <div className="relative z-20 flex flex-col justify-end h-full p-6 lg:p-8">
+                    <div className="transform transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
+                      <h4 className={`font-bold text-white mb-2 ${isFeatured ? 'text-[24px]' : 'text-[22px]'} leading-tight tracking-wide drop-shadow-md`}>
+                        {camp.title}
+                      </h4>
+                      
+                      <div className="flex items-end justify-between">
+                        <div className={`text-white/80 leading-[1.5] flex flex-col ${isFeatured ? 'text-[15px]' : 'text-[14px]'}`}>
+                          <span>{camp.description[0]}</span>
+                          <span>{camp.description[1]}</span>
+                        </div>
+                        
+                        <div className="w-10 h-10 shrink-0 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 border border-white/20">
+                          <ArrowRight className="w-5 h-5 text-white" />
+                        </div>
+                      </div>
                     </div>
                   </div>
-
                 </div>
               </motion.div>
             );
