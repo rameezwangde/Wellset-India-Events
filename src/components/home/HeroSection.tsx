@@ -106,12 +106,53 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.9, ease: "easeOut" }}
-            className="w-full mt-[22px]"
+            className="w-full mt-[22px] mb-12"
           >
             <button className="group flex items-center justify-center gap-3 bg-burgundy text-white text-[13px] font-bold uppercase tracking-wide rounded-md w-[380px] h-[52px] shadow-sm hover:bg-burgundy-dark hover:-translate-y-0.5 transition-all duration-300">
               LET’S TALK ABOUT YOUR NEXT CAMPAIGN
               <ArrowRight className="w-[18px] h-[18px] transition-transform duration-300 group-hover:translate-x-1" />
             </button>
+          </motion.div>
+
+          {/* Trusted By Logos */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1.1 }}
+            className="mt-6 border-t border-burgundy/10 pt-6 w-full max-w-[600px]"
+          >
+            <p className="text-[11px] font-bold text-burgundy uppercase tracking-widest mb-4">
+              Trusted by industry leaders
+            </p>
+            <div className="flex flex-wrap gap-8 items-center mt-2">
+              <img 
+                src="https://is4-ssl.mzstatic.com/image/thumb/Purple71/v4/c3/70/1d/c3701d0b-e506-190c-db3a-4ec366c4447e/source/512x512bb.jpg" 
+                alt="Honda" 
+                className="h-16 w-auto object-contain"
+              />
+              <img 
+                src="https://d3lzcn6mbbadaf.cloudfront.net/media/details/ANI-20260314105353.jpg" 
+                alt="Ministry of Petroleum and Natural Gas" 
+                className="h-20 w-auto object-contain"
+              />
+              <img 
+                src="https://e1.pxfuel.com/desktop-wallpaper/953/301/desktop-wallpaper-delhi-police-logo-police-logo.jpg" 
+                alt="Delhi Police" 
+                className="h-20 w-auto object-contain"
+              />
+              <img 
+                src="https://tse1.mm.bing.net/th/id/OIP.WKaWZhi1msRjSsFFZEkEiwHaEu?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" 
+                alt="Tata Motors" 
+                className="h-14 w-auto object-contain"
+              />
+            </div>
+            <div className="mt-5 flex items-center gap-3">
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-burgundy/20 to-transparent" />
+              <span className="text-burgundy/70 italic text-[13px] font-medium tracking-wide">
+                ...and many more shaping India's growth
+              </span>
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-burgundy/20 to-transparent" />
+            </div>
           </motion.div>
 
         </div>
