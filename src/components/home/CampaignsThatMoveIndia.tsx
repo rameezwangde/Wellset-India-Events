@@ -95,7 +95,7 @@ function ServiceImagePlaceholder({ title }: { title: string }) {
       }}
     >
       <div className="bg-white/70 backdrop-blur-sm rounded-full px-3 py-2 border border-white flex items-center shadow-sm max-w-[calc(100%-20px)]">
-        <span className="text-[#9E1B1B] text-[9px] font-bold tracking-wider uppercase leading-[1.25] line-clamp-2">
+        <span className="text-[#da2f1d] text-[9px] font-bold tracking-wider uppercase leading-[1.25] line-clamp-2">
           CLIENT IMAGE — {title}
         </span>
       </div>
@@ -123,10 +123,10 @@ function CampaignRouteDecoration() {
         />
         
         {/* Nodes */}
-        <circle cx="150" cy="150" r="3" fill="#a40d16" opacity="0.6" />
-        <circle cx="350" cy="515" r="4" fill="#a40d16" />
-        <circle cx="750" cy="140" r="3" fill="#a40d16" opacity="0.6" />
-        <circle cx="850" cy="420" r="2" fill="#a40d16" opacity="0.4" />
+        <circle cx="150" cy="150" r="3" fill="#da2f1d" opacity="0.6" />
+        <circle cx="350" cy="515" r="4" fill="#da2f1d" />
+        <circle cx="750" cy="140" r="3" fill="#da2f1d" opacity="0.6" />
+        <circle cx="850" cy="420" r="2" fill="#da2f1d" opacity="0.4" />
       </svg>
     </div>
   );
@@ -143,7 +143,7 @@ function CampaignStats() {
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
         className="w-full py-10 lg:py-14 relative z-0"
-        style={{ background: "linear-gradient(100deg, #7d0710 0%, #aa0f18 50%, #870810 100%)" }}
+        style={{ background: "linear-gradient(100deg, #7d0710 0%, #da2f1d 50%, #da2f1d 100%)" }}
       >
         <div className="max-w-[1600px] mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
           {stats.map((stat, i) => (
@@ -153,7 +153,7 @@ function CampaignStats() {
               )}
               
               <div className="w-[45px] h-[45px] lg:w-[55px] lg:h-[55px] rounded-full bg-[#fbf6ef] flex items-center justify-center shrink-0 shadow-lg group-hover:scale-105 transition-transform">
-                <stat.icon className="w-5 h-5 lg:w-6 lg:h-6 text-[#9E1B1B]" strokeWidth={1.5} />
+                <stat.icon className="w-5 h-5 lg:w-6 lg:h-6 text-[#da2f1d]" strokeWidth={1.5} />
               </div>
               
               <div className="flex flex-col">
@@ -201,10 +201,10 @@ export function CampaignsThatMoveIndia() {
           initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="flex items-center gap-4 mb-[18px]"
         >
-          <div className="h-[1px] w-[30px] bg-[#a40d16]" />
-          <span className="text-[#a40d16] font-bold text-[12px] uppercase tracking-[0.2em]">WHAT WE DO</span>
-          <div className="h-[1px] w-[30px] bg-[#a40d16] relative flex justify-end items-center">
-            <Sparkles className="w-3 h-3 text-[#a40d16] absolute -right-3" />
+          <div className="h-[1px] w-[30px] bg-[#da2f1d]" />
+          <span className="text-[#da2f1d] font-bold text-[12px] uppercase tracking-[0.2em]">WHAT WE DO</span>
+          <div className="h-[1px] w-[30px] bg-[#da2f1d] relative flex justify-end items-center">
+            <Sparkles className="w-3 h-3 text-[#da2f1d] absolute -right-3" />
           </div>
         </motion.div>
 
@@ -213,7 +213,7 @@ export function CampaignsThatMoveIndia() {
           className="font-sans font-bold text-[clamp(44px,4.8vw,76px)] [@media(min-width:1600px)]:text-[clamp(58px,5.1vw,88px)] leading-[0.88] tracking-[-0.045em] uppercase flex flex-col items-center"
         >
           <span className="text-[#171717]">CAMPAIGNS THAT</span>
-          <span className="text-[#a40d16] mt-1">MOVE INDIA.</span>
+          <span className="text-[#da2f1d] mt-1">MOVE INDIA.</span>
         </motion.h2>
 
         <motion.p 
@@ -233,15 +233,15 @@ export function CampaignsThatMoveIndia() {
           className="w-[min(1180px,82vw)] mx-auto mb-[20px] hidden lg:flex justify-between items-end"
         >
           <div className="flex flex-col w-[180px]">
-            <span className="font-script text-[#a40d16] text-[28px] -rotate-3 mb-1">Experiences</span>
+            <span className="font-script text-[#da2f1d] text-[28px] -rotate-3 mb-1">Experiences</span>
             <h3 className="font-bold text-[#171717] text-[16px] leading-tight mb-2.5">That Engage<br/>Communities</h3>
-            <div className="w-[30px] h-[2px] bg-[#a40d16]" />
+            <div className="w-[30px] h-[2px] bg-[#da2f1d]" />
           </div>
 
           <div className="flex flex-col w-[180px] text-right items-end">
-            <span className="font-script text-[#a40d16] text-[28px] -rotate-3 mb-1">Impact</span>
+            <span className="font-script text-[#da2f1d] text-[28px] -rotate-3 mb-1">Impact</span>
             <h3 className="font-bold text-[#171717] text-[16px] leading-tight mb-2.5">That Drives<br/>Results</h3>
-            <div className="w-[30px] h-[2px] bg-[#a40d16]" />
+            <div className="w-[30px] h-[2px] bg-[#da2f1d]" />
           </div>
         </motion.div>
 
@@ -277,7 +277,7 @@ export function CampaignsThatMoveIndia() {
               >
                 {/* Glow behind featured */}
                 {isFeatured && (
-                  <div className="hidden lg:block absolute inset-0 bg-[#a40d16] opacity-15 blur-[25px] rounded-full scale-105 pointer-events-none" />
+                  <div className="hidden lg:block absolute inset-0 bg-[#da2f1d] opacity-15 blur-[25px] rounded-full scale-105 pointer-events-none" />
                 )}
 
                 <div 
@@ -308,10 +308,10 @@ export function CampaignsThatMoveIndia() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 transition-opacity duration-500 group-hover:opacity-90" />
                   
                   {/* Hover Border Glow */}
-                  <div className="absolute inset-0 rounded-[24px] border border-white/20 group-hover:border-[#c72a32]/50 transition-colors duration-500 z-20 pointer-events-none" />
+                  <div className="absolute inset-0 rounded-[24px] border border-white/20 group-hover:border-[#da2f1d]/50 transition-colors duration-500 z-20 pointer-events-none" />
 
                   {/* Top Badge */}
-                  <div className="absolute top-5 right-5 w-[42px] h-[42px] bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 shadow-lg z-20 group-hover:bg-[#9E1B1B] transition-colors duration-300">
+                  <div className="absolute top-5 right-5 w-[42px] h-[42px] bg-black/30 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 shadow-lg z-20 group-hover:bg-[#da2f1d] transition-colors duration-300">
                     <camp.icon className="w-5 h-5 text-white" />
                   </div>
 
@@ -345,7 +345,7 @@ export function CampaignsThatMoveIndia() {
           initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.8 }}
           className="flex flex-col items-center justify-center text-center mt-[34px] relative z-20 pointer-events-none"
         >
-          <span className="font-script text-[#a40d16] text-[34px] -rotate-2">One Goal.</span>
+          <span className="font-script text-[#da2f1d] text-[34px] -rotate-2">One Goal.</span>
           <span className="font-bold text-[#171717] text-[20px] mt-0 tracking-tight">Meaningful Connections.</span>
         </motion.div>
 

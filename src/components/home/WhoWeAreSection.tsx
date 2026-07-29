@@ -109,7 +109,7 @@ export function WhoWeAreSection() {
               transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="mb-4"
             >
-              <span className="text-[#9E1B1B] font-bold uppercase tracking-[0.2em] text-[16px] lg:text-[18px]">Who We Are</span>
+              <span className="text-[#da2f1d] font-bold uppercase tracking-[0.2em] text-[16px] lg:text-[18px]">Who We Are</span>
             </motion.div>
 
             <motion.h2
@@ -120,7 +120,7 @@ export function WhoWeAreSection() {
               className="font-bold text-[clamp(36px,5vw,72px)] leading-[0.95] tracking-tight max-w-[700px]"
             >
               <span className="text-[#181818] block">NATIONWIDE REACH.</span>
-              <span className="text-[#9E1B1B] block mt-1">MEANINGFUL IMPACT.</span>
+              <span className="text-[#da2f1d] block mt-1">MEANINGFUL IMPACT.</span>
             </motion.h2>
           </div>
 
@@ -134,7 +134,7 @@ export function WhoWeAreSection() {
           >
             <p className="text-[#181818] text-[20px] lg:text-[22px] leading-[1.7] font-medium">
               Wellset India Events & Promotions is a premium activation partner specializing in{" "}
-              <span className="text-[#9E1B1B] font-bold">unforgettable brand experiences</span>.
+              <span className="text-[#da2f1d] font-bold">unforgettable brand experiences</span>.
             </p>
             <p className="text-[#5E5E5E] text-[17px] lg:text-[18px] leading-[1.9]">
               We understand that real impact happens on the ground — where real people interact with your message. Our expansive network enables us to execute flawlessly from bustling urban centers to the most remote rural villages.
@@ -198,7 +198,7 @@ export function WhoWeAreSection() {
                       className="w-[6px] rounded-full transition-all duration-500"
                       animate={{
                         height: activeFeature === i ? 32 : 6,
-                        backgroundColor: activeFeature === i ? "#9E1B1B" : "rgba(158,27,27,0.2)",
+                        backgroundColor: activeFeature === i ? "#da2f1d" : "rgba(158,27,27,0.2)",
                       }}
                     />
                   ))}
@@ -212,12 +212,12 @@ export function WhoWeAreSection() {
                   transition={{ duration: 0.5, delay: 0.8 }}
                   className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-md rounded-2xl px-5 py-4 shadow-[0_15px_40px_rgba(0,0,0,0.12)] border border-white/80 z-30 flex items-center gap-3"
                 >
-                  <div className="w-10 h-10 rounded-full bg-[#9E1B1B]/10 flex items-center justify-center">
-                    <TrendingUp className="w-5 h-5 text-[#9E1B1B]" />
+                  <div className="w-10 h-10 rounded-full bg-[#da2f1d]/10 flex items-center justify-center">
+                    <TrendingUp className="w-5 h-5 text-[#da2f1d]" />
                   </div>
                   <div>
                     <div className="font-bold text-[20px] text-[#181818] leading-none">100%</div>
-                    <div className="text-[10px] font-bold text-[#9E1B1B] uppercase tracking-widest mt-0.5">Commitment</div>
+                    <div className="text-[10px] font-bold text-[#da2f1d] uppercase tracking-widest mt-0.5">Commitment</div>
                   </div>
                 </motion.div>
               </div>
@@ -236,22 +236,22 @@ export function WhoWeAreSection() {
                       transition={{ duration: 0.6, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
                       className={`group flex items-start gap-5 p-5 rounded-2xl border transition-all duration-500 cursor-default ${
                         isActive
-                          ? "bg-white border-[#9E1B1B]/15 shadow-[0_12px_35px_rgba(83,28,21,0.08)] scale-[1.02]"
+                          ? "bg-white border-[#da2f1d]/15 shadow-[0_12px_35px_rgba(83,28,21,0.08)] scale-[1.02]"
                           : "bg-white/30 border-white/40 opacity-50 scale-100"
                       }`}
                     >
                       <div className={`shrink-0 w-12 h-12 rounded-xl flex items-center justify-center border transition-all duration-500 ${
                         isActive
-                          ? "bg-[#9E1B1B] border-transparent shadow-[0_6px_20px_rgba(158,27,27,0.3)]"
-                          : "bg-[#9E1B1B]/8 border-[#9E1B1B]/15"
+                          ? "bg-[#da2f1d] border-transparent shadow-[0_6px_20px_rgba(158,27,27,0.3)]"
+                          : "bg-[#da2f1d]/8 border-[#da2f1d]/15"
                       }`}>
                         <feature.icon className={`w-5 h-5 transition-colors duration-300 ${
-                          isActive ? "text-white" : "text-[#9E1B1B]"
+                          isActive ? "text-white" : "text-[#da2f1d]"
                         }`} strokeWidth={1.5} />
                       </div>
                       <div className="pt-0.5">
                         <h4 className={`font-bold text-[17px] mb-1 transition-colors duration-500 ${
-                          isActive ? "text-[#9E1B1B]" : "text-[#181818]"
+                          isActive ? "text-[#da2f1d]" : "text-[#181818]"
                         }`}>
                           {feature.title}
                         </h4>
@@ -273,7 +273,7 @@ export function WhoWeAreSection() {
                   transition={{ duration: 0.6, delay: 0.5 }}
                   className="mt-4"
                 >
-                  <button className="group flex items-center gap-3 bg-[#9E1B1B] hover:bg-[#7d0f14] text-white rounded-full px-8 py-4 font-bold text-[16px] transition-all duration-300 hover:shadow-[0_14px_40px_rgba(158,27,27,0.35)] hover:scale-105">
+                  <button className="group flex items-center gap-3 bg-[#da2f1d] hover:bg-[#da2f1d] text-white rounded-full px-8 py-4 font-bold text-[16px] transition-all duration-300 hover:shadow-[0_14px_40px_rgba(158,27,27,0.35)] hover:scale-105">
                     Learn More About Us
                     <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                   </button>
@@ -295,7 +295,7 @@ export function WhoWeAreSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="relative w-full max-w-[1200px] mx-auto rounded-[32px] overflow-hidden"
           style={{
-            background: "linear-gradient(145deg, #7c0710 0%, #a61720 50%, #c4212b 100%)",
+            background: "linear-gradient(145deg, #da2f1d 0%, #da2f1d 50%, #da2f1d 100%)",
             boxShadow: "0 40px 100px -20px rgba(158,27,27,0.4), inset 0 1px 1px rgba(255,255,255,0.25)",
           }}
         >
@@ -367,7 +367,7 @@ export function WhoWeAreSection() {
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-              <div className="absolute inset-0 bg-[#9E1B1B]/0 group-hover:bg-[#9E1B1B]/20 transition-colors duration-500" />
+              <div className="absolute inset-0 bg-[#da2f1d]/0 group-hover:bg-[#da2f1d]/20 transition-colors duration-500" />
               <motion.div
                 initial={{ opacity: 0 }}
                 whileHover={{ opacity: 1 }}

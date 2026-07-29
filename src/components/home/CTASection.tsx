@@ -80,10 +80,10 @@ export function CTASection() {
           transition={{ duration: 0.7, delay: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="flex flex-col sm:flex-row gap-5 items-center justify-center"
         >
-          <button className="group relative overflow-hidden bg-[#9E1B1B] text-white rounded-full px-10 py-4 font-bold text-[16px] transition-transform hover:scale-105 shadow-[0_10px_30px_rgba(158,27,27,0.4)] flex items-center gap-3">
+          <button className="group relative overflow-hidden bg-[#da2f1d] text-white rounded-full px-10 py-4 font-bold text-[16px] transition-transform hover:scale-105 shadow-[0_10px_30px_rgba(158,27,27,0.4)] flex items-center gap-3">
             <span className="relative z-10">Get a Proposal</span>
             <ArrowRight className="w-5 h-5 relative z-10 transition-transform group-hover:translate-x-1" />
-            <div className="absolute inset-0 bg-[#7c0710] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+            <div className="absolute inset-0 bg-[#da2f1d] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
           </button>
           
           <button className="group rounded-full px-10 py-4 font-semibold text-white border border-white/40 transition-all hover:bg-white/10 hover:border-white flex items-center gap-3 backdrop-blur-sm">
