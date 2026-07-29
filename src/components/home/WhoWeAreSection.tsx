@@ -239,9 +239,8 @@ export function WhoWeAreSection() {
             initial={{ opacity: 0, x: 20, y: -20 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            style={{ x: xTransformOpposite, y: yTransformOpposite }}
+            style={{ x: xTransformOpposite, y: yTransformOpposite, width: "clamp(220px, 19vw, 310px)", aspectRatio: "16/10", left: "57%", top: "7%", transform: "rotate(3deg)" }}
             className="absolute z-30 origin-bottom-left max-md:w-[42vw] max-md:top-[-5%] max-md:left-[60%] max-md:rotate-0 max-lg:top-[0%] max-lg:left-[65%]"
-            style={{ width: "clamp(220px, 19vw, 310px)", aspectRatio: "16/10", left: "57%", top: "7%", transform: "rotate(3deg)" }}
           >
             <motion.div
               style={placeholderStyle}
@@ -267,9 +266,8 @@ export function WhoWeAreSection() {
             initial={{ opacity: 0, x: -20, y: 20 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            style={{ x: xTransformOpposite, y: yTransformOpposite }}
+            style={{ x: xTransformOpposite, y: yTransformOpposite, width: "clamp(235px, 20vw, 330px)", aspectRatio: "16/10", left: "5%", top: "60%", transform: "rotate(-4deg)" }}
             className="absolute z-20 origin-top-right max-md:w-[46vw] max-md:top-[75%] max-md:left-[5%] max-md:rotate-0 max-lg:top-[75%] max-lg:left-[5%]"
-            style={{ width: "clamp(235px, 20vw, 330px)", aspectRatio: "16/10", left: "5%", top: "60%", transform: "rotate(-4deg)" }}
           >
             <motion.div
               style={placeholderStyle}
@@ -295,9 +293,8 @@ export function WhoWeAreSection() {
             initial={{ opacity: 0, x: 20, y: 20 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            style={{ x: xTransform, y: yTransform }}
+            style={{ x: xTransform, y: yTransform, width: "clamp(215px, 18vw, 295px)", aspectRatio: "16/10", left: "57%", top: "70%", transform: "rotate(3deg)" }}
             className="absolute z-25 origin-top-left max-[420px]:hidden max-md:w-[40vw] max-md:top-[70%] max-md:left-[60%] max-md:rotate-0 max-lg:top-[70%] max-lg:left-[70%]"
-            style={{ width: "clamp(215px, 18vw, 295px)", aspectRatio: "16/10", left: "57%", top: "70%", transform: "rotate(3deg)" }}
           >
             <motion.div
               style={placeholderStyle}
