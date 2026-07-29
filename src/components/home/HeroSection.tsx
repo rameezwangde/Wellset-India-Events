@@ -1,16 +1,33 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { HeroStats } from "./HeroStats";
 
 export function HeroSection() {
-  return (
-    <section className="relative w-full overflow-hidden bg-cream min-h-[980px] h-[980px] [@media(min-width:1600px)]:min-h-[1020px] [@media(min-width:1600px)]:h-[1020px] [@media(min-width:1024px)_and_(max-width:1439px)]:min-h-[900px] [@media(min-width:1024px)_and_(max-width:1439px)]:h-[900px]">
+  const sectionRef = useRef<HTMLDivElement>(null);
 
-      {/* Full-width background */}
-      <div className="absolute inset-0 z-0">
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  // Parallax: image moves slower than scroll
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
+  // Fade content as user scrolls past
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const contentY = useTransform(scrollYProgress, [0, 0.6], [0, 60]);
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative w-full overflow-hidden bg-cream min-h-[980px] h-[980px] [@media(min-width:1600px)]:min-h-[1020px] [@media(min-width:1600px)]:h-[1020px] [@media(min-width:1024px)_and_(max-width:1439px)]:min-h-[900px] [@media(min-width:1024px)_and_(max-width:1439px)]:h-[900px]"
+    >
+
+      {/* Full-width background with parallax */}
+      <motion.div className="absolute inset-0 z-0" style={{ y: bgY }}>
         <Image
           src="/images/wellset hero.png"
           alt="Wellset India nationwide event activation"
@@ -26,19 +43,22 @@ export function HeroSection() {
             background: "linear-gradient(90deg, rgba(250, 246, 240, 0.86) 0%, rgba(250, 246, 240, 0.72) 26%, rgba(250, 246, 240, 0.18) 45%, rgba(250, 246, 240, 0) 58%)"
           }}
         />
-      </div>
+      </motion.div>
 
-      {/* Content container */}
-      <div className="relative z-10 mx-auto w-full max-w-[1480px] px-8 lg:px-12 xl:px-14 h-full">
+      {/* Content container — fades on scroll */}
+      <motion.div
+        className="relative z-10 mx-auto w-full max-w-[1480px] px-8 lg:px-12 xl:px-14 h-full"
+        style={{ opacity: contentOpacity, y: contentY }}
+      >
 
         {/* Content Box aligned upper-left */}
         <div className="w-[100%] max-w-[500px] flex flex-col items-start pt-[38px]">
 
           {/* Badge */}
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="flex items-center mb-[16px]"
           >
             <div className="bg-burgundy text-white font-bold uppercase text-[12px] tracking-wider px-4 py-1.5 flex items-center justify-center relative w-[110px] h-[28px] rounded-sm">
@@ -46,49 +66,60 @@ export function HeroSection() {
             </div>
           </motion.div>
 
-          {/* Heading */}
+          {/* Heading — clip-path reveal effect */}
           <div className="flex flex-col mb-1 w-full">
             <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+              initial={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }}
+              animate={{ opacity: 1, clipPath: "inset(0 0% 0 0)" }}
+              transition={{ duration: 0.9, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="font-condensed font-bold text-[clamp(54px,4vw,66px)] leading-[0.9] tracking-[-0.03em] text-charcoal whitespace-nowrap uppercase block"
             >
               REAL CONNECTIONS.
             </motion.span>
             <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
+              initial={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }}
+              animate={{ opacity: 1, clipPath: "inset(0 0% 0 0)" }}
+              transition={{ duration: 0.9, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="font-condensed font-bold text-[clamp(54px,4vw,66px)] leading-[0.9] tracking-[-0.03em] text-burgundy whitespace-nowrap uppercase block"
             >
               REAL IMPACT.
             </motion.span>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
+              initial={{ opacity: 0, y: 25, rotate: 0 }}
+              animate={{ opacity: 1, y: 0, rotate: -2 }}
+              transition={{ duration: 0.8, delay: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="mt-[4px] relative inline-block self-start"
             >
               <h3 className="font-script text-[clamp(56px,4.4vw,72px)] leading-[0.95] text-burgundy -rotate-2">
                 Across India.
               </h3>
-              <svg
+              <motion.svg
                 className="absolute -bottom-1 left-0 w-[95%] h-[6px] text-burgundy"
                 viewBox="0 0 200 12"
                 fill="none"
                 preserveAspectRatio="none"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{ pathLength: 1, opacity: 1 }}
+                transition={{ duration: 1.2, delay: 1.0, ease: "easeOut" }}
               >
-                <path d="M2,10 Q100,0 194,8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-              </svg>
+                <motion.path
+                  d="M2,10 Q100,0 194,8"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ duration: 1.2, delay: 1.0, ease: "easeOut" }}
+                />
+              </motion.svg>
             </motion.div>
           </div>
 
           {/* Description */}
           <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+            initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
             className="text-muted-text text-[16px] leading-[1.6] max-w-[500px] mt-[18px]"
           >
             For over 20 years, Wellset India Events and Promotions has been taking brands, messages and experiences to people—wherever they are.
@@ -99,22 +130,22 @@ export function HeroSection() {
 
           {/* Main CTA */}
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.9, ease: "easeOut" }}
+            transition={{ duration: 0.7, delay: 1.1, ease: "easeOut" }}
             className="w-full mt-[22px] mb-12"
           >
             <button className="group flex items-center justify-center gap-3 bg-burgundy text-white text-[13px] font-bold uppercase tracking-wide rounded-md w-[380px] h-[52px] shadow-sm hover:bg-burgundy-dark hover:-translate-y-0.5 transition-all duration-300">
-              LET’S TALK ABOUT YOUR NEXT CAMPAIGN
+              LET'S TALK ABOUT YOUR NEXT CAMPAIGN
               <ArrowRight className="w-[18px] h-[18px] transition-transform duration-300 group-hover:translate-x-1" />
             </button>
           </motion.div>
 
           {/* Trusted By Logos */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.1 }}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.3 }}
             className="mt-6 border-t border-burgundy/10 pt-6 w-full max-w-[600px]"
           >
             <p className="text-[11px] font-bold text-burgundy uppercase tracking-widest mb-4">
@@ -152,7 +183,8 @@ export function HeroSection() {
           </motion.div>
 
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
+

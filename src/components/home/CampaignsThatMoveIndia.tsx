@@ -198,7 +198,7 @@ export function CampaignsThatMoveIndia() {
       {/* Main Header */}
       <div className="relative z-10 w-full flex flex-col items-center text-center px-4 lg:px-[clamp(20px,4vw,80px)] mb-[34px]">
         <motion.div 
-          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="flex items-center gap-4 mb-[18px]"
         >
           <div className="h-[1px] w-[30px] bg-[#a40d16]" />
@@ -209,7 +209,7 @@ export function CampaignsThatMoveIndia() {
         </motion.div>
 
         <motion.h2 
-          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
+          initial={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }} whileInView={{ opacity: 1, clipPath: "inset(0 0% 0 0)" }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 1, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="font-sans font-bold text-[clamp(44px,4.8vw,76px)] [@media(min-width:1600px)]:text-[clamp(58px,5.1vw,88px)] leading-[0.88] tracking-[-0.045em] uppercase flex flex-col items-center"
         >
           <span className="text-[#171717]">CAMPAIGNS THAT</span>
@@ -217,7 +217,7 @@ export function CampaignsThatMoveIndia() {
         </motion.h2>
 
         <motion.p 
-          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}
+          initial={{ opacity: 0, y: 20, filter: "blur(6px)" }} whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           className="text-[#4a4a4a] text-[16px] lg:text-[18px] leading-[1.6] max-w-[700px] mt-[22px]"
         >
           From busy metros to the most remote villages, we create powerful brand experiences through strategic activations and real connections.
@@ -261,10 +261,10 @@ export function CampaignsThatMoveIndia() {
             return (
               <motion.div
                 key={camp.id}
-                initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay, ease: "easeOut" }}
+                initial={{ opacity: 0, y: 40, scale: 0.93, filter: "blur(4px)" }}
+                whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.7, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
                 className={`
                   snap-center shrink-0 w-[240px] md:w-auto md:min-w-[280px] lg:w-auto lg:min-w-0 group relative cursor-pointer
                   transition-all duration-300 ease-out z-20

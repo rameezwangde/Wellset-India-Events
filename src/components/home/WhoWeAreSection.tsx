@@ -87,20 +87,20 @@ export function WhoWeAreSection() {
           {/* Left: Heading */}
           <div>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="mb-4"
             >
               <span className="text-[#9E1B1B] font-bold uppercase tracking-[0.2em] text-[16px] lg:text-[18px]">Who We Are</span>
             </motion.div>
 
             <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.1 }}
+              initial={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }}
+              whileInView={{ opacity: 1, clipPath: "inset(0 0% 0 0)" }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.9, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="font-bold text-[clamp(36px,5vw,72px)] leading-[0.95] tracking-tight max-w-[700px]"
             >
               <span className="text-[#181818] block">NATIONWIDE REACH.</span>
@@ -110,10 +110,10 @@ export function WhoWeAreSection() {
 
           {/* Right: Intro text */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             className="space-y-5 pb-2"
           >
             <p className="text-[#181818] text-[20px] lg:text-[22px] leading-[1.7] font-medium">
@@ -139,9 +139,9 @@ export function WhoWeAreSection() {
               {/* Main image */}
               <motion.div
                 key={activeFeature}
-                initial={{ opacity: 0, scale: 0.94 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                initial={{ opacity: 0, scale: 0.92, filter: "blur(8px)" }}
+                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
                 className="w-full h-full rounded-[28px] overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.18)]"
               >
                 <Image
@@ -149,7 +149,7 @@ export function WhoWeAreSection() {
                   alt={featureImages[activeFeature].alt}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-[1200ms] ease-out hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
               </motion.div>
@@ -182,10 +182,10 @@ export function WhoWeAreSection() {
               {features.map((feature, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, x: 40, filter: "blur(4px)" }}
+                  whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
                   viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.5, delay: i * 0.12 }}
+                  transition={{ duration: 0.6, delay: i * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
                   className={`group flex items-start gap-5 p-5 rounded-2xl border transition-all duration-400 cursor-default ${
                     activeFeature === i 
                       ? "bg-white border-[#9E1B1B]/15 shadow-[0_12px_35px_rgba(83,28,21,0.08)]" 
@@ -298,10 +298,10 @@ export function WhoWeAreSection() {
           {[images.img01, images.img02, images.img03, images.img04].map((img, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 60, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: i * 0.12 }}
+              transition={{ duration: 0.8, delay: i * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="relative flex-1 overflow-hidden group"
               style={{ borderRadius: i === 0 ? "24px 0 0 0" : i === 3 ? "0 24px 0 0" : "0" }}
             >
