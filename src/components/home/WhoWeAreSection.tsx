@@ -83,10 +83,10 @@ export function WhoWeAreSection() {
 
   // Image Data configuration ready for real images
   const images = {
-    img01: { src: "", alt: "Wellset India campaign main", position: "center center" },
-    img02: { src: "", alt: "Wellset India campaign upper", position: "center center" },
-    img03: { src: "", alt: "Wellset India campaign left", position: "center center" },
-    img04: { src: "", alt: "Wellset India campaign right", position: "center center" },
+    img01: { src: "/images/Government & NGO Awareness Campaigns.JPG", alt: "Wellset India campaign main", position: "center center" },
+    img02: { src: "/images/Conference, Events & Exhibition.JPG", alt: "Wellset India campaign upper", position: "center center" },
+    img03: { src: "/images/BTL Activations.jpg", alt: "Wellset India campaign left", position: "center center" },
+    img04: { src: "/images/Mall Activation.jpg", alt: "Wellset India campaign right", position: "center center" },
   };
 
   return (
@@ -216,22 +216,7 @@ export function WhoWeAreSection() {
               </div>
             </motion.div>
 
-            {/* Play Button (z-40) */}
-            <div 
-              className="absolute z-40 flex items-center justify-center max-md:right-0 max-md:top-[50%]"
-              style={{ top: "40%", right: "-28px" }}
-            >
-              <div className="relative flex items-center justify-center">
-                <motion.div 
-                  animate={{ scale: [1, 1.15, 1], opacity: [0.3, 0, 0.3] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute inset-0 rounded-full bg-[#a60c16]"
-                />
-                <div className="w-[60px] h-[60px] lg:w-[70px] lg:h-[70px] bg-[#a60c16] rounded-full flex items-center justify-center border-[6px] lg:border-[7px] border-[#fffaf4] shadow-[0_14px_35px_rgba(109,15,20,0.28)] relative z-10 pl-1">
-                  <Play className="w-5 h-5 lg:w-6 lg:h-6 text-white fill-white" />
-                </div>
-              </div>
-            </div>
+
           </motion.div>
 
           {/* Top Right Image 02 (z-30) */}
@@ -239,7 +224,7 @@ export function WhoWeAreSection() {
             initial={{ opacity: 0, x: 20, y: -20 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            style={{ x: xTransformOpposite, y: yTransformOpposite, width: "clamp(220px, 19vw, 310px)", aspectRatio: "16/10", left: "57%", top: "7%", transform: "rotate(3deg)" }}
+            style={{ x: xTransformOpposite, y: yTransformOpposite, width: "clamp(220px, 19vw, 310px)", aspectRatio: "16/10", left: "57%", top: "-10%", transform: "rotate(3deg)" }}
             className="absolute z-30 origin-bottom-left max-md:w-[42vw] max-md:top-[-5%] max-md:left-[60%] max-md:rotate-0 max-lg:top-[0%] max-lg:left-[65%]"
           >
             <motion.div
@@ -266,7 +251,7 @@ export function WhoWeAreSection() {
             initial={{ opacity: 0, x: -20, y: 20 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            style={{ x: xTransformOpposite, y: yTransformOpposite, width: "clamp(235px, 20vw, 330px)", aspectRatio: "16/10", left: "5%", top: "60%", transform: "rotate(-4deg)" }}
+            style={{ x: xTransformOpposite, y: yTransformOpposite, width: "clamp(235px, 20vw, 330px)", aspectRatio: "16/10", left: "5%", top: "90%", transform: "rotate(-4deg)" }}
             className="absolute z-20 origin-top-right max-md:w-[46vw] max-md:top-[75%] max-md:left-[5%] max-md:rotate-0 max-lg:top-[75%] max-lg:left-[5%]"
           >
             <motion.div
@@ -293,7 +278,7 @@ export function WhoWeAreSection() {
             initial={{ opacity: 0, x: 20, y: 20 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            style={{ x: xTransform, y: yTransform, width: "clamp(215px, 18vw, 295px)", aspectRatio: "16/10", left: "57%", top: "70%", transform: "rotate(3deg)" }}
+            style={{ x: xTransform, y: yTransform, width: "clamp(215px, 18vw, 295px)", aspectRatio: "16/10", left: "57%", top: "98%", transform: "rotate(3deg)" }}
             className="absolute z-25 origin-top-left max-[420px]:hidden max-md:w-[40vw] max-md:top-[70%] max-md:left-[60%] max-md:rotate-0 max-lg:top-[70%] max-lg:left-[70%]"
           >
             <motion.div
@@ -416,28 +401,28 @@ export function WhoWeAreSection() {
           <div 
             className="w-full rounded-[28px] p-8 lg:p-10 flex items-center justify-between"
             style={{
-              background: "linear-gradient(120deg, rgba(255,255,255,0.78), rgba(255,248,240,0.48))",
-              border: "1px solid rgba(145,15,24,0.10)",
+              background: "linear-gradient(120deg, #9E1B1B, #c72a32)",
+              border: "1px solid rgba(255, 255, 255, 0.15)",
               backdropFilter: "blur(16px)",
-              boxShadow: "0 22px 50px rgba(80,28,22,0.08), inset 0 1px 0 rgba(255,255,255,0.9)",
+              boxShadow: "0 22px 50px rgba(158, 27, 27, 0.25), inset 0 1px 0 rgba(255,255,255,0.2)",
             }}
           >
             {stats.map((stat, i) => (
               <div key={i} className="group relative flex flex-col items-center justify-center w-1/4">
                 {i !== 0 && (
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[1px] h-[70%] bg-gradient-to-b from-transparent via-[#9E1B1B]/15 to-transparent" />
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[1px] h-[70%] bg-gradient-to-b from-transparent via-white/20 to-transparent" />
                 )}
                 
-                <stat.icon className="w-7 h-7 lg:w-8 lg:h-8 text-[#C73A3A] mb-4 opacity-80" strokeWidth={1.5} />
+                <stat.icon className="w-7 h-7 lg:w-8 lg:h-8 text-white mb-4 opacity-90" strokeWidth={1.5} />
                 
                 <div className="relative">
-                  <div className="absolute inset-0 bg-[#9E1B1B] opacity-0 blur-md group-hover:opacity-10 transition-opacity duration-300 rounded-full" />
-                  <span className="relative text-[#9E1B1B] font-bold text-[clamp(32px,4vw,52px)] leading-none mb-3 block">
+                  <div className="absolute inset-0 bg-white opacity-0 blur-md group-hover:opacity-10 transition-opacity duration-300 rounded-full" />
+                  <span className="relative text-white font-bold text-[clamp(32px,4vw,52px)] leading-none mb-3 block">
                     {stat.value}
                   </span>
                 </div>
                 
-                <span className="text-[#181818] font-semibold text-[13px] lg:text-[14px] uppercase tracking-[0.15em] text-center mt-1">
+                <span className="text-white opacity-90 font-semibold text-[13px] lg:text-[14px] uppercase tracking-[0.15em] text-center mt-1">
                   {stat.label}
                 </span>
               </div>

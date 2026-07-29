@@ -32,9 +32,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${oswald.variable} ${caveat.variable} w-full min-h-full overflow-x-hidden overflow-y-auto antialiased`}
+      className={`${inter.variable} ${oswald.variable} ${caveat.variable} w-full min-h-full antialiased`}
     >
-      <body className="w-full min-h-full font-sans bg-cream text-charcoal overflow-x-hidden overflow-y-auto">
+      <body className="w-full min-h-full font-sans bg-cream text-charcoal">
         <Header />
         <main className="w-full min-h-screen h-auto overflow-visible flex flex-col">
           {children}
