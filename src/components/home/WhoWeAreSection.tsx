@@ -193,9 +193,8 @@ export function WhoWeAreSection() {
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            style={{ x: xTransform, y: yTransform }}
+            style={{ x: xTransform, y: yTransform, width: "clamp(300px, 26vw, 430px)", aspectRatio: "4/5", left: "25%", top: "18%" }}
             className="absolute z-10 origin-center rotate-[0deg] max-md:w-[72vw] max-md:left-[14vw] max-md:top-[10%] max-md:!rotate-0 max-lg:left-[50%] max-lg:top-[50%] max-lg:-translate-x-[50%] max-lg:-translate-y-[50%]"
-            style={{ width: "clamp(300px, 26vw, 430px)", aspectRatio: "4/5", left: "25%", top: "18%" }}
           >
             <motion.div
               style={placeholderStyle}
