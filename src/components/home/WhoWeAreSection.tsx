@@ -15,11 +15,6 @@ import { Target, MapPin, Users, BarChart2, Sparkles, Calendar, Globe, Award, Tre
 
 const features = [
   {
-    icon: Target,
-    title: "Nationwide Execution",
-    desc: "Consistent brand experiences across metros and remote regions alike.",
-  },
-  {
     icon: MapPin,
     title: "Local Expertise",
     desc: "Deep understanding of regional nuances and cultural contexts.",
@@ -38,6 +33,11 @@ const features = [
     icon: Sparkles,
     title: "Creative Activations",
     desc: "Captivating audiences through interactive formats like Nukkad Nataks and roadshows.",
+  },
+  {
+    icon: Target,
+    title: "Strategic Impact",
+    desc: "Data-driven campaigns designed to maximize engagement and ROI.",
   },
 ];
 
@@ -58,11 +58,11 @@ const images = {
 
 // Map each feature to a specific image
 const featureImages = [
-  images.img03, // Nationwide Execution
   images.img02, // Local Expertise
   images.img04, // People-First Approach
   images.img01, // End-to-End Delivery
   images.img05, // Creative Activations
+  images.img03, // Strategic Impact
 ];
 
 // ─── Component ───────────────────────────────────────────────────────────────
@@ -169,24 +169,24 @@ export function WhoWeAreSection() {
                   >
                     <div className="absolute inset-0 bg-[#18181b] flex flex-col items-center justify-center overflow-hidden">
                       {/* Dynamic Gradient Background */}
-                      <div className="absolute inset-0 opacity-40 transition-all duration-1000" 
-                           style={{
-                             background: `radial-gradient(circle at ${activeFeature % 2 === 0 ? '0% 0%' : '100% 100%'}, #da2f1d 0%, transparent 70%)`
-                           }} 
+                      <div className="absolute inset-0 opacity-40 transition-all duration-1000"
+                        style={{
+                          background: `radial-gradient(circle at ${activeFeature % 2 === 0 ? '0% 0%' : '100% 100%'}, #da2f1d 0%, transparent 70%)`
+                        }}
                       />
-                      
+
                       <div className="absolute inset-0 opacity-[0.15] mix-blend-overlay" style={{ backgroundImage: "url('https://grainy-gradients.vercel.app/noise.svg')" }}></div>
 
                       {/* Content */}
                       <div className="relative z-10 flex flex-col items-center justify-center text-center h-full w-full p-10">
                         <div className="mb-6 w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-md shadow-2xl relative overflow-hidden group-hover:scale-110 transition-transform duration-500">
-                           <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
-                           {(() => {
-                             const Icon = features[activeFeature].icon;
-                             return <Icon className="w-8 h-8 text-[#da2f1d] relative z-10" strokeWidth={1.5} />;
-                           })()}
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
+                          {(() => {
+                            const Icon = features[activeFeature].icon;
+                            return <Icon className="w-8 h-8 text-[#da2f1d] relative z-10" strokeWidth={1.5} />;
+                          })()}
                         </div>
-                        
+
                         <div className="text-[160px] font-condensed font-bold text-white/5 leading-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none">
                           0{activeFeature + 1}
                         </div>
@@ -262,40 +262,35 @@ export function WhoWeAreSection() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true, margin: "-40px" }}
                       transition={{ duration: 0.6, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-                      className={`group relative flex items-start gap-5 p-6 rounded-2xl border transition-all duration-500 ease-out cursor-default overflow-hidden ${
-                        isActive
+                      className={`group relative flex items-start gap-5 p-6 rounded-2xl border transition-all duration-500 ease-out cursor-default overflow-hidden ${isActive
                           ? "bg-white border-[#da2f1d]/20 shadow-[0_20px_50px_-12px_rgba(218,47,29,0.15)] scale-[1.03]"
                           : "bg-white/40 backdrop-blur-md border-white/60 opacity-60 hover:opacity-80 hover:bg-white/50 scale-100 shadow-sm"
-                      }`}
+                        }`}
                     >
                       {/* Active indicator bar */}
-                      <div 
-                        className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 rounded-r-full transition-all duration-500 ease-out ${
-                          isActive ? "h-1/2 bg-[#da2f1d] shadow-[2px_0_12px_rgba(218,47,29,0.6)] opacity-100" : "h-0 bg-transparent opacity-0"
-                        }`}
+                      <div
+                        className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 rounded-r-full transition-all duration-500 ease-out ${isActive ? "h-1/2 bg-[#da2f1d] shadow-[2px_0_12px_rgba(218,47,29,0.6)] opacity-100" : "h-0 bg-transparent opacity-0"
+                          }`}
                       />
 
                       {/* Icon container */}
-                      <div className={`relative shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 ease-out z-10 ${
-                        isActive
+                      <div className={`relative shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 ease-out z-10 ${isActive
                           ? "bg-gradient-to-br from-[#da2f1d] to-[#aa1f12] text-white shadow-[0_8px_20px_rgba(218,47,29,0.35)] border-transparent"
                           : "bg-white border border-white text-[#da2f1d] shadow-sm shadow-black/5"
-                      }`}>
+                        }`}>
                         {/* Subtle inner glow for active icon */}
                         {isActive && <div className="absolute inset-0 bg-white/20 rounded-2xl blur-md -z-10 mix-blend-overlay pointer-events-none" />}
                         <feature.icon className="w-6 h-6" strokeWidth={isActive ? 2 : 1.5} />
                       </div>
-                      
+
                       {/* Text content */}
                       <div className="pt-1 relative z-10">
-                        <h4 className={`font-bold text-[18px] mb-1.5 transition-colors duration-500 ${
-                          isActive ? "text-[#da2f1d]" : "text-[#181818]"
-                        }`}>
+                        <h4 className={`font-bold text-[18px] mb-1.5 transition-colors duration-500 ${isActive ? "text-[#da2f1d]" : "text-[#181818]"
+                          }`}>
                           {feature.title}
                         </h4>
-                        <p className={`text-[15px] leading-[1.6] transition-all duration-500 ${
-                          isActive ? "text-[#4a4a4a] opacity-100 transform translate-y-0" : "text-[#777] opacity-80 transform translate-y-1"
-                        }`}>
+                        <p className={`text-[15px] leading-[1.6] transition-all duration-500 ${isActive ? "text-[#4a4a4a] opacity-100 transform translate-y-0" : "text-[#777] opacity-80 transform translate-y-1"
+                          }`}>
                           {feature.desc}
                         </p>
                       </div>
@@ -303,19 +298,7 @@ export function WhoWeAreSection() {
                   );
                 })}
 
-                {/* CTA */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                  className="mt-4"
-                >
-                  <button className="group flex items-center gap-3 bg-[#da2f1d] hover:bg-[#da2f1d] text-white rounded-full px-8 py-4 font-bold text-[16px] transition-all duration-300 hover:shadow-[0_14px_40px_rgba(158,27,27,0.35)] hover:scale-105">
-                    Learn More About Us
-                    <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-                  </button>
-                </motion.div>
+
               </div>
             </div>
           </div>
@@ -356,11 +339,11 @@ export function WhoWeAreSection() {
                 {i !== 0 && (
                   <div className="hidden md:block absolute left-[-16px] lg:left-[-16px] xl:left-[-16px] top-1/2 -translate-y-1/2 w-px h-[70%] bg-gradient-to-b from-transparent via-white/20 to-transparent" />
                 )}
-                
+
                 <div className="w-[56px] h-[56px] rounded-2xl bg-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)] backdrop-blur-sm flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-white/20 transition-all duration-400">
                   <stat.icon className="w-6 h-6 text-white drop-shadow-md" strokeWidth={1.5} />
                 </div>
-                
+
                 <div className="flex flex-col items-center overflow-hidden">
                   <span className={`text-white font-bold ${stat.value === "Pan India" ? "text-[28px] md:text-[24px] lg:text-[32px] xl:text-[40px]" : "text-[40px] md:text-[36px] lg:text-[48px] xl:text-[56px]"} leading-[1.1] block tracking-tight shadow-black/10 drop-shadow-sm group-hover:translate-y-[-2px] transition-transform duration-300`}>
                     {stat.value}
