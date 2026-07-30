@@ -167,28 +167,54 @@ export function WhoWeAreSection() {
                     transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
                     className="absolute inset-0 rounded-[28px] overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.18)]"
                   >
-                    <div className="absolute inset-0 bg-[#da2f1d]/5 flex flex-col items-center justify-center border-4 border-[#da2f1d]/10">
-                      <div className="text-[120px] font-condensed font-bold text-[#da2f1d]/10 leading-none mb-4">
-                        0{activeFeature + 1}
+                    <div className="absolute inset-0 bg-[#18181b] flex flex-col items-center justify-center overflow-hidden">
+                      {/* Dynamic Gradient Background */}
+                      <div className="absolute inset-0 opacity-40 transition-all duration-1000" 
+                           style={{
+                             background: `radial-gradient(circle at ${activeFeature % 2 === 0 ? '0% 0%' : '100% 100%'}, #da2f1d 0%, transparent 70%)`
+                           }} 
+                      />
+                      
+                      <div className="absolute inset-0 opacity-[0.15] mix-blend-overlay" style={{ backgroundImage: "url('https://grainy-gradients.vercel.app/noise.svg')" }}></div>
+
+                      {/* Content */}
+                      <div className="relative z-10 flex flex-col items-center justify-center text-center h-full w-full p-10">
+                        <div className="mb-6 w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-md shadow-2xl relative overflow-hidden group-hover:scale-110 transition-transform duration-500">
+                           <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
+                           {(() => {
+                             const Icon = features[activeFeature].icon;
+                             return <Icon className="w-8 h-8 text-[#da2f1d] relative z-10" strokeWidth={1.5} />;
+                           })()}
+                        </div>
+                        
+                        <div className="text-[160px] font-condensed font-bold text-white/5 leading-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none">
+                          0{activeFeature + 1}
+                        </div>
+
+                        <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4 tracking-tight drop-shadow-lg relative z-10">
+                          {features[activeFeature].title}
+                        </h3>
+                        <div className="w-12 h-1 bg-[#da2f1d] rounded-full mb-6 relative z-10 shadow-[0_0_15px_rgba(218,47,29,0.5)]" />
+                        <p className="text-white/70 text-lg max-w-[85%] leading-relaxed relative z-10 font-medium">
+                          {features[activeFeature].desc}
+                        </p>
                       </div>
-                      <div className="w-16 h-1 bg-[#da2f1d]/30 rounded-full mb-6" />
-                      <div className="text-[#18181b]/40 font-bold uppercase tracking-widest px-8 text-center">
-                        {featureImages[activeFeature].alt}
-                      </div>
+
+                      {/* Active feature label */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                        className="absolute bottom-8 left-8 right-8 z-20 flex justify-between items-center border-t border-white/10 pt-6"
+                      >
+                        <span className="text-white/40 text-[12px] font-bold uppercase tracking-[0.15em]">
+                          {String(activeFeature + 1).padStart(2, "0")} / {String(features.length).padStart(2, "0")}
+                        </span>
+                        <span className="text-[#da2f1d] text-[12px] font-bold uppercase tracking-[0.15em]">
+                          Wellset India
+                        </span>
+                      </motion.div>
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent pointer-events-none" />
-                    
-                    {/* Active feature label on image */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.3 }}
-                      className="absolute bottom-8 left-8 right-8 z-20"
-                    >
-                      <span className="text-white/60 text-[12px] font-bold uppercase tracking-[0.15em]">
-                        {String(activeFeature + 1).padStart(2, "0")} / {String(features.length).padStart(2, "0")}
-                      </span>
-                    </motion.div>
                   </motion.div>
                 </AnimatePresence>
 
@@ -349,49 +375,7 @@ export function WhoWeAreSection() {
         </motion.div>
       </div>
 
-      {/* ══════════════════════════════════════════
-          PART 4: PROOF — Image mosaic strip
-          ══════════════════════════════════════════ */}
-      <div className="relative w-full overflow-hidden pb-0">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1 }}
-          className="flex gap-3 items-stretch"
-          style={{ height: 280 }}
-        >
-          {[images.img01, images.img02, images.img03, images.img04].map((img, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 60, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: i * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="relative flex-1 overflow-hidden group"
-              style={{ borderRadius: i === 0 ? "24px 0 0 0" : i === 3 ? "0 24px 0 0" : "0" }}
-            >
-              <div className="absolute inset-0 bg-[#18181b] flex flex-col items-center justify-center p-6 border-r border-[#ffffff]/5">
-                <div className="text-[120px] font-condensed font-bold text-[#f8f1e8]/5 group-hover:text-[#da2f1d]/20 transition-colors duration-500 leading-none mb-2">
-                  0{i + 1}
-                </div>
-                <div className="text-[#f8f1e8]/30 group-hover:text-[#f8f1e8]/70 text-xs font-bold uppercase tracking-[0.3em] transition-colors duration-500 text-center">
-                  {img.alt}
-                </div>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-              <div className="absolute inset-0 bg-[#da2f1d]/0 group-hover:bg-[#da2f1d]/20 transition-colors duration-500" />
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                className="absolute bottom-4 left-4 right-4 flex items-center justify-between"
-              >
-                <CheckCircle className="w-5 h-5 text-white/80" />
-              </motion.div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
+
 
     </section>
   );
