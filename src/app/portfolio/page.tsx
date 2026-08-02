@@ -114,6 +114,60 @@ const projects = [
     color: "from-teal-600 to-emerald-500",
     category: "Government & NGO Awareness Campaigns"
   },
+  {
+    id: "hpcl-milcy-turbo-canopy-activation",
+    title: "HPCL Milcy Turbo Canopy Activation",
+    description: "A targeted canopy activation and product showcase for HPCL Milcy Turbo.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785678613/IMG-20150828-WA0010_noyrm2.jpg", 
+    tag: "hpcl milcy",
+    color: "from-red-600 to-orange-500",
+    category: "Canopy Activation"
+  },
+  {
+    id: "silica-canopy-activation",
+    title: "Silica Canopy Activation",
+    description: "A professional canopy activation and brand promotion campaign for Silica.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785680077/100_7354_e9vzz8.jpg", 
+    tag: "Silica",
+    color: "from-sky-500 to-blue-600",
+    category: "Canopy Activation"
+  },
+  {
+    id: "dell-roadshow",
+    title: "Dell RoadShow",
+    description: "An engaging and extensive roadshow campaign for Dell technologies.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785680236/102_3197_vv3n24.jpg", 
+    tag: "Dell",
+    color: "from-blue-600 to-cyan-500",
+    category: "Roadshow"
+  },
+  {
+    id: "colgate-roadshow",
+    title: "Colgate Roadshow",
+    description: "A wide-reaching and engaging roadshow activation for Colgate.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785680366/100_2562_rfw8rf.jpg", 
+    tag: "colgate",
+    color: "from-red-600 to-pink-500",
+    category: "Roadshow"
+  },
+  {
+    id: "pcra-van-publicity",
+    title: "PCRA Van Publicity",
+    description: "An impactful van publicity and awareness campaign for PCRA.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785680493/DSC_1617_ls7vhk.jpg", 
+    tag: "PCRA VAN",
+    color: "from-amber-500 to-yellow-600",
+    category: "Van Activation"
+  },
+  {
+    id: "pcra-conference",
+    title: "PCRA Conference",
+    description: "A well-organized professional conference and corporate event for PCRA.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785680601/DSC_0796_snc109.jpg", 
+    tag: "Conference",
+    color: "from-slate-700 to-zinc-600",
+    category: "Conferences"
+  },
 ];
 
 export default function PortfolioPage() {

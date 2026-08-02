@@ -75,6 +75,42 @@ const projects = [
     description: "A nationwide government and NGO awareness campaign for oil and gas conservation.",
     tag: "HP",
   },
+  {
+    id: "hpcl-milcy-turbo-canopy-activation",
+    title: "HPCL Milcy Turbo Canopy Activation",
+    description: "A targeted canopy activation and product showcase for HPCL Milcy Turbo.",
+    tag: "hpcl milcy",
+  },
+  {
+    id: "silica-canopy-activation",
+    title: "Silica Canopy Activation",
+    description: "A professional canopy activation and brand promotion campaign for Silica.",
+    tag: "Silica",
+  },
+  {
+    id: "dell-roadshow",
+    title: "Dell RoadShow",
+    description: "An engaging and extensive roadshow campaign for Dell technologies.",
+    tag: "Dell",
+  },
+  {
+    id: "colgate-roadshow",
+    title: "Colgate Roadshow",
+    description: "A wide-reaching and engaging roadshow activation for Colgate.",
+    tag: "colgate",
+  },
+  {
+    id: "pcra-van-publicity",
+    title: "PCRA Van Publicity",
+    description: "An impactful van publicity and awareness campaign for PCRA.",
+    tag: "PCRA VAN",
+  },
+  {
+    id: "pcra-conference",
+    title: "PCRA Conference",
+    description: "A well-organized professional conference and corporate event for PCRA.",
+    tag: "Conference",
+  },
 ];
 
 interface CloudinaryImage {
