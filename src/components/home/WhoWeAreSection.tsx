@@ -122,7 +122,8 @@ export function WhoWeAreSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-[#fdfbf9] py-20 lg:py-32 overflow-hidden"
+      id="who-we-are"
+      className="relative w-full bg-[#fdfbf9] pt-20 lg:pt-32 pb-10 lg:pb-16 overflow-hidden"
     >
       {/* Top 3-Column Layout */}
       <div className="relative w-full max-w-[1440px] mx-auto px-6 lg:px-16 mb-12 lg:mb-16">

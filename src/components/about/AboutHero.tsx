@@ -88,10 +88,7 @@ export default function AboutHero() {
                   IMPACT<br/>AT SCALE
                 </h3>
               </div>
-              <div className="relative z-10 self-end">
-                <div className="w-24 h-[2px] bg-primary-red mb-4" />
-                <p className="text-sm tracking-widest text-warm-beige uppercase">Beyond The Screen</p>
-              </div>
+
             </div>
 
             {/* Bottom Left Supporting Block */}

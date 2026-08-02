@@ -56,10 +56,6 @@ export default function WhyClientsTrustUs() {
                 YEARS
               </h3>
               
-              {/* Overlay Label */}
-              <div className="absolute bottom-6 left-6 bg-deep-burgundy text-pure-white px-6 py-3 z-20 shadow-lg border-l-4 border-primary-red">
-                <span className="text-sm font-bold tracking-widest uppercase">Trust Built Through Delivery</span>
-              </div>
             </div>
 
             {/* Smaller Detail Blocks - Staggered without overlap */}

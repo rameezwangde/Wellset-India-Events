@@ -58,10 +58,9 @@ export default function ReadyToTalk() {
             {/* Fallback route for campaigns if it doesn't exist yet */}
             <Link 
               href="/portfolio" 
-              className="group inline-flex items-center gap-2 text-warm-beige hover:text-pure-white font-medium transition-colors"
+              className="group inline-flex items-center gap-2 px-6 py-3 border border-pure-white text-pure-white font-medium transition-colors hover:bg-pure-white hover:text-deep-burgundy"
             >
               Explore Our Campaigns
-              <div className="w-8 h-[1px] bg-primary-red transition-all group-hover:w-12 group-hover:bg-pure-white" />
             </Link>
           </div>
 
