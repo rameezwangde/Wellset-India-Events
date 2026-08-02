@@ -4,38 +4,34 @@ import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import {
   motion,
-  useScroll,
-  useTransform,
-  useMotionValueEvent,
-  AnimatePresence,
 } from "framer-motion";
-import { Target, MapPin, Users, BarChart2, Sparkles, Calendar, Globe, Award, TrendingUp, ArrowRight, CheckCircle } from "lucide-react";
+import { Target, MapPin, Users, BarChart2, Sparkles, Calendar, Globe, Award, TrendingUp, ArrowRight, CheckCircle, Compass, HeartHandshake, Route, Flame, LineChart } from "lucide-react";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
 const features = [
   {
-    icon: MapPin,
+    icon: Compass,
     title: "Local Expertise",
     desc: "Deep understanding of regional nuances and cultural contexts.",
   },
   {
-    icon: Users,
+    icon: HeartHandshake,
     title: "People-First Approach",
     desc: "Authentic connections that truly resonate with your core audience.",
   },
   {
-    icon: BarChart2,
+    icon: Route,
     title: "End-to-End Delivery",
     desc: "From concept to on-ground execution with measurable results.",
   },
   {
-    icon: Sparkles,
+    icon: Flame,
     title: "Creative Activations",
     desc: "Captivating audiences through interactive formats like Nukkad Nataks and roadshows.",
   },
   {
-    icon: Target,
+    icon: LineChart,
     title: "Strategic Impact",
     desc: "Data-driven campaigns designed to maximize engagement and ROI.",
   },
@@ -48,49 +44,10 @@ const stats = [
   { value: "300+", label: "Campaigns Executed", icon: TrendingUp },
 ];
 
-const images = {
-  img01: { src: "/images/illustrations/ngo_campaign_ill_1785325380269.png", alt: "Wellset NGO campaign" },
-  img02: { src: "/images/illustrations/conference_event_ill_1785325426980.png", alt: "Wellset conference" },
-  img03: { src: "/images/illustrations/btl_activation_ill_1785325326209.png", alt: "Wellset BTL activation" },
-  img04: { src: "/images/illustrations/canopy_activation_ill_1785325294026.png", alt: "Wellset canopy activation" },
-  img05: { src: "/images/illustrations/nukkad_natak_ill_1785325352350.png", alt: "Wellset Nukkad Natak" },
-};
-
-// Map each feature to a specific image
-const featureImages = [
-  images.img02, // Local Expertise
-  images.img04, // People-First Approach
-  images.img01, // End-to-End Delivery
-  images.img05, // Creative Activations
-  images.img03, // Strategic Impact
-];
-
 // ─── Component ───────────────────────────────────────────────────────────────
 
 export function WhoWeAreSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const scrollAreaRef = useRef<HTMLDivElement>(null);
-  const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  const [activeFeature, setActiveFeature] = useState(0);
-
-  // Track scroll progress within the scroll-driven area
-  const { scrollYProgress } = useScroll({
-    target: scrollAreaRef,
-    offset: ["start start", "end end"],
-  });
-
-  // Map scroll progress → active feature index
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const segmentSize = 1 / features.length;
-    const newIndex = Math.min(
-      features.length - 1,
-      Math.floor(latest / segmentSize)
-    );
-    if (newIndex !== activeFeature) {
-      setActiveFeature(newIndex);
-    }
-  });
 
   return (
     <section
@@ -144,148 +101,42 @@ export function WhoWeAreSection() {
       </div>
 
       {/* ══════════════════════════════════════════
-          PART 2: STORY — Scroll-driven sticky narrative
+          PART 2: FEATURES GRID
           ══════════════════════════════════════════ */}
-      <div
-        ref={scrollAreaRef}
-        className="relative w-full"
-        style={{ height: `${features.length * 100}vh` }}
-      >
-        {/* Sticky container — stays pinned while user scrolls through features */}
-        <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center">
-          <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-20">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="relative w-full pb-20 pt-10">
+        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-20">
+          <div className="flex flex-wrap justify-center gap-6 lg:gap-8">
+            {features.map((feature, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className="group relative flex flex-col items-start text-left p-8 lg:p-10 rounded-[24px] bg-white/70 backdrop-blur-xl border border-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_-12px_rgba(218,47,29,0.15)] hover:-translate-y-2 transition-all duration-500 ease-out w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-22px)] overflow-hidden"
+              >
+                {/* Subtle bottom gradient on hover */}
+                <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-[#da2f1d] to-[#aa1f12] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
 
-              {/* Left: Image with crossfade */}
-              <div className="relative w-full" style={{ aspectRatio: "3/4" }}>
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeFeature}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 1.03 }}
-                    transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    className="absolute inset-0 rounded-[28px] overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.18)]"
-                  >
-                    <div className="absolute inset-0 bg-[#18181b] flex flex-col items-center justify-center overflow-hidden">
-                      {/* Dynamic Gradient Background */}
-                      <div className="absolute inset-0 opacity-40 transition-all duration-1000"
-                        style={{
-                          background: `radial-gradient(circle at ${activeFeature % 2 === 0 ? '0% 0%' : '100% 100%'}, #da2f1d 0%, transparent 70%)`
-                        }}
-                      />
-
-                      <div className="absolute inset-0 opacity-[0.15] mix-blend-overlay" style={{ backgroundImage: "url('https://grainy-gradients.vercel.app/noise.svg')" }}></div>
-
-                      {/* Content */}
-                      <div className="relative z-10 flex flex-col items-center justify-center text-center h-full w-full p-10">
-                        <div className="mb-6 w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-md shadow-2xl relative overflow-hidden group-hover:scale-110 transition-transform duration-500">
-                          <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
-                          {(() => {
-                            const Icon = features[activeFeature].icon;
-                            return <Icon className="w-8 h-8 text-[#da2f1d] relative z-10" strokeWidth={1.5} />;
-                          })()}
-                        </div>
-
-                        <div className="text-[160px] font-condensed font-bold text-white/5 leading-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none">
-                          0{activeFeature + 1}
-                        </div>
-
-                        <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4 tracking-tight drop-shadow-lg relative z-10">
-                          {features[activeFeature].title}
-                        </h3>
-                        <div className="w-12 h-1 bg-[#da2f1d] rounded-full mb-6 relative z-10 shadow-[0_0_15px_rgba(218,47,29,0.5)]" />
-                        <p className="text-white/70 text-lg max-w-[85%] leading-relaxed relative z-10 font-medium">
-                          {features[activeFeature].desc}
-                        </p>
-                      </div>
-
-                      {/* Active feature label */}
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.3 }}
-                        className="absolute bottom-8 left-8 right-8 z-20 flex justify-between items-center border-t border-white/10 pt-6"
-                      >
-                        <span className="text-white/40 text-[12px] font-bold uppercase tracking-[0.15em]">
-                          {String(activeFeature + 1).padStart(2, "0")} / {String(features.length).padStart(2, "0")}
-                        </span>
-                        <span className="text-[#da2f1d] text-[12px] font-bold uppercase tracking-[0.15em]">
-                          Wellset India
-                        </span>
-                      </motion.div>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-
-                {/* Progress dots */}
-                <div className="absolute -right-6 lg:-right-10 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-30">
-                  {features.map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="w-[6px] rounded-full transition-all duration-500"
-                      animate={{
-                        height: activeFeature === i ? 32 : 6,
-                        backgroundColor: activeFeature === i ? "#da2f1d" : "rgba(158,27,27,0.2)",
-                      }}
-                    />
-                  ))}
+                {/* Watermark Number */}
+                <div className="absolute top-4 right-6 text-[80px] font-bold text-[#da2f1d]/[0.03] select-none pointer-events-none font-condensed group-hover:text-[#da2f1d]/[0.06] transition-colors duration-500">
+                  0{i + 1}
                 </div>
 
+                {/* Icon container */}
+                <div className="relative w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 ease-out z-10 bg-[#da2f1d]/5 border border-[#da2f1d]/10 shadow-sm group-hover:bg-[#da2f1d] group-hover:border-transparent mb-8 group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(218,47,29,0.3)] origin-left">
+                  <feature.icon className="w-6 h-6 text-[#da2f1d] group-hover:text-white transition-colors duration-500" strokeWidth={2} />
+                </div>
 
-              </div>
-
-              {/* Right: Feature cards with scroll-driven highlight */}
-              <div className="flex flex-col gap-4 lg:pt-0">
-                {features.map((feature, i) => {
-                  const isActive = activeFeature === i;
-                  return (
-                    <motion.div
-                      key={i}
-                      ref={(el) => { featureRefs.current[i] = el; }}
-                      initial={{ opacity: 0, x: 40 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: "-40px" }}
-                      transition={{ duration: 0.6, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-                      className={`group relative flex items-start gap-5 p-6 rounded-2xl border transition-all duration-500 ease-out cursor-default overflow-hidden ${isActive
-                          ? "bg-white border-[#da2f1d]/20 shadow-[0_20px_50px_-12px_rgba(218,47,29,0.15)] scale-[1.03]"
-                          : "bg-white/40 backdrop-blur-md border-white/60 opacity-60 hover:opacity-80 hover:bg-white/50 scale-100 shadow-sm"
-                        }`}
-                    >
-                      {/* Active indicator bar */}
-                      <div
-                        className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 rounded-r-full transition-all duration-500 ease-out ${isActive ? "h-1/2 bg-[#da2f1d] shadow-[2px_0_12px_rgba(218,47,29,0.6)] opacity-100" : "h-0 bg-transparent opacity-0"
-                          }`}
-                      />
-
-                      {/* Icon container */}
-                      <div className={`relative shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 ease-out z-10 ${isActive
-                          ? "bg-gradient-to-br from-[#da2f1d] to-[#aa1f12] text-white shadow-[0_8px_20px_rgba(218,47,29,0.35)] border-transparent"
-                          : "bg-white border border-white text-[#da2f1d] shadow-sm shadow-black/5"
-                        }`}>
-                        {/* Subtle inner glow for active icon */}
-                        {isActive && <div className="absolute inset-0 bg-white/20 rounded-2xl blur-md -z-10 mix-blend-overlay pointer-events-none" />}
-                        <feature.icon className="w-6 h-6" strokeWidth={isActive ? 2 : 1.5} />
-                      </div>
-
-                      {/* Text content */}
-                      <div className="pt-1 relative z-10">
-                        <h4 className={`font-bold text-[18px] mb-1.5 transition-colors duration-500 ${isActive ? "text-[#da2f1d]" : "text-[#181818]"
-                          }`}>
-                          {feature.title}
-                        </h4>
-                        <p className={`text-[15px] leading-[1.6] transition-all duration-500 ${isActive ? "text-[#4a4a4a] opacity-100 transform translate-y-0" : "text-[#777] opacity-80 transform translate-y-1"
-                          }`}>
-                          {feature.desc}
-                        </p>
-                      </div>
-                    </motion.div>
-                  );
-                })}
-
-
-              </div>
-            </div>
+                {/* Text content */}
+                <h4 className="font-bold text-[22px] mb-3 text-[#181818] group-hover:text-[#da2f1d] transition-colors duration-500 relative z-10">
+                  {feature.title}
+                </h4>
+                <p className="text-[16px] leading-[1.7] text-[#5e5e5e] relative z-10">
+                  {feature.desc}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
