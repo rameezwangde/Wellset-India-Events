@@ -1,11 +1,8 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
-import Image from "next/image";
-import {
-  motion,
-} from "framer-motion";
-import { Target, MapPin, Users, BarChart2, Sparkles, Calendar, Globe, Award, TrendingUp, ArrowRight, CheckCircle, Compass, HeartHandshake, Route, Flame, LineChart } from "lucide-react";
+import { useRef } from "react";
+import { motion, Variants } from "framer-motion";
+import { Compass, HeartHandshake, Route, Flame, LineChart } from "lucide-react";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -28,7 +25,7 @@ const features = [
   {
     icon: Flame,
     title: "Creative Activations",
-    desc: "Captivating audiences through interactive formats like Nukkad Nataks and roadshows.",
+    desc: "Captivating audiences through Nukkad Nataks, roadshows & interactive formats.",
   },
   {
     icon: LineChart,
@@ -37,164 +34,212 @@ const features = [
   },
 ];
 
-const stats = [
-  { value: "Pan India", label: "Reach", icon: Globe },
-  { value: "2,500+", label: "Towns & Cities Covered", icon: MapPin },
-  { value: "150+", label: "Brands Served", icon: Award },
-  { value: "300+", label: "Campaigns Executed", icon: TrendingUp },
-];
+// ─── Subcomponents ───────────────────────────────────────────────────────────
+
+function PremiumAbstractGraphic() {
+  return (
+    <div className="relative w-full aspect-square max-w-[500px] mx-auto flex items-center justify-center opacity-95">
+      <svg viewBox="0 0 400 400" className="w-full h-full overflow-visible">
+        <defs>
+          <radialGradient id="sphere" cx="35%" cy="35%" r="65%">
+            <stop offset="0%" stopColor="#ffffff" />
+            <stop offset="40%" stopColor="#ffffff" />
+            <stop offset="80%" stopColor="#fde0df" />
+            <stop offset="100%" stopColor="#f5adaa" />
+          </radialGradient>
+          <pattern id="dots" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.5" fill="#da2f1d" opacity="0.18" />
+          </pattern>
+          <mask id="dotsMask">
+            <rect x="0" y="0" width="400" height="400" fill="url(#maskGrad)" />
+          </mask>
+          <linearGradient id="maskGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="40%" stopColor="transparent" />
+            <stop offset="90%" stopColor="white" />
+          </linearGradient>
+        </defs>
+
+        {/* Dotted Pattern Background */}
+        <rect x="0" y="0" width="400" height="400" fill="url(#dots)" mask="url(#dotsMask)" />
+
+        <g className="origin-center animate-[spin_45s_linear_infinite]">
+          {/* Full Rings */}
+          <circle cx="200" cy="200" r="175" fill="none" stroke="#e5e5e5" strokeWidth="0.5" />
+          <circle cx="200" cy="200" r="130" fill="none" stroke="#f0f0f0" strokeWidth="0.5" />
+          <circle cx="200" cy="200" r="145" fill="none" stroke="#da2f1d" strokeWidth="0.5" opacity="0.3" />
+
+          {/* Dark Gray Sweep Arc */}
+          <path d="M 90,83 A 160 160 0 0 0 250,352" fill="none" stroke="#777" strokeWidth="0.5" />
+          {/* Nodes on Gray Sweep */}
+          <circle cx="90" cy="83" r="4.5" fill="#333" />
+          <circle cx="150" cy="352" r="4.5" fill="#333" />
+          <circle cx="360" cy="190" r="4.5" fill="#333" />
+
+          {/* Top Red Arc */}
+          <path d="M 230,55 A 148 148 0 0 0 105,87" fill="none" stroke="#da2f1d" strokeWidth="1.5" />
+          <circle cx="230" cy="55" r="5" fill="#da2f1d" />
+
+          {/* Left Red Arc */}
+          <path d="M 70,190 A 131 131 0 0 0 115,300" fill="none" stroke="#da2f1d" strokeWidth="1" />
+          <circle cx="70" cy="190" r="4.5" fill="#da2f1d" />
+
+          {/* Right Dashed Red Arc */}
+          <path d="M 290,325 A 155 155 0 0 0 350,240" fill="none" stroke="#da2f1d" strokeWidth="1.5" strokeDasharray="6 5" />
+          
+          {/* Right Red Arc */}
+          <path d="M 330,125 A 150 150 0 0 1 345,240" fill="none" stroke="#da2f1d" strokeWidth="0.75" />
+          <circle cx="345" cy="240" r="4.5" fill="#da2f1d" />
+
+          {/* Faint Pink Node */}
+          <circle cx="310" cy="100" r="3.5" fill="#d4b4b2" />
+        </g>
+
+        {/* Central Sphere */}
+        <circle cx="200" cy="200" r="105" fill="url(#sphere)" style={{ filter: 'drop-shadow(0px 15px 35px rgba(218, 47, 29, 0.2))' }} />
+      </svg>
+    </div>
+  );
+}
 
 // ─── Component ───────────────────────────────────────────────────────────────
 
 export function WhoWeAreSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
+  const containerVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    show: {
+      opacity: 1, y: 0,
+      transition: { staggerChildren: 0.1, duration: 0.8, ease: "easeOut" },
+    }
+  };
+
+  const childVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  };
+
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-[#f7f0e7]"
+      className="relative w-full bg-[#fdfbf9] py-20 lg:py-32 overflow-hidden"
     >
-      {/* Section Header */}
-      <div className="relative w-full max-w-[1400px] mx-auto px-8 lg:px-20 pt-10 lg:pt-12 pb-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-end">
-          {/* Left: Heading */}
-          <div>
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="mb-4"
-            >
-              <span className="text-[#da2f1d] font-bold uppercase tracking-[0.2em] text-[16px] lg:text-[18px]">Who We Are</span>
-            </motion.div>
-
-            <motion.h2
-              initial={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }}
-              whileInView={{ opacity: 1, clipPath: "inset(0 0% 0 0)" }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.9, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="font-bold text-[clamp(36px,5vw,72px)] leading-[0.95] tracking-tight max-w-[700px]"
-            >
-              <span className="text-[#181818] block">NATIONWIDE REACH.</span>
-              <span className="text-[#da2f1d] block mt-1">MEANINGFUL IMPACT.</span>
-            </motion.h2>
-          </div>
-
-          {/* Right: Intro text */}
-          <motion.div
-            initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="space-y-5 pb-2"
+      {/* Top 3-Column Layout */}
+      <div className="relative w-full max-w-[1440px] mx-auto px-6 lg:px-16 mb-12 lg:mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          {/* Left Column (40%) */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="lg:col-span-5 flex flex-col"
           >
-            <p className="text-[#181818] text-[20px] lg:text-[22px] leading-[1.7] font-medium">
-              Wellset India Events & Promotions is a premium activation partner specializing in{" "}
-              <span className="text-[#da2f1d] font-bold">unforgettable brand experiences</span>.
-            </p>
-            <p className="text-[#5E5E5E] text-[17px] lg:text-[18px] leading-[1.9]">
-              We understand that real impact happens on the ground — where real people interact with your message. Our expansive network enables us to execute flawlessly from bustling urban centers to the most remote rural villages.
+            <div className="relative mb-6">
+              <div className="absolute -top-3 left-0 w-8 h-[2px] bg-[#da2f1d]" />
+              <span className="text-[#da2f1d] font-bold uppercase tracking-[0.2em] text-[13px]">
+                WHO WE ARE
+              </span>
+            </div>
+            
+            <h2 className="font-bold text-[clamp(44px,5vw,72px)] leading-[1.05] tracking-tight mb-8">
+              <span className="text-[#181818] block">NATIONWIDE</span>
+              <span className="text-[#181818] block">REACH.</span>
+              <span className="text-[#da2f1d] block mt-1">MEANINGFUL</span>
+              <span className="text-[#da2f1d] block">IMPACT.</span>
+            </h2>
+            
+            <p className="text-[15px] lg:text-[16px] leading-[1.6] text-[#4a4a4a] max-w-[400px]">
+              Wellset India Events & Promotions is a premium activation partner specializing in <span className="text-[#da2f1d] font-bold">unforgettable brand experiences.</span>
             </p>
           </motion.div>
+
+          {/* Middle Column (25%) */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="lg:col-span-3 lg:pl-10 lg:border-l border-[#da2f1d]/20"
+          >
+            <div className="space-y-6 text-[14px] lg:text-[15px] text-[#4a4a4a] leading-[1.8]">
+              <p>
+                We understand that real impact happens on the ground — where real people interact with your message.
+              </p>
+              <p>
+                Our expansive network enables us to execute flawlessly from bustling urban centers to the most remote rural villages.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Right Column (35%) */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+            className="lg:col-span-4"
+          >
+            <PremiumAbstractGraphic />
+          </motion.div>
+
         </div>
       </div>
 
-      {/* ══════════════════════════════════════════
-          PART 2: FEATURES GRID
-          ══════════════════════════════════════════ */}
-      <div className="relative w-full pb-20 pt-10">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-20">
-          <div className="flex flex-wrap justify-center gap-6 lg:gap-8">
-            {features.map((feature, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="group relative flex flex-col items-start text-left p-8 lg:p-10 rounded-[24px] bg-white/70 backdrop-blur-xl border border-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_-12px_rgba(218,47,29,0.15)] hover:-translate-y-2 transition-all duration-500 ease-out w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-22px)] overflow-hidden"
-              >
-                {/* Subtle bottom gradient on hover */}
-                <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-[#da2f1d] to-[#aa1f12] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+      {/* Horizontal Divider */}
+      <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-16 mb-12 lg:mb-16">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-[#da2f1d]/10 to-transparent" />
+      </div>
 
-                {/* Watermark Number */}
-                <div className="absolute top-4 right-6 text-[80px] font-bold text-[#da2f1d]/[0.03] select-none pointer-events-none font-condensed group-hover:text-[#da2f1d]/[0.06] transition-colors duration-500">
-                  0{i + 1}
+      {/* Bottom Feature Strip (5 Pillars) */}
+      <div className="relative w-full max-w-[1440px] mx-auto px-6 lg:px-16 pb-12">
+        <div className="flex flex-wrap lg:flex-nowrap justify-between items-start gap-y-12">
+          {features.map((feature, i) => (
+            <motion.div 
+              key={i} 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "0px" }}
+              transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+              className="relative flex flex-col items-center text-center w-[100%] sm:w-[48%] lg:w-[18%] px-2 group"
+            >
+              {/* Icon Section - Mathematically precise alignment */}
+              <div className="relative w-[110px] h-[97px] mx-auto mb-6">
+                {/* Orbital Arc (Half Circle Top) */}
+                <div className="absolute top-0 left-0 w-[110px] h-[55px] border border-[#da2f1d] border-b-0 rounded-t-[55px] opacity-80 group-hover:scale-105 transition-transform duration-500 origin-bottom">
+                  <div className="absolute bottom-0 -left-[2.5px] w-[4px] h-[4px] rounded-full bg-[#da2f1d]" />
+                  <div className="absolute bottom-0 -right-[2.5px] w-[4px] h-[4px] rounded-full bg-[#da2f1d]" />
                 </div>
-
-                {/* Icon container */}
-                <div className="relative w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 ease-out z-10 bg-[#da2f1d]/5 border border-[#da2f1d]/10 shadow-sm group-hover:bg-[#da2f1d] group-hover:border-transparent mb-8 group-hover:scale-110 group-hover:shadow-[0_8px_20px_rgba(218,47,29,0.3)] origin-left">
-                  <feature.icon className="w-6 h-6 text-[#da2f1d] group-hover:text-white transition-colors duration-500" strokeWidth={2} />
+                
+                {/* Icon Container (Perfectly centered: left 13px, top 13px makes its center exactly at y=55, x=55) */}
+                <div className="absolute top-[13px] left-[13px] w-[84px] h-[84px] rounded-full bg-white shadow-[0_12px_35px_rgb(0,0,0,0.06)] flex items-center justify-center z-10 transition-transform duration-500 group-hover:-translate-y-1">
+                  <div className="w-[64px] h-[64px] rounded-full bg-gradient-to-br from-[#a61c16] to-[#7d130e] shadow-inner flex items-center justify-center">
+                    <feature.icon className="w-7 h-7 text-white" strokeWidth={1.5} />
+                  </div>
                 </div>
+              </div>
 
-                {/* Text content */}
-                <h4 className="font-bold text-[22px] mb-3 text-[#181818] group-hover:text-[#da2f1d] transition-colors duration-500 relative z-10">
-                  {feature.title}
-                </h4>
-                <p className="text-[16px] leading-[1.7] text-[#5e5e5e] relative z-10">
-                  {feature.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+              {/* Text Section */}
+              <h4 className="font-bold text-[13px] xl:text-[14px] uppercase tracking-wide text-[#181818] w-full max-w-[140px] mx-auto min-h-[40px] flex items-center justify-center">
+                {feature.title}
+              </h4>
+              
+              {/* Red Divider Dash */}
+              <div className="w-6 h-[2px] bg-[#da2f1d] mt-2 mb-4 group-hover:w-10 transition-all duration-300" />
+              
+              <p className="text-[13px] text-[#4a4a4a] leading-[1.6] max-w-[200px]">
+                {feature.desc}
+              </p>
+
+              {/* Vertical Separator (Hidden on last item and mobile) */}
+              {i !== 4 && (
+                <div className="hidden lg:block absolute right-0 top-[20%] w-[1px] h-[60%] bg-[#da2f1d]/10" />
+              )}
+            </motion.div>
+          ))}
         </div>
       </div>
-
-      {/* ══════════════════════════════════════════
-          PART 3: TRUST — Stats bar
-          ══════════════════════════════════════════ */}
-      <div className="relative w-full px-8 lg:px-20 pb-20 pt-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative w-full max-w-[1200px] mx-auto rounded-[32px] overflow-hidden"
-          style={{
-            background: "linear-gradient(145deg, #da2f1d 0%, #da2f1d 50%, #da2f1d 100%)",
-            boxShadow: "0 40px 100px -20px rgba(158,27,27,0.4), inset 0 1px 1px rgba(255,255,255,0.25)",
-          }}
-        >
-          {/* Subtle noise pattern & decorative shapes for a premium feel */}
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url('https://grainy-gradients.vercel.app/noise.svg')" }}></div>
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-b from-white/10 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-t from-black/20 to-transparent rounded-full blur-3xl translate-y-1/2 -translate-x-1/3 pointer-events-none" />
-
-          <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 p-10 lg:p-14 gap-8 md:gap-4 lg:gap-8">
-            {stats.map((stat, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.15 * i, ease: "easeOut" }}
-                className="group relative flex flex-col items-center justify-center text-center py-4"
-              >
-                {/* Dividers */}
-                {i !== 0 && (
-                  <div className="hidden md:block absolute left-[-16px] lg:left-[-16px] xl:left-[-16px] top-1/2 -translate-y-1/2 w-px h-[70%] bg-gradient-to-b from-transparent via-white/20 to-transparent" />
-                )}
-
-                <div className="w-[56px] h-[56px] rounded-2xl bg-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)] backdrop-blur-sm flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-white/20 transition-all duration-400">
-                  <stat.icon className="w-6 h-6 text-white drop-shadow-md" strokeWidth={1.5} />
-                </div>
-
-                <div className="flex flex-col items-center overflow-hidden">
-                  <span className={`text-white font-bold ${stat.value === "Pan India" ? "text-[28px] md:text-[24px] lg:text-[32px] xl:text-[40px]" : "text-[40px] md:text-[36px] lg:text-[48px] xl:text-[56px]"} leading-[1.1] block tracking-tight shadow-black/10 drop-shadow-sm group-hover:translate-y-[-2px] transition-transform duration-300`}>
-                    {stat.value}
-                  </span>
-                  <span className="text-white/80 font-semibold text-[11px] lg:text-[13px] uppercase tracking-[0.2em] mt-2 group-hover:text-white transition-colors duration-300 text-center">
-                    {stat.label}
-                  </span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-
-
 
     </section>
   );
