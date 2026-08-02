@@ -21,60 +21,39 @@ export default function WhyClientsTrustUs() {
     <section className="relative w-full bg-soft-ivory text-pure-charcoal pt-12 pb-24 md:pt-16 md:pb-32 px-6 md:px-12 lg:px-24">
       <div className="max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-24">
-          
+
           {/* Left Visual Area */}
-          <motion.div 
+          <motion.div
             className="relative h-[600px] w-full"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            {/* Timeline Edge */}
-            <div className="absolute left-0 top-12 bottom-12 w-12 border-l-2 border-primary-red/20 z-30 flex flex-col justify-between py-8">
-              <div className="relative -left-[27px] flex items-center gap-4">
-                <div className="w-4 h-[2px] bg-primary-red" />
-                <span className="text-xs font-bold uppercase tracking-widest text-deep-burgundy rotate-90 transform origin-left w-32 translate-y-16">2006 — The Journey Began</span>
-              </div>
-              <div className="relative -left-[27px] flex items-center gap-4 mt-32">
-                <div className="w-4 h-[2px] bg-primary-red" />
-                <span className="text-xs font-bold uppercase tracking-widest text-deep-burgundy rotate-90 transform origin-left w-40 translate-y-20">20 Years — Consistent Execution</span>
-              </div>
-              <div className="relative -left-[27px] flex items-center gap-4 mt-32">
-                <div className="w-4 h-[2px] bg-primary-red" />
-                <span className="text-xs font-bold uppercase tracking-widest text-deep-burgundy rotate-90 transform origin-left w-40 translate-y-20">Today — Trusted Across Sectors</span>
-              </div>
-            </div>
-
             {/* Main Design Block */}
-            <div className="absolute top-0 right-0 bottom-0 left-16 shadow-2xl bg-pure-white border-r-8 border-primary-red flex flex-col items-center justify-center relative overflow-hidden">
+            <div className="absolute top-0 right-0 bottom-0 left-0 shadow-2xl bg-pure-white border-r-8 border-primary-red overflow-hidden">
               <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, #761B24 10px, #761B24 11px)' }} />
-              <div className="w-32 h-32 rounded-full border-4 border-primary-red flex items-center justify-center mb-8 relative z-10 bg-soft-ivory shadow-inner">
-                <span className="text-4xl font-bold text-deep-burgundy">20</span>
-              </div>
-              <h3 className="text-3xl font-condensed font-bold text-pure-charcoal tracking-wide relative z-10 text-center px-4">
-                YEARS
-              </h3>
               
-            </div>
 
-            {/* Smaller Detail Blocks - Staggered without overlap */}
-            <div className="absolute -right-4 top-4 w-48 h-24 shadow-lg border-4 border-soft-ivory z-20 bg-dark-wine flex items-center justify-center text-center p-4 hover:scale-105 transition-transform">
-              <span className="text-warm-beige font-condensed font-bold text-lg tracking-widest uppercase">Precision<br/>Planning</span>
-            </div>
-            <div className="absolute right-32 top-[256px] w-48 h-24 shadow-lg border-4 border-soft-ivory z-20 bg-deep-burgundy flex items-center justify-center text-center p-4 hover:scale-105 transition-transform">
-              <span className="text-soft-ivory font-condensed font-bold text-lg tracking-widest uppercase">Pan-India<br/>Scale</span>
-            </div>
-            <div className="absolute right-48 top-[384px] w-48 h-24 shadow-lg border-4 border-soft-ivory z-20 bg-dark-wine flex items-center justify-center text-center p-4 hover:scale-105 transition-transform">
-              <span className="text-warm-beige font-condensed font-bold text-lg tracking-widest uppercase">Consistent<br/>Impact</span>
-            </div>
-            <div className="absolute right-64 bottom-4 w-48 h-24 shadow-lg border-4 border-soft-ivory z-20 bg-primary-red flex items-center justify-center text-center p-4 hover:scale-105 transition-transform">
-              <span className="text-pure-white font-condensed font-bold text-xl tracking-widest uppercase">Flawless<br/>Execution</span>
+
+              {/* Smaller Detail Blocks - Staggered Staircase fixed coordinates */}
+              <div className="absolute right-8 top-[60px] w-48 h-[90px] shadow-lg z-20 bg-primary-red flex items-center justify-center text-center p-4 hover:-translate-x-2 transition-transform">
+                <span className="text-pure-white font-condensed font-bold text-lg tracking-widest uppercase">Precision<br/>Planning</span>
+              </div>
+              <div className="absolute right-20 top-[180px] w-48 h-[90px] shadow-lg z-20 bg-deep-burgundy flex items-center justify-center text-center p-4 hover:-translate-x-2 transition-transform">
+                <span className="text-soft-ivory font-condensed font-bold text-lg tracking-widest uppercase">Pan-India<br/>Scale</span>
+              </div>
+              <div className="absolute right-32 top-[300px] w-48 h-[90px] shadow-lg z-20 bg-dark-wine flex items-center justify-center text-center p-4 hover:-translate-x-2 transition-transform">
+                <span className="text-warm-beige font-condensed font-bold text-lg tracking-widest uppercase">Consistent<br/>Impact</span>
+              </div>
+              <div className="absolute right-44 top-[420px] w-48 h-[90px] shadow-lg z-20 bg-primary-red flex items-center justify-center text-center p-4 hover:-translate-x-2 transition-transform">
+                <span className="text-pure-white font-condensed font-bold text-lg tracking-widest uppercase">Flawless<br/>Execution</span>
+              </div>
             </div>
           </motion.div>
 
           {/* Right Content Area */}
-          <motion.div 
+          <motion.div
             className="flex flex-col"
             initial="hidden"
             whileInView="visible"
@@ -105,7 +84,7 @@ export default function WhyClientsTrustUs() {
         </div>
 
         {/* Trust Pillars */}
-        <motion.div 
+        <motion.div
           className="border-t border-muted-grey/20 pt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           initial="hidden"
           whileInView="visible"
