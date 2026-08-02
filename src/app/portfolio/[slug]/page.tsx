@@ -21,6 +21,30 @@ const projects = [
     description: "An engaging street play and theatrical performance for brand awareness.",
     tag: "Nukkad_Natak",
   },
+  {
+    id: "pcra-campaign",
+    title: "PCRA Fuel & LPG Saving Awareness Campaign",
+    description: "A nationwide awareness campaign promoting fuel and LPG conservation.",
+    tag: "PCRA", // Updated tag
+  },
+  {
+    id: "saas-bina-sasural",
+    title: "Saas Bina Sasural - Sony Entertainment Television",
+    description: "An engaging promotional event and activation for Sony Entertainment Television.",
+    tag: "Saas Bina Sasural",
+  },
+  {
+    id: "chajje-chajje-ka-pyar",
+    title: "Chajje Chajje Ka Pyar - Sony Entertainment Television",
+    description: "An interactive promotional campaign and activation for Sony Entertainment Television.",
+    tag: "Chajje",
+  },
+  {
+    id: "celebrity-fitness-mall-activations",
+    title: "Celebrity Fitness - Mall Activations",
+    description: "High-energy mall activations and fitness promotional events for Celebrity Fitness.",
+    tag: "Mall",
+  },
 ];
 
 interface CloudinaryImage {

@@ -30,6 +30,42 @@ const projects = [
     color: "from-red-500 to-rose-400",
     category: "Street Play"
   },
+  {
+    id: "pcra-campaign",
+    title: "PCRA Fuel & LPG Saving Awareness Campaign",
+    description: "A nationwide awareness campaign promoting fuel and LPG conservation.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785673882/DSCN3308_jnyjyf.jpg", 
+    tag: "PCRA", // Updated tag
+    color: "from-green-500 to-teal-400",
+    category: "Awareness Campaign"
+  },
+  {
+    id: "saas-bina-sasural",
+    title: "Saas Bina Sasural - Sony Entertainment Television",
+    description: "An engaging promotional event and activation for Sony Entertainment Television.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785674461/DSC_4095_thoqfe.jpg", 
+    tag: "Saas Bina Sasural",
+    color: "from-purple-500 to-pink-500",
+    category: "TV Promotion"
+  },
+  {
+    id: "chajje-chajje-ka-pyar",
+    title: "Chajje Chajje Ka Pyar - Sony Entertainment Television",
+    description: "An interactive promotional campaign and activation for Sony Entertainment Television.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785675216/000_0094_blldxx.jpg", 
+    tag: "Chajje",
+    color: "from-indigo-500 to-purple-500",
+    category: "TV Promotion"
+  },
+  {
+    id: "celebrity-fitness-mall-activations",
+    title: "Celebrity Fitness - Mall Activations",
+    description: "High-energy mall activations and fitness promotional events for Celebrity Fitness.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785675595/100_0165_jprzbd.jpg", 
+    tag: "Mall",
+    color: "from-orange-500 to-red-500",
+    category: "Mall Activation"
+  },
   // You can add more projects here in the future
 ];
 
@@ -70,15 +106,15 @@ export default function PortfolioPage() {
             <div className="absolute inset-0 z-20 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-[2px]"></div>
             
             {/* Content Layer */}
-            <div className="absolute inset-x-0 bottom-0 z-30 p-6 sm:p-8 flex flex-col justify-end transform transition-transform duration-500 translate-y-8 group-hover:translate-y-0">
+            <div className="absolute inset-0 z-30 p-6 sm:p-8 flex flex-col justify-end">
               
-              <div className="flex items-center gap-2 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 transform translate-y-4 group-hover:translate-y-0">
+              <div className="flex items-center gap-2 mb-3 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 transform translate-y-2 group-hover:translate-y-0">
                  <span className="text-xs font-bold tracking-widest uppercase text-white/90 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full border border-white/30">
                     {project.category}
                  </span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-bold mb-2 text-white font-condensed tracking-wide drop-shadow-md">
+              <h3 className="text-2xl sm:text-3xl font-bold mb-2 text-white font-condensed tracking-wide drop-shadow-md leading-tight">
                 {project.title}
               </h3>
               
