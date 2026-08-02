@@ -21,11 +21,11 @@ export function CTASection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden py-28 lg:py-40 isolate flex items-center justify-center text-center"
+      className="relative w-full overflow-hidden pt-12 pb-28 lg:pt-16 lg:pb-40 isolate flex items-center justify-center text-center"
     >
       
-      {/* Solid Dark Background */}
-      <div className="absolute inset-0 z-0 bg-[#111111]" />
+      {/* Solid Cream Background */}
+      <div className="absolute inset-0 z-0 bg-cream" />
 
       {/* Content */}
       <motion.div
@@ -38,7 +38,7 @@ export function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="text-white/90 font-bold uppercase tracking-[0.2em] text-[12px] lg:text-[14px] mb-4"
+          className="text-burgundy font-bold uppercase tracking-[0.2em] text-[12px] lg:text-[14px] mb-4"
         >
           Let's work together
         </motion.span>
@@ -48,9 +48,9 @@ export function CTASection() {
           whileInView={{ opacity: 1, clipPath: "inset(0 0% 0 0)" }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="text-white font-bold text-[40px] md:text-[52px] lg:text-[64px] leading-[1.1] tracking-tight mb-6"
+          className="text-charcoal font-bold text-[40px] md:text-[52px] lg:text-[64px] leading-[1.1] tracking-tight mb-6"
         >
-          Ready to Build Your Next <span className="font-script text-[#ffcc00] font-normal text-[1.2em] relative inline-block -rotate-2">Campaign?</span>
+          Ready to Build Your Next <span className="font-script text-burgundy font-normal text-[1.2em] relative inline-block -rotate-2">Campaign?</span>
         </motion.h2>
         
         <motion.p 
@@ -58,7 +58,7 @@ export function CTASection() {
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          className="text-white/80 text-[18px] lg:text-[20px] leading-relaxed max-w-[700px] mb-10"
+          className="text-muted-text text-[18px] lg:text-[20px] leading-relaxed max-w-[700px] mb-10"
         >
           Partner with Wellset India Events & Promotions to create unforgettable, nationwide brand experiences that truly resonate with your audience.
         </motion.p>
@@ -70,14 +70,14 @@ export function CTASection() {
           transition={{ duration: 0.7, delay: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="flex flex-col sm:flex-row gap-5 items-center justify-center"
         >
-          <button className="group relative overflow-hidden bg-[#da2f1d] text-white rounded-full px-10 py-4 font-bold text-[16px] transition-transform hover:scale-105 shadow-[0_10px_30px_rgba(158,27,27,0.4)] flex items-center gap-3">
+          <button className="group relative overflow-hidden bg-burgundy text-white rounded-full px-10 py-4 font-bold text-[16px] transition-transform hover:scale-105 shadow-[0_10px_30px_rgba(218,47,29,0.25)] flex items-center gap-3">
             <span className="relative z-10">Get a Proposal</span>
             <ArrowRight className="w-5 h-5 relative z-10 transition-transform group-hover:translate-x-1" />
-            <div className="absolute inset-0 bg-[#da2f1d] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+            <div className="absolute inset-0 bg-burgundy-dark translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
           </button>
           
-          <button className="group rounded-full px-10 py-4 font-semibold text-white border border-white/40 transition-all hover:bg-white/10 hover:border-white flex items-center gap-3 backdrop-blur-sm">
-            <PhoneCall className="w-5 h-5" />
+          <button className="group rounded-full px-10 py-4 font-semibold text-charcoal border border-border transition-all hover:bg-black/5 hover:border-charcoal/20 flex items-center gap-3 backdrop-blur-sm">
+            <PhoneCall className="w-5 h-5 text-burgundy" />
             <span>Contact Us</span>
           </button>
         </motion.div>
