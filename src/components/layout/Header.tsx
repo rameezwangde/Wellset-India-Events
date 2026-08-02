@@ -1,12 +1,14 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
-import { ArrowRight, Menu } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Menu, X } from "lucide-react";
 
 export function Header() {
   const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -78,11 +80,55 @@ export function Header() {
 
         {/* Mobile Menu Toggle */}
         <div className="flex lg:hidden justify-end">
-          <button className="p-2 text-charcoal hover:text-burgundy transition-colors">
-            <Menu className="w-6 h-6" />
+          <button 
+            className="p-2 text-charcoal hover:text-burgundy transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden absolute top-[84px] left-0 w-full bg-warm-white border-b border-border shadow-lg overflow-hidden flex flex-col"
+          >
+            <nav className="flex flex-col py-6 px-8 gap-6">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`text-[18px] font-medium transition-colors ${
+                    pathname === link.href ? "text-burgundy" : "text-charcoal hover:text-burgundy"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <div className="pt-4 mt-2 border-t border-border/50">
+                <Link
+                  href="/contact"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center justify-center gap-2 w-full bg-burgundy text-white text-[16px] font-medium rounded-md h-[54px] shadow-sm active:bg-burgundy-dark transition-colors"
+                >
+                  Start a Campaign
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }

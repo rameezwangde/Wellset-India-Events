@@ -232,22 +232,7 @@ export function WhoWeAreSection() {
                   ))}
                 </div>
 
-                {/* Badge */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.8 }}
-                  className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-md rounded-2xl px-5 py-4 shadow-[0_15px_40px_rgba(0,0,0,0.12)] border border-white/80 z-30 flex items-center gap-3"
-                >
-                  <div className="w-10 h-10 rounded-full bg-[#da2f1d]/10 flex items-center justify-center">
-                    <TrendingUp className="w-5 h-5 text-[#da2f1d]" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-[20px] text-[#181818] leading-none">100%</div>
-                    <div className="text-[10px] font-bold text-[#da2f1d] uppercase tracking-widest mt-0.5">Commitment</div>
-                  </div>
-                </motion.div>
+
               </div>
 
               {/* Right: Feature cards with scroll-driven highlight */}

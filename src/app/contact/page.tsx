@@ -71,7 +71,7 @@ export default function ContactPage() {
                       <MapPin className="w-6 h-6 text-cream" />
                     </div>
                     <div className="flex flex-col gap-1">
-                      <span className="font-bold text-white text-[18px]">Corporate Office</span>
+                      <span className="font-bold text-white text-[18px]">Office Address</span>
                       <p className="text-cream/80 text-[15px] leading-relaxed mt-1">
                         C-6/72, 3rd Floor, Pocket 3<br />
                         Sector-5, Rohini<br />
@@ -86,7 +86,7 @@ export default function ContactPage() {
                       <MapPin className="w-6 h-6 text-cream" />
                     </div>
                     <div className="flex flex-col gap-1">
-                      <span className="font-bold text-white text-[18px]">Branch Office</span>
+                      <span className="font-bold text-white text-[18px]">New Address</span>
                       <p className="text-cream/80 text-[15px] leading-relaxed mt-1">
                         Office number 11, Pocket No. 13<br />
                         Sector 24, Rohini<br />
@@ -94,6 +94,9 @@ export default function ContactPage() {
                       </p>
                     </div>
                   </div>
+
+                  {/* Address 2 */}
+
 
                   {/* Phone */}
                   <div className="flex gap-4">
@@ -119,8 +122,7 @@ export default function ContactPage() {
                     </div>
                     <div className="flex flex-col gap-1">
                       <span className="font-bold text-white text-[18px]">Email Us</span>
-                      <a href="mailto:hello@wellsetindia.com" className="text-cream/80 hover:text-white transition-colors text-[16px] mt-1">hello@wellsetindia.com</a>
-                      <a href="mailto:wellset017@gmail.com" className="text-cream/80 hover:text-white transition-colors text-[16px]">wellset017@gmail.com</a>
+                      <a href="mailto:wellset017@gmail.com" className="text-cream/80 hover:text-white transition-colors text-[16px] mt-1">wellset017@gmail.com</a>
                     </div>
                   </div>
                 </div>
@@ -128,9 +130,9 @@ export default function ContactPage() {
 
               {/* Maps */}
               <div className="flex flex-col gap-6">
-                {/* Corporate Office Map */}
+                {/* Office Map */}
                 <div className="bg-white rounded-3xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-burgundy/10 overflow-hidden w-full h-[250px] relative">
-                  <span className="absolute top-6 left-6 bg-white px-3 py-1 rounded-full text-[12px] font-bold text-burgundy shadow-sm z-10 border border-burgundy/10">Corporate Office</span>
+                  <span className="absolute top-6 left-6 bg-white px-3 py-1 rounded-full text-[12px] font-bold text-burgundy shadow-sm z-10 border border-burgundy/10">Office Address</span>
                   <iframe 
                     src="https://maps.google.com/maps?q=Sector-5,+Rohini,+Delhi+-+110085&t=&z=15&ie=UTF8&iwloc=&output=embed" 
                     width="100%" 
@@ -145,7 +147,7 @@ export default function ContactPage() {
 
                 {/* Branch Office Map */}
                 <div className="bg-white rounded-3xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-burgundy/10 overflow-hidden w-full h-[250px] relative">
-                  <span className="absolute top-6 left-6 bg-white px-3 py-1 rounded-full text-[12px] font-bold text-burgundy shadow-sm z-10 border border-burgundy/10">Branch Office</span>
+                  <span className="absolute top-6 left-6 bg-white px-3 py-1 rounded-full text-[12px] font-bold text-burgundy shadow-sm z-10 border border-burgundy/10">New Address</span>
                   <iframe 
                     src="https://maps.google.com/maps?q=Sector+24,+Rohini,+New+Delhi+-+110085&t=&z=15&ie=UTF8&iwloc=&output=embed" 
                     width="100%" 
@@ -157,6 +159,8 @@ export default function ContactPage() {
                     className="rounded-2xl"
                   ></iframe>
                 </div>
+
+
               </div>
 
             </div>

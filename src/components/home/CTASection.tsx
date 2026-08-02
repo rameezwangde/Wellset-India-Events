@@ -24,18 +24,8 @@ export function CTASection() {
       className="relative w-full overflow-hidden py-28 lg:py-40 isolate flex items-center justify-center text-center"
     >
       
-      {/* Background Image & Overlay with parallax */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <motion.div className="absolute inset-[-20%] z-0" style={{ y: bgY }}>
-          <Image
-            src="/images/Conference, Events & Exhibition.JPG"
-            alt="CTA Background"
-            fill
-            className="object-cover object-center"
-          />
-        </motion.div>
-        <div className="absolute inset-0 bg-black/70 backdrop-blur-[2px]" />
-      </div>
+      {/* Solid Dark Background */}
+      <div className="absolute inset-0 z-0 bg-[#111111]" />
 
       {/* Content */}
       <motion.div

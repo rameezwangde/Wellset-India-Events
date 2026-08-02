@@ -64,12 +64,12 @@ export function Footer() {
                 <MapPin className="w-5 h-5 text-[#da2f1d] shrink-0 mt-0.5" />
                 <div className="flex flex-col gap-3">
                   <span className="text-[14px] leading-relaxed">
-                    <strong>Corporate Office:</strong><br />
+                    <strong>Office Address:</strong><br />
                     C-6/72, 3rd Floor, Pocket 3<br />
                     Sector-5, Rohini, Delhi - 110085
                   </span>
                   <span className="text-[14px] leading-relaxed">
-                    <strong>Branch Office:</strong><br />
+                    <strong>New Address:</strong><br />
                     Office number 11, Pocket No. 13<br />
                     Sector 24, Rohini, New Delhi 110085
                   </span>
@@ -90,12 +90,9 @@ export function Footer() {
                 </div>
               </li>
               <li className="flex flex-col gap-2">
+
                 <div className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-[#da2f1d] shrink-0" />
-                  <span className="text-[14px]">hello@wellsetindia.com</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="w-5 h-5 shrink-0" />
                   <span className="text-[14px]">wellset017@gmail.com</span>
                 </div>
               </li>
