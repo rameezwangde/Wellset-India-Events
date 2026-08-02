@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 
 // We can define our portfolio projects here
 const projects = [
@@ -9,8 +12,8 @@ const projects = [
     description: "A vibrant canopy activation setup and event for Cadbury Tang.",
     coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785670354/100_5899_goqs3z.jpg", 
     tag: "Cadboury_Tang",
-    color: "from-orange-400 to-yellow-300", // Fallback color
-    category: "Event Activation"
+    color: "from-orange-400 to-yellow-300", 
+    category: "Canopy Activation"
   },
   {
     id: "tata-swach",
@@ -28,16 +31,16 @@ const projects = [
     coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785673320/IMG_3566_dmuyaf.jpg", 
     tag: "Nukkad_Natak",
     color: "from-red-500 to-rose-400",
-    category: "Street Play"
+    category: "Nukkad Natak"
   },
   {
     id: "pcra-campaign",
     title: "PCRA Fuel & LPG Saving Awareness Campaign",
     description: "A nationwide awareness campaign promoting fuel and LPG conservation.",
     coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785673882/DSCN3308_jnyjyf.jpg", 
-    tag: "PCRA", // Updated tag
+    tag: "PCRA", 
     color: "from-green-500 to-teal-400",
-    category: "Awareness Campaign"
+    category: "Government & NGO Awareness Campaigns"
   },
   {
     id: "saas-bina-sasural",
@@ -46,7 +49,7 @@ const projects = [
     coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785674461/DSC_4095_thoqfe.jpg", 
     tag: "Saas Bina Sasural",
     color: "from-purple-500 to-pink-500",
-    category: "TV Promotion"
+    category: "Conference, Events & Exhibition"
   },
   {
     id: "chajje-chajje-ka-pyar",
@@ -55,7 +58,7 @@ const projects = [
     coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785675216/000_0094_blldxx.jpg", 
     tag: "Chajje",
     color: "from-indigo-500 to-purple-500",
-    category: "TV Promotion"
+    category: "Conference, Events & Exhibition"
   },
   {
     id: "celebrity-fitness-mall-activations",
@@ -66,21 +69,57 @@ const projects = [
     color: "from-orange-500 to-red-500",
     category: "Mall Activation"
   },
-  // You can add more projects here in the future
+  {
+    id: "ghaziabad-smart-city-campaign",
+    title: "Ghaziabad Smart City Campaign - Canopy Activation",
+    description: "A civic awareness and interactive canopy activation campaign for Ghaziabad Smart City.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785675981/20160527_121427_maygod.jpg", 
+    tag: "Ghaziabad",
+    color: "from-blue-600 to-sky-400",
+    category: "Canopy Activation"
+  },
 ];
 
 export default function PortfolioPage() {
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  // Get unique categories
+  const categories = ["All", ...Array.from(new Set(projects.map(p => p.category)))];
+
+  const filteredProjects = activeCategory === "All" 
+    ? projects 
+    : projects.filter(p => p.category === activeCategory);
+
   return (
     <div className="flex-grow py-20 px-6 sm:px-10 lg:px-20 max-w-7xl mx-auto w-full">
-      <div className="mb-12 text-center md:text-left">
-        <h1 className="text-4xl md:text-6xl font-bold font-condensed mb-4 text-gray-900">Our Portfolio</h1>
-        <p className="text-lg text-gray-600 max-w-2xl">
-          Explore some of our most memorable events and activations. Click on a project to see the full gallery.
-        </p>
+      <div className="mb-12 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+          <h1 className="text-4xl md:text-6xl font-bold font-condensed mb-4 text-gray-900">Our Portfolio</h1>
+          <p className="text-lg text-gray-600 max-w-2xl">
+            Explore some of our most memorable events and activations. Click on a project to see the full gallery.
+          </p>
+        </div>
+      </div>
+
+      {/* Filter Tabs */}
+      <div className="flex flex-wrap items-center gap-3 mb-10">
+        {categories.map(category => (
+          <button
+            key={category}
+            onClick={() => setActiveCategory(category)}
+            className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+              activeCategory === category 
+                ? "bg-red-600 text-white shadow-md shadow-red-200" 
+                : "bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-900"
+            }`}
+          >
+            {category}
+          </button>
+        ))}
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project) => (
+        {filteredProjects.map((project) => (
           <Link 
             key={project.id} 
             href={`/portfolio/${project.id}`}

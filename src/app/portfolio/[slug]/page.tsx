@@ -45,6 +45,12 @@ const projects = [
     description: "High-energy mall activations and fitness promotional events for Celebrity Fitness.",
     tag: "Mall",
   },
+  {
+    id: "ghaziabad-smart-city-campaign",
+    title: "Ghaziabad Smart City Campaign - Canopy Activation",
+    description: "A civic awareness and interactive canopy activation campaign for Ghaziabad Smart City.",
+    tag: "Ghaziabad",
+  },
 ];
 
 interface CloudinaryImage {
