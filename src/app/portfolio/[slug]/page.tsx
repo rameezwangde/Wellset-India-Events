@@ -51,6 +51,30 @@ const projects = [
     description: "A civic awareness and interactive canopy activation campaign for Ghaziabad Smart City.",
     tag: "Ghaziabad",
   },
+  {
+    id: "mountain-dew-van-activation",
+    title: "Mountain Dew - Van Activation",
+    description: "A high-impact and adventurous van activation campaign for Mountain Dew.",
+    tag: "Mountain Dew",
+  },
+  {
+    id: "tata-nano-van-activation",
+    title: "Tata Nano - Van Activation",
+    description: "An engaging van activation and promotional campaign for Tata Nano.",
+    tag: "Tata Nano",
+  },
+  {
+    id: "punjab-national-bank-van-activation",
+    title: "Punjab National Bank Van Activation",
+    description: "A comprehensive van activation and outreach campaign for Punjab National Bank.",
+    tag: "pnb",
+  },
+  {
+    id: "hp-pcra-conservation-fortnight",
+    title: "HP & PCRA Oil & Gas Conservation Fortnight",
+    description: "A nationwide government and NGO awareness campaign for oil and gas conservation.",
+    tag: "HP",
+  },
 ];
 
 interface CloudinaryImage {

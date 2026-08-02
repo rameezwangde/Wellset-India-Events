@@ -78,6 +78,42 @@ const projects = [
     color: "from-blue-600 to-sky-400",
     category: "Canopy Activation"
   },
+  {
+    id: "mountain-dew-van-activation",
+    title: "Mountain Dew - Van Activation",
+    description: "A high-impact and adventurous van activation campaign for Mountain Dew.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785677473/Picture_1391_pum84o.jpg", 
+    tag: "Mountain Dew",
+    color: "from-lime-500 to-green-600",
+    category: "Van Activation"
+  },
+  {
+    id: "tata-nano-van-activation",
+    title: "Tata Nano - Van Activation",
+    description: "An engaging van activation and promotional campaign for Tata Nano.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785677601/DSCF2845_ailauc.jpg", 
+    tag: "Tata Nano",
+    color: "from-yellow-400 to-orange-500",
+    category: "Van Activation"
+  },
+  {
+    id: "punjab-national-bank-van-activation",
+    title: "Punjab National Bank Van Activation",
+    description: "A comprehensive van activation and outreach campaign for Punjab National Bank.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785677884/IMG-20150914-WA0004_uvgzzp.jpg", 
+    tag: "pnb",
+    color: "from-blue-600 to-red-600",
+    category: "Van Activation"
+  },
+  {
+    id: "hp-pcra-conservation-fortnight",
+    title: "HP & PCRA Oil & Gas Conservation Fortnight",
+    description: "A nationwide government and NGO awareness campaign for oil and gas conservation.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785678102/DSC_0447_um3qwf.jpg", 
+    tag: "HP",
+    color: "from-teal-600 to-emerald-500",
+    category: "Government & NGO Awareness Campaigns"
+  },
 ];
 
 export default function PortfolioPage() {
