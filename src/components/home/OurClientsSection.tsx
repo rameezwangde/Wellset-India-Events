@@ -88,19 +88,27 @@ export function OurClientsSection() {
 
       <div className="flex flex-col gap-16 relative before:absolute before:left-0 before:top-0 before:w-32 before:h-full before:bg-gradient-to-r before:from-cream before:to-transparent before:z-10 after:absolute after:right-0 after:top-0 after:w-32 after:h-full after:bg-gradient-to-l after:from-cream after:to-transparent after:z-10">
         {/* Row 1 */}
-        <div className="flex w-max gap-12 md:gap-20 animate-marquee">
-          {[...row1Logos, ...row1Logos].map((url, idx) => (
-            <div key={idx} className={getContainerClassName(url)}>
-              <Image src={url} alt="Client Logo" width={400} height={145} className={getLogoClassName(url)} />
+        <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
+          {[1, 2].map((set) => (
+            <div key={set} className="flex w-max shrink-0 gap-12 md:gap-20 pr-12 md:pr-20" aria-hidden={set === 2 ? "true" : undefined}>
+              {row1Logos.map((url, idx) => (
+                <div key={`${set}-${idx}`} className={getContainerClassName(url)}>
+                  <Image src={url} alt="Client Logo" width={400} height={145} className={getLogoClassName(url)} />
+                </div>
+              ))}
             </div>
           ))}
         </div>
 
         {/* Row 2 */}
-        <div className="flex w-max gap-12 md:gap-20 animate-marquee-reverse">
-          {[...row2Logos, ...row2Logos].map((url, idx) => (
-            <div key={idx} className={getContainerClassName(url)}>
-              <Image src={url} alt="Client Logo" width={400} height={145} className={getLogoClassName(url)} />
+        <div className="flex w-max animate-marquee-reverse hover:[animation-play-state:paused]">
+          {[1, 2].map((set) => (
+            <div key={set} className="flex w-max shrink-0 gap-12 md:gap-20 pr-12 md:pr-20" aria-hidden={set === 2 ? "true" : undefined}>
+              {row2Logos.map((url, idx) => (
+                <div key={`${set}-${idx}`} className={getContainerClassName(url)}>
+                  <Image src={url} alt="Client Logo" width={400} height={145} className={getLogoClassName(url)} />
+                </div>
+              ))}
             </div>
           ))}
         </div>
