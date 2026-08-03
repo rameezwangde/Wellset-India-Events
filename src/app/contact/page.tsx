@@ -65,7 +65,7 @@ export default function ContactPage() {
                 <h3 className="text-[28px] font-bold text-white relative z-10">Contact Details</h3>
                 
                 <div className="flex flex-col gap-8 relative z-10">
-                  {/* Address 1 */}
+                  {/* Address */}
                   <div className="flex gap-4">
                     <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0">
                       <MapPin className="w-6 h-6 text-cream" />
@@ -73,29 +73,12 @@ export default function ContactPage() {
                     <div className="flex flex-col gap-1">
                       <span className="font-bold text-white text-[18px]">Office Address</span>
                       <p className="text-cream/80 text-[15px] leading-relaxed mt-1">
-                        C-6/72, 3rd Floor, Pocket 3<br />
-                        Sector-5, Rohini<br />
-                        Delhi - 110085
+                        3rd Floor, C-6/72, Pocket 3<br />
+                        Sector 5, Rohini<br />
+                        New Delhi, Delhi, 110085
                       </p>
                     </div>
                   </div>
-
-                  {/* Address 2 */}
-                  <div className="flex gap-4">
-                    <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                      <MapPin className="w-6 h-6 text-cream" />
-                    </div>
-                    <div className="flex flex-col gap-1">
-                      <span className="font-bold text-white text-[18px]">New Address</span>
-                      <p className="text-cream/80 text-[15px] leading-relaxed mt-1">
-                        Office number 11, Pocket No. 13<br />
-                        Sector 24, Rohini<br />
-                        New Delhi, Delhi 110085
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Address 2 */}
 
 
                   {/* Phone */}
@@ -128,13 +111,12 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Maps */}
-              <div className="flex flex-col gap-6">
-                {/* Office Map */}
-                <div className="bg-white rounded-3xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-burgundy/10 overflow-hidden w-full h-[250px] relative">
-                  <span className="absolute top-6 left-6 bg-white px-3 py-1 rounded-full text-[12px] font-bold text-burgundy shadow-sm z-10 border border-burgundy/10">Office Address</span>
+              {/* Map */}
+              <div className="flex flex-col gap-3 mt-4">
+                <span className="bg-white px-4 py-1.5 rounded-full text-[13px] font-bold text-burgundy shadow-sm border border-burgundy/10 w-fit">Office Address Location</span>
+                <div className="bg-white rounded-3xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-burgundy/10 overflow-hidden w-full h-[350px] relative">
                   <iframe 
-                    src="https://maps.google.com/maps?q=Sector-5,+Rohini,+Delhi+-+110085&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                    src="https://maps.google.com/maps?q=C-6/72,+Pocket+3,+Sector+5,+Rohini,+New+Delhi,+Delhi,+110085&t=&z=15&ie=UTF8&iwloc=&output=embed" 
                     width="100%" 
                     height="100%" 
                     style={{ border: 0, borderRadius: '16px' }} 
@@ -144,23 +126,6 @@ export default function ContactPage() {
                     className="rounded-2xl"
                   ></iframe>
                 </div>
-
-                {/* Branch Office Map */}
-                <div className="bg-white rounded-3xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-burgundy/10 overflow-hidden w-full h-[250px] relative">
-                  <span className="absolute top-6 left-6 bg-white px-3 py-1 rounded-full text-[12px] font-bold text-burgundy shadow-sm z-10 border border-burgundy/10">New Address</span>
-                  <iframe 
-                    src="https://maps.google.com/maps?q=Sector+24,+Rohini,+New+Delhi+-+110085&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-                    width="100%" 
-                    height="100%" 
-                    style={{ border: 0, borderRadius: '16px' }} 
-                    allowFullScreen={false} 
-                    loading="lazy" 
-                    referrerPolicy="no-referrer-when-downgrade"
-                    className="rounded-2xl"
-                  ></iframe>
-                </div>
-
-
               </div>
 
             </div>

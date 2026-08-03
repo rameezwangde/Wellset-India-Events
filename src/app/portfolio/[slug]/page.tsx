@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import ImageGallery from '@/components/portfolio/ImageGallery';
 
 // You can move this to a separate data file later
 const projects = [
@@ -165,29 +166,7 @@ export default async function ProjectGalleryPage({
         <p className="text-lg text-gray-600 max-w-3xl">{project.description}</p>
       </div>
 
-      {images.length === 0 ? (
-        <div className="py-20 text-center bg-gray-50 rounded-2xl border border-gray-100">
-          <p className="text-gray-500">No images found for this project yet.</p>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {images.map((img) => {
-            const imageUrl = `https://res.cloudinary.com/${cloudName}/image/upload/v${img.version}/${img.public_id}.${img.format}`;
-            
-            return (
-              <div key={img.public_id} className="relative aspect-square overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 group bg-gray-100">
-                <Image 
-                  src={imageUrl} 
-                  alt={img.public_id} 
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                />
-              </div>
-            );
-          })}
-        </div>
-      )}
+      <ImageGallery images={images} cloudName={cloudName} />
     </div>
   );
 }

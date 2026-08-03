@@ -65,13 +65,8 @@ export function Footer() {
                 <div className="flex flex-col gap-3">
                   <span className="text-[14px] leading-relaxed">
                     <strong>Office Address:</strong><br />
-                    C-6/72, 3rd Floor, Pocket 3<br />
-                    Sector-5, Rohini, Delhi - 110085
-                  </span>
-                  <span className="text-[14px] leading-relaxed">
-                    <strong>New Address:</strong><br />
-                    Office number 11, Pocket No. 13<br />
-                    Sector 24, Rohini, New Delhi 110085
+                    3rd Floor, C-6/72, Pocket 3<br />
+                    Sector 5, Rohini, New Delhi, Delhi, 110085
                   </span>
                 </div>
               </li>
