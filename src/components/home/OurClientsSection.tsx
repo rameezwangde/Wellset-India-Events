@@ -60,8 +60,7 @@ export function OurClientsSection() {
 
   const getContainerClassName = (url: string) => {
     let baseClass = "h-[110px] md:h-[145px] flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-300";
-    if (url.toLowerCase().includes("silica")) return `${baseClass} mx-8 md:mx-16`;
-    return `${baseClass} mx-4 md:mx-6`;
+    return baseClass;
   };
 
   return (
@@ -87,9 +86,9 @@ export function OurClientsSection() {
         </motion.h2>
       </div>
 
-      <div className="flex flex-col gap-12 relative before:absolute before:left-0 before:top-0 before:w-32 before:h-full before:bg-gradient-to-r before:from-cream before:to-transparent before:z-10 after:absolute after:right-0 after:top-0 after:w-32 after:h-full after:bg-gradient-to-l after:from-cream after:to-transparent after:z-10">
+      <div className="flex flex-col gap-16 relative before:absolute before:left-0 before:top-0 before:w-32 before:h-full before:bg-gradient-to-r before:from-cream before:to-transparent before:z-10 after:absolute after:right-0 after:top-0 after:w-32 after:h-full after:bg-gradient-to-l after:from-cream after:to-transparent after:z-10">
         {/* Row 1 */}
-        <div className="flex w-max animate-marquee">
+        <div className="flex w-max gap-12 md:gap-20 animate-marquee">
           {[...row1Logos, ...row1Logos].map((url, idx) => (
             <div key={idx} className={getContainerClassName(url)}>
               <Image src={url} alt="Client Logo" width={400} height={145} className={getLogoClassName(url)} />
@@ -98,7 +97,7 @@ export function OurClientsSection() {
         </div>
 
         {/* Row 2 */}
-        <div className="flex w-max animate-marquee-reverse">
+        <div className="flex w-max gap-12 md:gap-20 animate-marquee-reverse">
           {[...row2Logos, ...row2Logos].map((url, idx) => (
             <div key={idx} className={getContainerClassName(url)}>
               <Image src={url} alt="Client Logo" width={400} height={145} className={getLogoClassName(url)} />
