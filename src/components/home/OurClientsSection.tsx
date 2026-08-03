@@ -15,7 +15,7 @@ const row1Logos = [
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682414/honda-logo-1_qh73e3.png",
   "/images/clients/2017-logo-Tata-Motors_yrx5s9_transparent.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682411/Ministry-of-Jal-Shakti_trdnej.png",
-  "/images/clients/png-transparent-logo-bureau-of-indian-standards-brand-symbol-indian-architecture-angle-text-triangle_gikotm_transparent.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785759149/bureay_kb3e9g.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682406/MSME_Logo_uer8sz.svg",
   "/images/clients/NPCC-Preview_lxvda6_transparent.png",
   "/images/clients/cii_uuazmc_transparent.png",
@@ -37,7 +37,7 @@ const row2Logos = [
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681676/Dove-Logo-1969-2004_ykwyqc.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681674/Tang-Logo-2015_yr95vv.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681663/Punjab_National_Bank_new_logo.svg_ary5wb.webp",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681655/Silica_Logo_1_ereuzf.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785758561/silica_xgvl8h.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681653/Colgate-Logo-2004_fzhklv.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681652/Nickelodeon_gssmh7.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681650/Dell-Logo_ztve6u.png",
@@ -46,7 +46,7 @@ const row2Logos = [
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681645/Apollo_Hospitals_Logo_xohhqk.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681643/National_Health_Mission_Logo_brhnql.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681333/TCI_Logo_bcnhts.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681331/TPDDL_Logo_2_tidfjv.png"
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785758886/ChatGPT_Image_Aug_3_2026_05_37_41_PM_yjvoua.png"
 ];
 
 export function OurClientsSection() {
@@ -77,8 +77,8 @@ export function OurClientsSection() {
         {/* Row 1 */}
         <div className="flex w-max animate-marquee">
           {[...row1Logos, ...row1Logos].map((url, idx) => (
-            <div key={idx} className="w-[180px] md:w-[300px] h-[100px] md:h-[150px] mx-4 md:mx-6 flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-300">
-              <Image src={url} alt="Client Logo" width={300} height={150} className="w-full h-full object-contain" />
+            <div key={idx} className="h-[110px] md:h-[145px] mx-4 md:mx-6 flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-300">
+              <Image src={url} alt="Client Logo" width={400} height={145} className={`w-auto h-full object-contain ${url.toLowerCase().includes("nickelodeon") ? "scale-75 md:scale-50" : ""}`} />
             </div>
           ))}
         </div>
@@ -86,8 +86,8 @@ export function OurClientsSection() {
         {/* Row 2 */}
         <div className="flex w-max animate-marquee-reverse">
           {[...row2Logos, ...row2Logos].map((url, idx) => (
-            <div key={idx} className="w-[180px] md:w-[300px] h-[100px] md:h-[150px] mx-4 md:mx-6 flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-300">
-              <Image src={url} alt="Client Logo" width={300} height={150} className="w-full h-full object-contain" />
+            <div key={idx} className="h-[110px] md:h-[145px] mx-4 md:mx-6 flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-300">
+              <Image src={url} alt="Client Logo" width={400} height={145} className={`w-auto h-full object-contain ${url.toLowerCase().includes("nickelodeon") ? "scale-75 md:scale-50" : ""}`} />
             </div>
           ))}
         </div>
