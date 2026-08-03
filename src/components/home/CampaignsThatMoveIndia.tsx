@@ -168,10 +168,10 @@ export function CampaignsThatMoveIndia() {
       </div>
 
       {/* --- Cards Grid Area --- */}
-      <div className="relative z-20 mx-auto w-full max-w-[1440px] px-6 lg:px-12 pb-10 lg:pb-12 flex justify-center">
+      <div className="relative z-20 mx-auto w-full max-w-[1440px] px-4 lg:px-12 pb-10 lg:pb-12 flex justify-center">
         
-        {/* 3 Rows x 5 Columns Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-[32px] gap-y-[24px]">
+        {/* Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-[12px] sm:gap-[24px] lg:gap-x-[32px] lg:gap-y-[24px] w-full">
           {services.map((service, i) => (
             <motion.div
               key={i}
@@ -179,22 +179,22 @@ export function CampaignsThatMoveIndia() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.07, ease: "easeOut" }}
-              className="group relative flex flex-col items-center justify-center text-center w-full max-w-[260px] h-[170px] rounded-[18px] bg-white border border-transparent shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:border-[#da2f1d]/20 hover:shadow-[0_16px_40px_rgba(0,0,0,0.06)] transition-all duration-400 ease-out hover:-translate-y-[10px] mx-auto px-4"
+              className="group relative flex flex-col items-center justify-center text-center w-full h-[150px] sm:h-[170px] rounded-[18px] bg-white border border-transparent shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:border-[#da2f1d]/20 hover:shadow-[0_16px_40px_rgba(0,0,0,0.06)] transition-all duration-400 ease-out hover:-translate-y-[10px] mx-auto px-2 sm:px-4 py-4"
             >
               {/* Icon Area */}
-              <div className="relative w-[50px] h-[50px] rounded-full border border-[#da2f1d]/20 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300">
-                <service.icon className="w-[22px] h-[22px] text-[#da2f1d]" strokeWidth={1.5} />
+              <div className="relative w-[40px] h-[40px] sm:w-[50px] sm:h-[50px] rounded-full border border-[#da2f1d]/20 flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-105 transition-transform duration-300">
+                <service.icon className="w-[18px] h-[18px] sm:w-[22px] sm:h-[22px] text-[#da2f1d]" strokeWidth={1.5} />
                 {/* Small red dot on the right edge */}
-                <div className="absolute top-1/2 -translate-y-1/2 -right-[2.5px] w-[5px] h-[5px] rounded-full bg-[#da2f1d]" />
+                <div className="absolute top-1/2 -translate-y-1/2 -right-[2.5px] w-[4px] h-[4px] sm:w-[5px] sm:h-[5px] rounded-full bg-[#da2f1d]" />
               </div>
 
               {/* Title */}
-              <h4 className="font-semibold text-[15px] xl:text-[16px] text-[#222] leading-[1.3] whitespace-pre-line">
+              <h4 className="font-semibold text-[13px] sm:text-[15px] xl:text-[16px] text-[#222] leading-[1.3] whitespace-pre-line">
                 {service.title}
               </h4>
 
               {/* Tiny red line below text */}
-              <div className="w-[20px] h-[2px] bg-[#da2f1d] mt-3 opacity-80" />
+              <div className="w-[16px] sm:w-[20px] h-[2px] bg-[#da2f1d] mt-2 sm:mt-3 opacity-80" />
             </motion.div>
           ))}
         </div>
