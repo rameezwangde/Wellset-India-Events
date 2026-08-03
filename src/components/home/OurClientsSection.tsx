@@ -77,7 +77,7 @@ export function OurClientsSection() {
         {/* Row 1 */}
         <div className="flex w-max animate-marquee">
           {[...row1Logos, ...row1Logos].map((url, idx) => (
-            <div key={idx} className="w-[260px] md:w-[300px] h-[140px] md:h-[150px] mx-4 md:mx-6 flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-300">
+            <div key={idx} className="w-[180px] md:w-[300px] h-[100px] md:h-[150px] mx-4 md:mx-6 flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-300">
               <Image src={url} alt="Client Logo" width={300} height={150} className="w-full h-full object-contain" />
             </div>
           ))}
@@ -86,7 +86,7 @@ export function OurClientsSection() {
         {/* Row 2 */}
         <div className="flex w-max animate-marquee-reverse">
           {[...row2Logos, ...row2Logos].map((url, idx) => (
-            <div key={idx} className="w-[260px] md:w-[300px] h-[140px] md:h-[150px] mx-4 md:mx-6 flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-300">
+            <div key={idx} className="w-[180px] md:w-[300px] h-[100px] md:h-[150px] mx-4 md:mx-6 flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-300">
               <Image src={url} alt="Client Logo" width={300} height={150} className="w-full h-full object-contain" />
             </div>
           ))}
