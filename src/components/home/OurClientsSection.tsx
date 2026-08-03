@@ -9,17 +9,17 @@ const row1Logos = [
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682426/Hindustan_Petroleum_Logo.svg_wuxa7e.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682424/1361973_mclcw9.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682422/iocl20logo20high20res_xwm5nn.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682421/Seal_of_the_Municipal_Corporation_Of_Delhi.svg_uzb0gp.png",
+  "/images/clients/Seal_of_the_Municipal_Corporation_Of_Delhi_transparent.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682419/BSES_NEW-a153f0cb_jpgtej.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682417/treet_jmushe.png",
+  "/images/clients/treet_jmushe_transparent.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682414/honda-logo-1_qh73e3.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682413/2017-logo-Tata-Motors_yrx5s9.jpg",
+  "/images/clients/2017-logo-Tata-Motors_yrx5s9_transparent.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682411/Ministry-of-Jal-Shakti_trdnej.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682408/png-transparent-logo-bureau-of-indian-standards-brand-symbol-indian-architecture-angle-text-triangle_gikotm.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682406/MSME_Logo_uer8sz.svg",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682404/NPCC-Preview_lxvda6.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682403/cii_uuazmc.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682401/Screenshot_2026-05-14_174910_tielpy.png",
+  "/images/clients/NPCC-Preview_lxvda6_transparent.png",
+  "/images/clients/cii_uuazmc_transparent.png",
+  "/images/clients/Screenshot_2026-05-14_174910_tielpy_transparent.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682399/unnamed_snzi0u.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682396/NBCC_ANNUAL_REPORT_2014_15.svg_bxd4bd.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682395/1bd4fba9fcb7949c2de8ad604b8414a4_tbha32.png",
@@ -28,8 +28,8 @@ const row1Logos = [
 
 const row2Logos = [
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682392/Oil_India-Logo.wine_wsbyql.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682390/Screenshot_2026-05-14_180714_awkxum.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682388/channels4_profile_z9ukjr.jpg",
+  "/images/clients/Screenshot_2026-05-14_180714_awkxum_transparent.png",
+  "/images/clients/channels4_profile_z9ukjr_transparent.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682386/ff51b7b049893eae43a610ba035395df_vtfuat.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682384/Sony_TV_new_piubnz.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681680/Mountain_Dew_logo__international_gtbrqv.png",
@@ -78,7 +78,7 @@ export function OurClientsSection() {
         <div className="flex w-max animate-marquee">
           {[...row1Logos, ...row1Logos].map((url, idx) => (
             <div key={idx} className="w-[160px] md:w-[200px] h-[100px] mx-6 flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-300">
-              <Image src={url} alt="Client Logo" width={140} height={80} className="max-w-full max-h-full object-contain" />
+              <Image src={url} alt="Client Logo" width={200} height={100} className="w-auto h-auto max-w-[110px] md:max-w-[140px] max-h-[55px] md:max-h-[65px] object-contain" />
             </div>
           ))}
         </div>
@@ -87,7 +87,7 @@ export function OurClientsSection() {
         <div className="flex w-max animate-marquee-reverse">
           {[...row2Logos, ...row2Logos].map((url, idx) => (
             <div key={idx} className="w-[160px] md:w-[200px] h-[100px] mx-6 flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-300">
-              <Image src={url} alt="Client Logo" width={140} height={80} className="max-w-full max-h-full object-contain" />
+              <Image src={url} alt="Client Logo" width={200} height={100} className="w-auto h-auto max-w-[110px] md:max-w-[140px] max-h-[55px] md:max-h-[65px] object-contain" />
             </div>
           ))}
         </div>
