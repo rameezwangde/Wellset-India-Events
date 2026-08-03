@@ -142,44 +142,19 @@ export function HeroSection() {
             </button>
           </motion.div>
 
-          {/* Trusted By Logos */}
+          {/* Catchy Content */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.3 }}
-            className="mt-2 lg:mt-6 border-t border-burgundy/10 pt-4 lg:pt-6 w-full max-w-[600px]"
+            className="mt-2 lg:mt-6 border-t border-burgundy/10 pt-5 lg:pt-6 w-full max-w-[600px]"
           >
-            <p className="text-[11px] font-bold text-burgundy uppercase tracking-widest mb-4">
-              Trusted by industry leaders
-            </p>
-            <div className="flex flex-wrap gap-8 items-center mt-2">
-              <img 
-                src="https://is4-ssl.mzstatic.com/image/thumb/Purple71/v4/c3/70/1d/c3701d0b-e506-190c-db3a-4ec366c4447e/source/512x512bb.jpg" 
-                alt="Honda" 
-                className="h-16 w-auto object-contain"
-              />
-              <img 
-                src="https://d3lzcn6mbbadaf.cloudfront.net/media/details/ANI-20260314105353.jpg" 
-                alt="Ministry of Petroleum and Natural Gas" 
-                className="h-20 w-auto object-contain"
-              />
-              <img 
-                src="https://e1.pxfuel.com/desktop-wallpaper/953/301/desktop-wallpaper-delhi-police-logo-police-logo.jpg" 
-                alt="Delhi Police" 
-                className="h-20 w-auto object-contain"
-              />
-              <img 
-                src="https://tse1.mm.bing.net/th/id/OIP.WKaWZhi1msRjSsFFZEkEiwHaEu?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" 
-                alt="Tata Motors" 
-                className="h-14 w-auto object-contain"
-              />
-            </div>
-            <div className="mt-5 flex items-center gap-3">
-              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-burgundy/20 to-transparent" />
-              <span className="text-burgundy/70 italic text-[13px] font-medium tracking-wide">
-                ...and many more shaping India's growth
-              </span>
-              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-burgundy/20 to-transparent" />
+            <div className="bg-white/60 backdrop-blur-sm rounded-xl p-5 sm:p-6 border border-burgundy/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden group hover:border-burgundy/30 transition-colors">
+              <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-burgundy to-[#f95945]" />
+              <h4 className="text-[16px] sm:text-[18px] font-bold text-burgundy mb-2">Driving India's Brand Stories</h4>
+              <p className="text-charcoal/80 text-[14px] sm:text-[15px] leading-relaxed font-medium italic">
+                "From bustling metro malls to the deepest rural markets, we deliver end-to-end activation strategies that capture attention, build unshakeable trust, and ignite real action."
+              </p>
             </div>
           </motion.div>
 
