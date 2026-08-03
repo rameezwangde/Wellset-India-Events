@@ -45,11 +45,25 @@ const row2Logos = [
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681646/Celeb_Fitness_Logo_rntfhy.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681645/Apollo_Hospitals_Logo_xohhqk.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681643/National_Health_Mission_Logo_brhnql.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681333/TCI_Logo_bcnhts.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785760299/ChatGPT_Image_Aug_3_2026_06_00_56_PM_acnwbl.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785758886/ChatGPT_Image_Aug_3_2026_05_37_41_PM_yjvoua.png"
 ];
 
 export function OurClientsSection() {
+  const getLogoClassName = (url: string) => {
+    let baseClass = "w-auto h-full object-contain";
+    if (url.toLowerCase().includes("nickelodeon")) return `${baseClass} scale-75 md:scale-50`;
+    if (url.toLowerCase().includes("bureay_kb3e9g")) return `${baseClass} scale-125 md:scale-[1.4]`;
+    if (url.toLowerCase().includes("silica")) return `${baseClass} scale-150 md:scale-[1.8]`;
+    return baseClass;
+  };
+
+  const getContainerClassName = (url: string) => {
+    let baseClass = "h-[110px] md:h-[145px] flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-300";
+    if (url.toLowerCase().includes("silica")) return `${baseClass} mx-8 md:mx-16`;
+    return `${baseClass} mx-4 md:mx-6`;
+  };
+
   return (
     <section className="pt-24 pb-8 bg-cream overflow-hidden">
       <div className="max-w-[1480px] mx-auto px-6 lg:px-12 xl:px-14 mb-12 text-center">
@@ -77,8 +91,8 @@ export function OurClientsSection() {
         {/* Row 1 */}
         <div className="flex w-max animate-marquee">
           {[...row1Logos, ...row1Logos].map((url, idx) => (
-            <div key={idx} className="h-[110px] md:h-[145px] mx-4 md:mx-6 flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-300">
-              <Image src={url} alt="Client Logo" width={400} height={145} className={`w-auto h-full object-contain ${url.toLowerCase().includes("nickelodeon") ? "scale-75 md:scale-50" : ""}`} />
+            <div key={idx} className={getContainerClassName(url)}>
+              <Image src={url} alt="Client Logo" width={400} height={145} className={getLogoClassName(url)} />
             </div>
           ))}
         </div>
@@ -86,8 +100,8 @@ export function OurClientsSection() {
         {/* Row 2 */}
         <div className="flex w-max animate-marquee-reverse">
           {[...row2Logos, ...row2Logos].map((url, idx) => (
-            <div key={idx} className="h-[110px] md:h-[145px] mx-4 md:mx-6 flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-300">
-              <Image src={url} alt="Client Logo" width={400} height={145} className={`w-auto h-full object-contain ${url.toLowerCase().includes("nickelodeon") ? "scale-75 md:scale-50" : ""}`} />
+            <div key={idx} className={getContainerClassName(url)}>
+              <Image src={url} alt="Client Logo" width={400} height={145} className={getLogoClassName(url)} />
             </div>
           ))}
         </div>
