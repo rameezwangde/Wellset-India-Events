@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const row1Logos = [
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682430/Delhi_Police_Logo_qnqmqx.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682428/logo-mother-dairy-milk-dairy-products-ice-cream-png-favpng-ygpsPcxwDpKTYjDYDYgEtn2pS_nljqo3.jpg",
+  "/images/clients/logo-mother-dairy-milk-dairy-products-ice-cream-png-favpng-ygpsPcxwDpKTYjDYDYgEtn2pS_nljqo3_transparent.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682426/Hindustan_Petroleum_Logo.svg_wuxa7e.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682424/1361973_mclcw9.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682422/iocl20logo20high20res_xwm5nn.png",
@@ -15,7 +15,7 @@ const row1Logos = [
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682414/honda-logo-1_qh73e3.png",
   "/images/clients/2017-logo-Tata-Motors_yrx5s9_transparent.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682411/Ministry-of-Jal-Shakti_trdnej.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682408/png-transparent-logo-bureau-of-indian-standards-brand-symbol-indian-architecture-angle-text-triangle_gikotm.png",
+  "/images/clients/png-transparent-logo-bureau-of-indian-standards-brand-symbol-indian-architecture-angle-text-triangle_gikotm_transparent.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682406/MSME_Logo_uer8sz.svg",
   "/images/clients/NPCC-Preview_lxvda6_transparent.png",
   "/images/clients/cii_uuazmc_transparent.png",
@@ -77,8 +77,8 @@ export function OurClientsSection() {
         {/* Row 1 */}
         <div className="flex w-max animate-marquee">
           {[...row1Logos, ...row1Logos].map((url, idx) => (
-            <div key={idx} className="w-[160px] md:w-[200px] h-[100px] mx-6 flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-300">
-              <Image src={url} alt="Client Logo" width={200} height={100} className="w-auto h-auto max-w-[110px] md:max-w-[140px] max-h-[55px] md:max-h-[65px] object-contain" />
+            <div key={idx} className="w-[260px] md:w-[300px] h-[140px] md:h-[150px] mx-4 md:mx-6 flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-300">
+              <Image src={url} alt="Client Logo" width={300} height={150} className="w-full h-full object-contain" />
             </div>
           ))}
         </div>
@@ -86,8 +86,8 @@ export function OurClientsSection() {
         {/* Row 2 */}
         <div className="flex w-max animate-marquee-reverse">
           {[...row2Logos, ...row2Logos].map((url, idx) => (
-            <div key={idx} className="w-[160px] md:w-[200px] h-[100px] mx-6 flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-300">
-              <Image src={url} alt="Client Logo" width={200} height={100} className="w-auto h-auto max-w-[110px] md:max-w-[140px] max-h-[55px] md:max-h-[65px] object-contain" />
+            <div key={idx} className="w-[260px] md:w-[300px] h-[140px] md:h-[150px] mx-4 md:mx-6 flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-300">
+              <Image src={url} alt="Client Logo" width={300} height={150} className="w-full h-full object-contain" />
             </div>
           ))}
         </div>

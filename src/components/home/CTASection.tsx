@@ -2,8 +2,9 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Sparkles, PhoneCall } from "lucide-react";
+import { ArrowRight, Sparkles, PhoneCall, MessageCircle } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export function CTASection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -70,16 +71,16 @@ export function CTASection() {
           transition={{ duration: 0.7, delay: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="flex flex-col sm:flex-row gap-5 items-center justify-center"
         >
-          <button className="group relative overflow-hidden bg-burgundy text-white rounded-full px-10 py-4 font-bold text-[16px] transition-transform hover:scale-105 shadow-[0_10px_30px_rgba(218,47,29,0.25)] flex items-center gap-3">
+          <Link href="/contact" className="group relative overflow-hidden bg-burgundy text-white rounded-full px-10 py-4 font-bold text-[16px] transition-transform hover:scale-105 shadow-[0_10px_30px_rgba(218,47,29,0.25)] flex items-center gap-3">
             <span className="relative z-10">Get a Proposal</span>
             <ArrowRight className="w-5 h-5 relative z-10 transition-transform group-hover:translate-x-1" />
             <div className="absolute inset-0 bg-burgundy-dark translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-          </button>
+          </Link>
           
-          <button className="group rounded-full px-10 py-4 font-semibold text-charcoal border border-border transition-all hover:bg-black/5 hover:border-charcoal/20 flex items-center gap-3 backdrop-blur-sm">
-            <PhoneCall className="w-5 h-5 text-burgundy" />
+          <Link href="https://wa.me/918447750546" target="_blank" rel="noopener noreferrer" className="group rounded-full px-10 py-4 font-semibold text-white bg-[#da2f1d] border border-[#da2f1d] transition-all hover:bg-burgundy hover:border-burgundy flex items-center gap-3 shadow-sm hover:shadow-md">
+            <MessageCircle className="w-5 h-5 text-white" />
             <span>Contact Us</span>
-          </button>
+          </Link>
         </motion.div>
         
       </motion.div>
