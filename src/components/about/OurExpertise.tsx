@@ -34,7 +34,7 @@ const categories = [
 ];
 
 export default function OurExpertise() {
-  const [activeImage, setActiveImage] = useState(categories[0].items[0].image);
+  const [activeItemId, setActiveItemId] = useState(categories[0].items[0].id);
 
   return (
     <section id="our-expertise" className="relative w-full bg-[#191919] text-pure-white pt-24 pb-12 md:pt-32 md:pb-16 px-6 md:px-12 lg:px-24 overflow-hidden">
@@ -77,7 +77,7 @@ export default function OurExpertise() {
                     <div 
                       key={item.id}
                       className="group flex items-center justify-between py-6 border-b border-muted-grey/10 cursor-pointer transition-colors hover:border-primary-red/50"
-                      onMouseEnter={() => setActiveImage(item.image)}
+                      onMouseEnter={() => setActiveItemId(item.id)}
                     >
                       <div className="flex items-center gap-6">
                         <span className="text-sm font-medium text-muted-grey w-6 opacity-50 group-hover:opacity-100 transition-opacity">
@@ -107,7 +107,7 @@ export default function OurExpertise() {
               
               <AnimatePresence mode="wait">
                 <motion.div
-                  key={activeImage} // We can keep using activeImage as an ID, but render it as typography
+                  key={activeItemId}
                   className="relative z-10 text-center flex flex-col items-center"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -123,7 +123,7 @@ export default function OurExpertise() {
                   <span className="text-primary-red text-sm uppercase tracking-widest font-bold mb-4">Focus Area</span>
                   
                   <h4 className="text-4xl lg:text-5xl font-condensed font-bold text-pure-white leading-tight">
-                    {categories.flatMap(c => c.items).find(i => i.image === activeImage)?.name || 'Activating Communities'}
+                    {categories.flatMap(c => c.items).find(i => i.id === activeItemId)?.name || 'Activating Communities'}
                   </h4>
                   
                   <div className="w-12 h-1 bg-primary-red mt-12 opacity-50" />
