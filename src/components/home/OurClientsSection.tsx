@@ -4,62 +4,56 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const row1Logos = [
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682430/Delhi_Police_Logo_qnqmqx.png",
-  "/images/clients/logo-mother-dairy-milk-dairy-products-ice-cream-png-favpng-ygpsPcxwDpKTYjDYDYgEtn2pS_nljqo3_transparent.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682426/Hindustan_Petroleum_Logo.svg_wuxa7e.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682424/1361973_mclcw9.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682422/iocl20logo20high20res_xwm5nn.png",
-  "/images/clients/Seal_of_the_Municipal_Corporation_Of_Delhi_transparent.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682419/BSES_NEW-a153f0cb_jpgtej.png",
-  "/images/clients/treet_jmushe_transparent.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682414/honda-logo-1_qh73e3.png",
-  "/images/clients/2017-logo-Tata-Motors_yrx5s9_transparent.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682411/Ministry-of-Jal-Shakti_trdnej.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785759149/bureay_kb3e9g.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682406/MSME_Logo_uer8sz.svg",
-  "/images/clients/NPCC-Preview_lxvda6_transparent.png",
-  "/images/clients/cii_uuazmc_transparent.png",
-  "/images/clients/Screenshot_2026-05-14_174910_tielpy_transparent.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682399/unnamed_snzi0u.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682396/NBCC_ANNUAL_REPORT_2014_15.svg_bxd4bd.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682395/1bd4fba9fcb7949c2de8ad604b8414a4_tbha32.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682393/India_Post_Dak_Sewa_Jan_Sewa_New_Logo_Final_kk0gyb.png"
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872828/Tang_vftt0d.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872828/Gail_gqromt.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872821/TCI_q6hpjb.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872821/tata_swatch_b4ohqh.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872820/Tata_power_pswa75.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872820/SOny_euf8c8.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872820/pnb_bank_pgqymi.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872819/Silica_2_svgzte.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872819/Nicklodeon_sz5s1k.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872818/Oil_India_fok39z.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872817/National_Health_Mission_kbgmsa.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872817/NBCC_w00egi.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872817/indian_railways_sfu8rk.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872816/Mountain_Dew_jhnyw3.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872815/MCI_Delhi_wmbozk.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785874309/Dairy_mjqxm1.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785874711/nsdc_uh93t3.png"
 ];
 
 const row2Logos = [
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682392/Oil_India-Logo.wine_wsbyql.png",
-  "/images/clients/Screenshot_2026-05-14_180714_awkxum_transparent.png",
-  "/images/clients/channels4_profile_z9ukjr_transparent.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682386/ff51b7b049893eae43a610ba035395df_vtfuat.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785682384/Sony_TV_new_piubnz.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681680/Mountain_Dew_logo__international_gtbrqv.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681678/Cadbury-Logo.wine_hskl7t.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681676/Dove-Logo-1969-2004_ykwyqc.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681674/Tang-Logo-2015_yr95vv.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681663/Punjab_National_Bank_new_logo.svg_ary5wb.webp",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785758561/silica_xgvl8h.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681653/Colgate-Logo-2004_fzhklv.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681652/Nickelodeon_gssmh7.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681650/Dell-Logo_ztve6u.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681648/Gail_Logo_pfekce.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681646/Celeb_Fitness_Logo_rntfhy.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681645/Apollo_Hospitals_Logo_xohhqk.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785681643/National_Health_Mission_Logo_brhnql.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785760299/ChatGPT_Image_Aug_3_2026_06_00_56_PM_acnwbl.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785758886/ChatGPT_Image_Aug_3_2026_05_37_41_PM_yjvoua.png"
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872815/Jal_Shakti_mwemya.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872814/Hp_petrol_khfnxj.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872814/Indian_oil_qefnsy.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872813/Dove_k2zqm4.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872813/India_post_sgloau.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872812/Honda_wpxvqg.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872811/ghaziabad_q1hiqf.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872811/Dell_fdltie.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872810/Delhi_police_osvnjr.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872809/Colgate_isjtym.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872809/Bharat_Petroleum_c9twnd.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872810/Bureau_ru4g8c.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872810/Celebrity_uxy4xs.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872809/Cadbury_zv1qgp.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872809/BSES_wpmnsy.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872808/Apollo_vpjtby.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785875048/tret_xfn8ki.png"
 ];
 
 export function OurClientsSection() {
   const getLogoClassName = (url: string) => {
-    let baseClass = "w-auto h-full object-contain";
-    if (url.toLowerCase().includes("nickelodeon")) return `${baseClass} scale-75 md:scale-50`;
-    if (url.toLowerCase().includes("bureay_kb3e9g")) return `${baseClass} scale-125 md:scale-[1.4]`;
-    if (url.toLowerCase().includes("silica")) return `${baseClass} scale-150 md:scale-[1.8]`;
-    return baseClass;
+    let baseClass = "w-full h-full object-contain";
+    if (url.includes("indian_railways")) {
+      return `${baseClass} scale-90 md:scale-100`;
+    }
+    return `${baseClass} scale-[1.3] md:scale-[1.5]`;
   };
 
-  const getContainerClassName = (url: string) => {
-    let baseClass = "h-[110px] md:h-[145px] flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-300";
+  const getContainerClassName = () => {
+    let baseClass = "w-[216px] h-[108px] md:w-[288px] md:h-[144px] flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-300";
     return baseClass;
   };
 
@@ -86,14 +80,14 @@ export function OurClientsSection() {
         </motion.h2>
       </div>
 
-      <div className="flex flex-col gap-16 relative before:absolute before:left-0 before:top-0 before:w-32 before:h-full before:bg-gradient-to-r before:from-cream before:to-transparent before:z-10 after:absolute after:right-0 after:top-0 after:w-32 after:h-full after:bg-gradient-to-l after:from-cream after:to-transparent after:z-10">
+      <div className="flex flex-col gap-4 relative before:absolute before:left-0 before:top-0 before:w-32 before:h-full before:bg-gradient-to-r before:from-cream before:to-transparent before:z-10 after:absolute after:right-0 after:top-0 after:w-32 after:h-full after:bg-gradient-to-l after:from-cream after:to-transparent after:z-10">
         {/* Row 1 */}
         <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
           {[1, 2].map((set) => (
-            <div key={set} className="flex w-max shrink-0 gap-12 md:gap-20 pr-12 md:pr-20" aria-hidden={set === 2 ? "true" : undefined}>
+            <div key={set} className="flex w-max shrink-0 gap-4 md:gap-6 pr-4 md:pr-6" aria-hidden={set === 2 ? "true" : undefined}>
               {row1Logos.map((url, idx) => (
-                <div key={`${set}-${idx}`} className={getContainerClassName(url)}>
-                  <Image src={url} alt="Client Logo" width={400} height={145} className={getLogoClassName(url)} />
+                <div key={`${set}-${idx}`} className={getContainerClassName()}>
+                  <Image src={url} alt="Client Logo" width={320} height={160} className={getLogoClassName(url)} />
                 </div>
               ))}
             </div>
@@ -103,10 +97,10 @@ export function OurClientsSection() {
         {/* Row 2 */}
         <div className="flex w-max animate-marquee-reverse hover:[animation-play-state:paused]">
           {[1, 2].map((set) => (
-            <div key={set} className="flex w-max shrink-0 gap-12 md:gap-20 pr-12 md:pr-20" aria-hidden={set === 2 ? "true" : undefined}>
+            <div key={set} className="flex w-max shrink-0 gap-4 md:gap-6 pr-4 md:pr-6" aria-hidden={set === 2 ? "true" : undefined}>
               {row2Logos.map((url, idx) => (
-                <div key={`${set}-${idx}`} className={getContainerClassName(url)}>
-                  <Image src={url} alt="Client Logo" width={400} height={145} className={getLogoClassName(url)} />
+                <div key={`${set}-${idx}`} className={getContainerClassName()}>
+                  <Image src={url} alt="Client Logo" width={320} height={160} className={getLogoClassName(url)} />
                 </div>
               ))}
             </div>

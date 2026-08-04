@@ -1,0 +1,10 @@
+const fs = require('fs');
+const urls = require('./urls.json');
+const row1 = urls.slice(0, Math.ceil(urls.length / 2));
+const row2 = urls.slice(Math.ceil(urls.length / 2));
+let content = fs.readFileSync('src/components/home/OurClientsSection.tsx', 'utf-8');
+content = content.replace(/const row1Logos = \[[\s\S]*?\];/, 'const row1Logos = ' + JSON.stringify(row1, null, 2) + ';');
+content = content.replace(/const row2Logos = \[[\s\S]*?\];/, 'const row2Logos = ' + JSON.stringify(row2, null, 2) + ';');
+content = content.replace(/const getLogoClassName = \([\s\S]*?return baseClass;\n  };/, 'const getLogoClassName = (url: string) => { return "w-full h-full object-contain scale-110 md:scale-125"; };');
+fs.writeFileSync('src/components/home/OurClientsSection.tsx', content);
+console.log('Updated OurClientsSection.tsx');
