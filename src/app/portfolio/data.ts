@@ -1,208 +1,164 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import ImageGallery, { GalleryImage } from '@/components/portfolio/ImageGallery';
-import { client } from '@/sanity/lib/client';
-import { urlForImage } from '@/sanity/lib/image';
-
-// You can move this to a separate data file later
-const projects = [
+export const fallbackProjects = [
   {
-    id: "cadboury-tang",
+    id: "cadboury-tang", // This will be the slug
     title: "Cadbury Tang - Canopy Activation",
     description: "A vibrant canopy activation setup and event for Cadbury Tang.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785670354/100_5899_goqs3z.jpg", 
     tag: "Cadboury_Tang",
+    color: "from-orange-400 to-yellow-300", 
+    category: "Canopy Activation"
   },
   {
     id: "tata-swach",
     title: "Tata Swach Door-To-Door Campaign",
     description: "A comprehensive BTL activation and door-to-door campaign for Tata Swach.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785672206/20130630_123155_v2uxny.jpg", 
     tag: "Tata_Swach",
+    color: "from-blue-500 to-cyan-400",
+    category: "BTL Activations"
   },
   {
     id: "nukkad-natak",
     title: "Nukkad Natak",
     description: "An engaging street play and theatrical performance for brand awareness.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785673320/IMG_3566_dmuyaf.jpg", 
     tag: "Nukkad_Natak",
+    color: "from-red-500 to-rose-400",
+    category: "Nukkad Natak"
   },
   {
     id: "pcra-campaign",
     title: "PCRA Fuel & LPG Saving Awareness Campaign",
     description: "A nationwide awareness campaign promoting fuel and LPG conservation.",
-    tag: "PCRA", // Updated tag
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785673882/DSCN3308_jnyjyf.jpg", 
+    tag: "PCRA", 
+    color: "from-green-500 to-teal-400",
+    category: "Government & NGO Awareness Campaigns"
   },
   {
     id: "saas-bina-sasural",
     title: "Saas Bina Sasural - Sony Entertainment Television",
     description: "An engaging promotional event and activation for Sony Entertainment Television.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785674461/DSC_4095_thoqfe.jpg", 
     tag: "Saas Bina Sasural",
+    color: "from-purple-500 to-pink-500",
+    category: "Conference, Events & Exhibition"
   },
   {
     id: "chajje-chajje-ka-pyar",
     title: "Chajje Chajje Ka Pyar - Sony Entertainment Television",
     description: "An interactive promotional campaign and activation for Sony Entertainment Television.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785675216/000_0094_blldxx.jpg", 
     tag: "Chajje",
+    color: "from-indigo-500 to-purple-500",
+    category: "Conference, Events & Exhibition"
   },
   {
     id: "celebrity-fitness-mall-activations",
     title: "Celebrity Fitness - Mall Activations",
     description: "High-energy mall activations and fitness promotional events for Celebrity Fitness.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785675595/100_0165_jprzbd.jpg", 
     tag: "Mall",
+    color: "from-orange-500 to-red-500",
+    category: "Mall Activation"
   },
   {
     id: "ghaziabad-smart-city-campaign",
     title: "Ghaziabad Smart City Campaign - Canopy Activation",
     description: "A civic awareness and interactive canopy activation campaign for Ghaziabad Smart City.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785675981/20160527_121427_maygod.jpg", 
     tag: "Ghaziabad",
+    color: "from-blue-600 to-sky-400",
+    category: "Canopy Activation"
   },
   {
     id: "mountain-dew-van-activation",
     title: "Mountain Dew - Van Activation",
     description: "A high-impact and adventurous van activation campaign for Mountain Dew.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785677473/Picture_1391_pum84o.jpg", 
     tag: "Mountain Dew",
+    color: "from-lime-500 to-green-600",
+    category: "Van Activation"
   },
   {
     id: "tata-nano-van-activation",
     title: "Tata Nano - Van Activation",
     description: "An engaging van activation and promotional campaign for Tata Nano.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785677601/DSCF2845_ailauc.jpg", 
     tag: "Tata Nano",
+    color: "from-yellow-400 to-orange-500",
+    category: "Van Activation"
   },
   {
     id: "punjab-national-bank-van-activation",
     title: "Punjab National Bank Van Activation",
     description: "A comprehensive van activation and outreach campaign for Punjab National Bank.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785677884/IMG-20150914-WA0004_uvgzzp.jpg", 
     tag: "pnb",
+    color: "from-blue-600 to-red-600",
+    category: "Van Activation"
   },
   {
     id: "hp-pcra-conservation-fortnight",
     title: "HP & PCRA Oil & Gas Conservation Fortnight",
     description: "A nationwide government and NGO awareness campaign for oil and gas conservation.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785678102/DSC_0447_um3qwf.jpg", 
     tag: "HP",
+    color: "from-teal-600 to-emerald-500",
+    category: "Government & NGO Awareness Campaigns"
   },
   {
     id: "hpcl-milcy-turbo-canopy-activation",
     title: "HPCL Milcy Turbo Canopy Activation",
     description: "A targeted canopy activation and product showcase for HPCL Milcy Turbo.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785678613/IMG-20150828-WA0010_noyrm2.jpg", 
     tag: "hpcl milcy",
+    color: "from-red-600 to-orange-500",
+    category: "Canopy Activation"
   },
   {
     id: "silica-canopy-activation",
     title: "Silica Canopy Activation",
     description: "A professional canopy activation and brand promotion campaign for Silica.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785680077/100_7354_e9vzz8.jpg", 
     tag: "Silica",
+    color: "from-sky-500 to-blue-600",
+    category: "Canopy Activation"
   },
   {
     id: "dell-roadshow",
     title: "Dell RoadShow",
     description: "An engaging and extensive roadshow campaign for Dell technologies.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785680236/102_3197_vv3n24.jpg", 
     tag: "Dell",
+    color: "from-blue-600 to-cyan-500",
+    category: "Roadshow"
   },
   {
     id: "colgate-roadshow",
     title: "Colgate Roadshow",
     description: "A wide-reaching and engaging roadshow activation for Colgate.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785680366/100_2562_rfw8rf.jpg", 
     tag: "colgate",
+    color: "from-red-600 to-pink-500",
+    category: "Roadshow"
   },
   {
     id: "pcra-van-publicity",
     title: "PCRA Van Publicity",
     description: "An impactful van publicity and awareness campaign for PCRA.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785680493/DSC_1617_ls7vhk.jpg", 
     tag: "PCRA VAN",
+    color: "from-amber-500 to-yellow-600",
+    category: "Van Activation"
   },
   {
     id: "pcra-conference",
     title: "PCRA Conference",
     description: "A well-organized professional conference and corporate event for PCRA.",
+    coverImage: "https://res.cloudinary.com/crw5jo8x/image/upload/v1785680601/DSC_0796_snc109.jpg", 
     tag: "Conference",
+    color: "from-slate-700 to-zinc-600",
+    category: "Conferences"
   },
 ];
-
-// Removed old CloudinaryImage interface since we use GalleryImage now
-
-export default async function ProjectGalleryPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const resolvedParams = await params;
-  
-  // 1. Try to fetch from Sanity first
-  const query = `*[_type == "project" && slug.current == $slug][0] {
-    title,
-    description,
-    "gallery": gallery[]
-  }`
-  
-  let sanityProject = null;
-  try {
-    sanityProject = await client.fetch(query, { slug: resolvedParams.slug })
-  } catch (err) {
-    console.error("Sanity fetch error:", err)
-  }
-
-  // If found in Sanity
-  if (sanityProject) {
-    const sanityImages: GalleryImage[] = (sanityProject.gallery || []).map((img: any) => ({
-      url: urlForImage(img)?.url() || ''
-    })).filter((img: any) => img.url !== '');
-
-    return (
-      <div className="flex-grow py-20 px-6 sm:px-10 lg:px-20 max-w-7xl mx-auto w-full">
-        <div className="mb-8">
-          <Link href="/portfolio" className="text-sm font-semibold text-gray-500 hover:text-gray-900 flex items-center gap-2 mb-6 transition-colors">
-            &larr; Back to Portfolio
-          </Link>
-          <h1 className="text-4xl md:text-5xl font-bold font-condensed mb-4 text-gray-900">{sanityProject.title}</h1>
-          <p className="text-lg text-gray-600 max-w-3xl">{sanityProject.description}</p>
-        </div>
-        <ImageGallery images={sanityImages} />
-      </div>
-    )
-  }
-
-  // 2. Fallback to hardcoded Cloudinary logic
-  const project = projects.find((p) => p.id === resolvedParams.slug);
-
-  if (!project) {
-    return (
-      <div className="flex-grow py-20 text-center">
-        <h1 className="text-3xl font-bold mb-4">Project not found</h1>
-        <Link href="/portfolio" className="text-blue-600 hover:underline">
-          Return to Portfolio
-        </Link>
-      </div>
-    );
-  }
-
-  const cloudName = 'crw5jo8x'; 
-  let images: GalleryImage[] = [];
-
-  try {
-    const url = `https://res.cloudinary.com/${cloudName}/image/list/${project.tag}.json`;
-    const response = await fetch(url, { next: { revalidate: 3600 } }); 
-    
-    if (response.ok) {
-      const data = await response.json();
-      images = (data.resources || []).map((img: any) => ({
-        url: `https://res.cloudinary.com/${cloudName}/image/upload/v${img.version}/${img.public_id}.${img.format}`
-      }));
-    } else {
-      console.error("Failed to fetch images from Cloudinary");
-    }
-  } catch (error) {
-    console.error("Error fetching images:", error);
-  }
-
-  return (
-    <div className="flex-grow py-20 px-6 sm:px-10 lg:px-20 max-w-7xl mx-auto w-full">
-      <div className="mb-8">
-        <Link href="/portfolio" className="text-sm font-semibold text-gray-500 hover:text-gray-900 flex items-center gap-2 mb-6 transition-colors">
-          &larr; Back to Portfolio
-        </Link>
-        <h1 className="text-4xl md:text-5xl font-bold font-condensed mb-4 text-gray-900">{project.title}</h1>
-        <p className="text-lg text-gray-600 max-w-3xl">{project.description}</p>
-      </div>
-
-      <ImageGallery images={images} />
-    </div>
-  );
-}

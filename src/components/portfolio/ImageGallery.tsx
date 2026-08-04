@@ -5,18 +5,15 @@ import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-interface CloudinaryImage {
-  public_id: string;
-  version: number;
-  format: string;
+export interface GalleryImage {
+  url: string;
 }
 
 interface ImageGalleryProps {
-  images: CloudinaryImage[];
-  cloudName: string;
+  images: GalleryImage[];
 }
 
-export default function ImageGallery({ images, cloudName }: ImageGalleryProps) {
+export default function ImageGallery({ images }: ImageGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [direction, setDirection] = useState(0);
 
@@ -95,10 +92,10 @@ export default function ImageGallery({ images, cloudName }: ImageGalleryProps) {
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {images.map((img, index) => {
-          const imageUrl = `https://res.cloudinary.com/${cloudName}/image/upload/v${img.version}/${img.public_id}.${img.format}`;
+          const imageUrl = img.url;
           return (
             <div
-              key={img.public_id}
+              key={index}
               onClick={() => {
                 setDirection(0);
                 setSelectedIndex(index);
@@ -107,7 +104,7 @@ export default function ImageGallery({ images, cloudName }: ImageGalleryProps) {
             >
               <Image
                 src={imageUrl}
-                alt={img.public_id}
+                alt={`Gallery image ${index + 1}`}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
@@ -165,8 +162,8 @@ export default function ImageGallery({ images, cloudName }: ImageGalleryProps) {
                   className="relative w-full h-full flex items-center justify-center"
                 >
                   <Image
-                    src={`https://res.cloudinary.com/${cloudName}/image/upload/v${images[selectedIndex].version}/${images[selectedIndex].public_id}.${images[selectedIndex].format}`}
-                    alt={images[selectedIndex].public_id}
+                    src={images[selectedIndex].url}
+                    alt={`Gallery image ${selectedIndex + 1}`}
                     fill
                     className="object-contain"
                     sizes="100vw"
