@@ -16,7 +16,7 @@ const row1Logos = [
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872818/Oil_India_fok39z.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872817/National_Health_Mission_kbgmsa.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872817/NBCC_w00egi.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872817/indian_railways_sfu8rk.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785911639/new_railways_qexq8i.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872816/Mountain_Dew_jhnyw3.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872815/MCI_Delhi_wmbozk.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785874309/Dairy_mjqxm1.png",
@@ -46,7 +46,7 @@ const row2Logos = [
 export function OurClientsSection() {
   const getLogoClassName = (url: string) => {
     let baseClass = "w-full h-full object-contain";
-    if (url.includes("indian_railways")) {
+    if (url.includes("new_railways")) {
       return `${baseClass} scale-90 md:scale-100`;
     } else if (url.includes("Bharat_sv7ccc")) {
       return `${baseClass} scale-[1.2] md:scale-[1.4]`;
