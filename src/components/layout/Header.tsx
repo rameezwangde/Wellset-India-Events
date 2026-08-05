@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Menu, X } from "lucide-react";
@@ -25,17 +26,11 @@ export function Header() {
       className="sticky top-0 z-50 w-full bg-warm-white border-b border-border shadow-[0_2px_10px_rgba(0,0,0,0.02)]"
     >
       <div className="mx-auto w-full max-w-[1480px] px-8 lg:px-12 xl:px-14 h-[84px] flex items-center justify-between grid grid-cols-2 lg:grid-cols-[1fr_auto_1fr]">
-        
+
         {/* Logo */}
-        <div className="flex items-center justify-start">
-          <Link href="/" className="flex flex-col text-burgundy w-[145px] lg:w-[160px]">
-            <span className="font-sans font-bold text-xl lg:text-2xl leading-none tracking-tight flex items-center gap-1">
-              WELLSET
-              <span className="text-yellow-500 text-sm -translate-y-1">✦</span>
-            </span>
-            <span className="font-sans font-medium text-[8px] lg:text-[10.5px] uppercase tracking-wider leading-[1.1] text-charcoal mt-1">
-              India Events & Promotions
-            </span>
+        <div className="flex items-center justify-start h-full py-1">
+          <Link href="/" className="relative flex items-center h-[60px] md:h-[72px] lg:h-[78px] w-auto">
+             <Image src="/images/Wellset India.png" alt="Wellset India Events & Promotions" width={320} height={90} className="h-full w-auto object-contain scale-110 md:scale-125 lg:scale-[1.35] origin-left" />
           </Link>
         </div>
 
@@ -50,9 +45,8 @@ export function Header() {
                 className="relative group py-2"
               >
                 <span
-                  className={`text-[15px] font-medium transition-colors duration-200 ${
-                    isActive ? "text-burgundy" : "text-charcoal hover:text-burgundy"
-                  }`}
+                  className={`text-[15px] font-medium transition-colors duration-200 ${isActive ? "text-burgundy" : "text-charcoal hover:text-burgundy"
+                    }`}
                 >
                   {link.name}
                 </span>
@@ -80,7 +74,7 @@ export function Header() {
 
         {/* Mobile Menu Toggle */}
         <div className="flex lg:hidden justify-end">
-          <button 
+          <button
             className="p-2 text-charcoal hover:text-burgundy transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
@@ -108,9 +102,8 @@ export function Header() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`text-[18px] font-medium transition-colors ${
-                    pathname === link.href ? "text-burgundy" : "text-charcoal hover:text-burgundy"
-                  }`}
+                  className={`text-[18px] font-medium transition-colors ${pathname === link.href ? "text-burgundy" : "text-charcoal hover:text-burgundy"
+                    }`}
                 >
                   {link.name}
                 </Link>
