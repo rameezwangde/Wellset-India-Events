@@ -77,7 +77,7 @@ export function CTASection() {
             <div className="absolute inset-0 bg-burgundy-dark translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
           </Link>
           
-          <Link href="https://wa.me/918447750546" target="_blank" rel="noopener noreferrer" className="group rounded-full px-10 py-4 font-semibold text-white bg-[#da2f1d] border border-[#da2f1d] transition-all hover:bg-burgundy hover:border-burgundy flex items-center gap-3 shadow-sm hover:shadow-md">
+          <Link href="https://wa.me/919310996542" target="_blank" rel="noopener noreferrer" className="group rounded-full px-10 py-4 font-semibold text-white bg-[#da2f1d] border border-[#da2f1d] transition-all hover:bg-burgundy hover:border-burgundy flex items-center gap-3 shadow-sm hover:shadow-md">
             <MessageCircle className="w-5 h-5 text-white" />
             <span>Contact Us</span>
           </Link>
