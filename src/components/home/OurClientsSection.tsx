@@ -20,7 +20,8 @@ const row1Logos = [
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872816/Mountain_Dew_jhnyw3.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872815/MCI_Delhi_wmbozk.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785874309/Dairy_mjqxm1.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785874711/nsdc_uh93t3.png"
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785874711/nsdc_uh93t3.png",
+  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785911134/Bharat_sv7ccc.png"
 ];
 
 const row2Logos = [
@@ -34,7 +35,6 @@ const row2Logos = [
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872811/Dell_fdltie.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872810/Delhi_police_osvnjr.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872809/Colgate_isjtym.png",
-  "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872809/Bharat_Petroleum_c9twnd.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872810/Bureau_ru4g8c.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872810/Celebrity_uxy4xs.png",
   "https://res.cloudinary.com/crw5jo8x/image/upload/v1785872809/Cadbury_zv1qgp.png",
@@ -48,6 +48,8 @@ export function OurClientsSection() {
     let baseClass = "w-full h-full object-contain";
     if (url.includes("indian_railways")) {
       return `${baseClass} scale-90 md:scale-100`;
+    } else if (url.includes("Bharat_sv7ccc")) {
+      return `${baseClass} scale-[1.2] md:scale-[1.4]`;
     }
     return `${baseClass} scale-[1.3] md:scale-[1.5]`;
   };
