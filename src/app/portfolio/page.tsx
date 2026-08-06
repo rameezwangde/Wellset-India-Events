@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { client } from '../../sanity/lib/client'
 import { urlForImage } from '../../sanity/lib/image'
 import PortfolioClient from './PortfolioClient'
@@ -32,5 +33,9 @@ export default async function PortfolioPage() {
   // Combine Sanity projects with hardcoded projects
   const projects = [...formattedProjects, ...fallbackProjects]
 
-  return <PortfolioClient projects={projects} />
+  return (
+    <Suspense fallback={<div className="py-20 text-center">Loading portfolio...</div>}>
+      <PortfolioClient projects={projects} />
+    </Suspense>
+  )
 }

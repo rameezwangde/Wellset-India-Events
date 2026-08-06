@@ -2,13 +2,23 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 
 // We can define our fallback portfolio projects here in case the CMS is empty
 
 
 export default function PortfolioClient({ projects = [] }: { projects?: any[] }) {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const searchParams = useSearchParams();
+  const initialCategory = searchParams.get('category') || "All";
+  const [activeCategory, setActiveCategory] = useState(initialCategory);
+
+  useEffect(() => {
+    const cat = searchParams.get('category');
+    if (cat) {
+      setActiveCategory(cat);
+    }
+  }, [searchParams]);
 
   // Get unique categories
   const categories = ["All", ...Array.from(new Set(projects.map(p => p.category)))];
