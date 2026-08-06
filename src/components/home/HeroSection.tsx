@@ -34,10 +34,10 @@ export function HeroSection() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-top"
+          className="object-cover object-[75%_top] lg:object-top"
         />
         {/* Mobile overlay for text readability, desktop gradient */}
-        <div className="absolute inset-0 w-full h-full bg-cream/85 lg:bg-transparent" />
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-cream/60 via-cream/30 to-transparent lg:hidden" />
         <div
           className="absolute inset-0 w-full h-full hidden lg:block"
           style={{
@@ -73,7 +73,7 @@ export function HeroSection() {
               initial={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }}
               animate={{ opacity: 1, clipPath: "inset(0 0% 0 0)" }}
               transition={{ duration: 0.9, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="font-condensed font-bold text-[clamp(46px,8vw,66px)] leading-[0.9] tracking-[-0.03em] text-charcoal uppercase block break-words"
+              className="font-condensed font-bold text-[clamp(46px,8vw,66px)] leading-[0.9] tracking-[-0.03em] text-charcoal uppercase block break-words drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] lg:drop-shadow-none"
             >
               REAL CONNECTIONS.
             </motion.span>
@@ -81,7 +81,7 @@ export function HeroSection() {
               initial={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }}
               animate={{ opacity: 1, clipPath: "inset(0 0% 0 0)" }}
               transition={{ duration: 0.9, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="font-condensed font-bold text-[clamp(46px,8vw,66px)] leading-[0.9] tracking-[-0.03em] text-burgundy uppercase block break-words"
+              className="font-condensed font-bold text-[clamp(46px,8vw,66px)] leading-[0.9] tracking-[-0.03em] text-burgundy uppercase block break-words drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] lg:drop-shadow-none"
             >
               REAL IMPACT.
             </motion.span>
@@ -89,7 +89,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 25, rotate: 0 }}
               animate={{ opacity: 1, y: 0, rotate: -2 }}
               transition={{ duration: 0.8, delay: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="mt-[4px] relative inline-block self-start"
+              className="mt-[4px] relative inline-block self-start drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] lg:drop-shadow-none"
             >
               <h3 className="font-script text-[clamp(56px,4.4vw,72px)] leading-[0.95] text-burgundy -rotate-2">
                 Across India.
@@ -121,7 +121,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
-            className="text-charcoal lg:text-muted-text font-medium lg:font-normal text-[16px] leading-[1.6] max-w-[500px] mt-[18px]"
+            className="text-charcoal lg:text-muted-text font-medium lg:font-normal text-[16px] leading-[1.6] max-w-[500px] mt-[18px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)] lg:drop-shadow-none font-semibold lg:font-normal"
           >
             For over 20 years, Wellset India Events and Promotions has been taking brands, messages and experiences to people—wherever they are.
           </motion.p>
