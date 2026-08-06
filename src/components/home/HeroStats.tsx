@@ -59,15 +59,15 @@ export function HeroStats() {
               variants={itemVariants}
               className={`flex flex-col items-center text-center relative px-1 w-full`}
             >
-              <div className="w-[38px] h-[38px] rounded-full border-2 border-burgundy lg:border lg:border-burgundy/20 flex items-center justify-center mb-2 text-burgundy drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)] lg:drop-shadow-none">
-                <Icon strokeWidth={2} className="w-[20px] h-[20px]" />
+              <div className="w-[38px] h-[38px] rounded-full border border-burgundy/20 flex items-center justify-center mb-2 text-burgundy">
+                <Icon strokeWidth={1.5} className="w-[20px] h-[20px]" />
               </div>
               <h4
-                className={`font-sans font-bold leading-[1.1] mb-1 ${stat.title === "Pan India" ? "text-[18px]" : "text-[21px]"} text-black lg:text-charcoal drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)] lg:drop-shadow-none`}
+                className={`font-sans font-bold leading-[1.1] mb-1 ${stat.title === "Pan India" ? "text-[18px]" : "text-[21px]"} text-charcoal`}
               >
                 {stat.title}
               </h4>
-              <p className="text-charcoal lg:text-muted-text text-[12px] leading-[1.35] whitespace-pre-line font-bold lg:font-medium drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] lg:drop-shadow-none">
+              <p className="text-muted-text text-[12px] leading-[1.35] whitespace-pre-line font-medium">
                 {stat.subtitle}
               </p>
 

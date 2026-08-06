@@ -10,8 +10,8 @@ export function Footer() {
 
           {/* Brand Column */}
           <div className="flex flex-col gap-6">
-            <Link href="/" className="relative flex items-center h-[60px] md:h-[72px] lg:h-[80px] w-auto">
-              <Image src="/images/Wellset India.png" alt="Wellset India Events & Promotions" width={320} height={90} className="h-full w-auto object-contain scale-110 md:scale-125 lg:scale-[1.35] origin-left" />
+            <Link href="/" className="relative flex items-center h-[80px] md:h-[90px] lg:h-[100px] w-auto">
+              <Image src="/images/Wellset India.png" alt="Wellset India Events & Promotions" width={320} height={90} className="h-full w-auto object-contain scale-125 md:scale-[1.35] lg:scale-[1.5] origin-left" />
             </Link>
             <p className="text-[14px] leading-relaxed max-w-[280px]">
               Delivering impactful events, rural marketing, retail campaigns, and community engagement across India. We bring brands to life.
