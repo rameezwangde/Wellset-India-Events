@@ -24,6 +24,18 @@ export const metadata: Metadata = {
   title: "Wellset India Events & Promotions | Nationwide Brand Activations",
   description:
     "Wellset India delivers impactful events, rural marketing, van activations, retail campaigns and community engagement programs across India.",
+  keywords: [
+    "Event Management India",
+    "Brand Activations",
+    "Rural Marketing",
+    "BTL Campaigns",
+    "Van Activations",
+    "Nukkad Natak",
+    "Mall Activations",
+    "Corporate Events",
+    "Wellset India Events",
+    "NGO Awareness Campaigns",
+  ],
 };
 
 export default function RootLayout({
