@@ -29,8 +29,8 @@ export function Header() {
 
         {/* Logo */}
         <div className="flex items-center justify-start h-full py-1">
-          <Link href="/" className="relative flex items-center h-[60px] md:h-[72px] lg:h-[78px] w-auto">
-             <Image src="/images/Wellset India.png" alt="Wellset India Events & Promotions" width={320} height={90} className="h-full w-auto object-contain scale-110 md:scale-125 lg:scale-[1.35] origin-left" />
+          <Link href="/" className="relative flex items-center h-[74px] md:h-[78px] lg:h-[78px] w-auto">
+             <Image src="/images/Wellset India.png" alt="Wellset India Events & Promotions" width={320} height={90} className="h-full w-auto object-contain scale-[1.25] md:scale-[1.35] origin-left" />
           </Link>
         </div>
 
