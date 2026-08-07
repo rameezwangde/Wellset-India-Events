@@ -21,9 +21,9 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Wellset India Events & Promotions | Nationwide Brand Activations",
+  title: "Wellset India Events and Promotions | BTL & Rural Marketing Agency",
   description:
-    "Wellset India delivers impactful events, rural marketing, van activations, retail campaigns and community engagement programs across India.",
+    "Wellset India Events and Promotions – pan-India BTL, rural, and urban marketing agency since 2006. Nukkad natak, IEC, and govt/NGO campaigns.",
   keywords: [
     "Event Management India",
     "Brand Activations",
