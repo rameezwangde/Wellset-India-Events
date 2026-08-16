@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export interface GalleryImage {
   url: string;
+  thumbnailUrl?: string;
 }
 
 interface ImageGalleryProps {
@@ -103,11 +104,12 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
               className="relative aspect-square overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 group bg-gray-100 cursor-pointer"
             >
               <Image
-                src={imageUrl}
+                src={img.thumbnailUrl || imageUrl}
                 alt={`Gallery image ${index + 1}`}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                unoptimized={true}
               />
             </div>
           );
@@ -168,6 +170,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
                     className="object-contain"
                     sizes="100vw"
                     priority
+                    unoptimized={true}
                   />
                 </motion.div>
               </AnimatePresence>

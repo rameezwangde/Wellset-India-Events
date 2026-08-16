@@ -142,7 +142,8 @@ export default async function ProjectGalleryPage({
   // If found in Sanity
   if (sanityProject) {
     const sanityImages: GalleryImage[] = (sanityProject.gallery || []).map((img: any) => ({
-      url: urlForImage(img)?.url() || ''
+      url: urlForImage(img)?.url() || '',
+      thumbnailUrl: urlForImage(img)?.width(600).url() || ''
     })).filter((img: any) => img.url !== '');
 
     return (
@@ -183,7 +184,8 @@ export default async function ProjectGalleryPage({
     if (response.ok) {
       const data = await response.json();
       images = (data.resources || []).map((img: any) => ({
-        url: `https://res.cloudinary.com/${cloudName}/image/upload/v${img.version}/${img.public_id}.${img.format}`
+        url: `https://res.cloudinary.com/${cloudName}/image/upload/f_auto,q_auto/v${img.version}/${img.public_id}.${img.format}`,
+        thumbnailUrl: `https://res.cloudinary.com/${cloudName}/image/upload/w_600,f_auto,q_auto/v${img.version}/${img.public_id}.${img.format}`
       }));
     } else {
       console.error("Failed to fetch images from Cloudinary");

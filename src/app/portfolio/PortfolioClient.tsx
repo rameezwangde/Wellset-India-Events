@@ -71,6 +71,7 @@ export default function PortfolioClient({ projects = [] }: { projects?: any[] })
                   fill 
                   className="object-cover object-top transition-transform duration-700 group-hover:scale-110" 
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  unoptimized={true}
                 />
               )}
             </div>
@@ -90,19 +91,25 @@ export default function PortfolioClient({ projects = [] }: { projects?: any[] })
                  </span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-bold mb-2 text-white font-condensed tracking-wide drop-shadow-md leading-tight">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white font-condensed tracking-wide drop-shadow-md leading-tight">
                 {project.title}
               </h3>
               
-              <p className="text-white/80 text-sm sm:text-base line-clamp-2 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-150 transform translate-y-4 group-hover:translate-y-0">
-                {project.description}
-              </p>
+              <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-in-out">
+                <div className="overflow-hidden">
+                  <div className="pt-3">
+                    <p className="text-white/80 text-sm sm:text-base mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-150 transform translate-y-4 group-hover:translate-y-0">
+                      {project.description}
+                    </p>
 
-              <div className="inline-flex items-center font-semibold text-orange-400 group-hover:text-orange-300 transition-colors opacity-0 group-hover:opacity-100 duration-500 delay-200">
-                Explore Gallery 
-                <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
+                    <div className="inline-flex items-center font-semibold text-orange-400 group-hover:text-orange-300 transition-colors opacity-0 group-hover:opacity-100 duration-500 delay-200 pb-1">
+                      Explore Gallery 
+                      <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </Link>
