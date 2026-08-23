@@ -161,4 +161,13 @@ export const fallbackProjects = [
     color: "from-slate-700 to-zinc-600",
     category: "Conferences"
   },
+  {
+    id: "stall-fabrication-project",
+    title: "Premium Stall Fabrication",
+    description: "Custom stall fabrication and exhibition setup designed to maximize brand impact and engage visitors effectively.",
+    coverImage: "/stall-fabrication/cover.jpeg",
+    tag: "Stall",
+    color: "from-purple-600 to-indigo-600",
+    category: "Stall Fabrication"
+  },
 ];
