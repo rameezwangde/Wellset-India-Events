@@ -50,7 +50,7 @@ export default async function ProjectGalleryPage({
     )
   }
 
-  // 2. Fallback to hardcoded Cloudinary logic
+  // 2. Fallback to local folder logic
   const project = projects.find((p) => p.id === resolvedParams.slug);
 
   if (!project) {
@@ -64,31 +64,26 @@ export default async function ProjectGalleryPage({
     );
   }
 
-  const cloudName = 'crw5jo8x'; 
   let images: GalleryImage[] = [];
 
-  if (project.id === "stall-fabrication-project") {
-    images = Array.from({ length: 12 }).map((_, i) => ({
-      url: `/stall-fabrication/${i + 1}.jpeg`,
-      thumbnailUrl: `/stall-fabrication/${i + 1}.jpeg`
-    }));
-  } else {
-    try {
-      const url = `https://res.cloudinary.com/${cloudName}/image/list/${project.tag}.json`;
-      const response = await fetch(url, { next: { revalidate: 3600 } }); 
+  const folderPath = project.coverImage.substring(0, project.coverImage.lastIndexOf('/'));
+  
+  try {
+    const fs = require('fs');
+    const path = require('path');
+    const fullFolderPath = path.join(process.cwd(), 'public', folderPath);
+    
+    if (fs.existsSync(fullFolderPath)) {
+      const files = fs.readdirSync(fullFolderPath);
+      const imageFiles = files.filter((file: string) => /\.(jpg|jpeg|png|gif|webp)$/i.test(file));
       
-      if (response.ok) {
-        const data = await response.json();
-        images = (data.resources || []).map((img: any) => ({
-          url: `https://res.cloudinary.com/${cloudName}/image/upload/f_auto,q_auto/v${img.version}/${img.public_id}.${img.format}`,
-          thumbnailUrl: `https://res.cloudinary.com/${cloudName}/image/upload/w_600,f_auto,q_auto/v${img.version}/${img.public_id}.${img.format}`
-        }));
-      } else {
-        console.error("Failed to fetch images from Cloudinary");
-      }
-    } catch (error) {
-      console.error("Error fetching images:", error);
+      images = imageFiles.map((file: string) => ({
+        url: `${folderPath}/${file}`,
+        thumbnailUrl: `${folderPath}/${file}`
+      }));
     }
+  } catch (error) {
+    console.error("Error fetching local images:", error);
   }
 
   return (
