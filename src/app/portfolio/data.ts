@@ -12,7 +12,7 @@ export const fallbackProjects = [
     id: "tata-swach",
     title: "Tata Swach Door-To-Door Campaign",
     description: "A comprehensive BTL activation and door-to-door campaign for Tata Swach.",
-    coverImage: "/projects/Tata Swach Door-To-Door Campaign/20130625_142337_rgbva3.jpg", 
+    coverImage: "/projects/Tata Swach Door-To-Door Campaign/20130625_142337.jpg", 
     tag: "Tata_Swach",
     color: "from-blue-500 to-cyan-400",
     category: "BTL Activations"
@@ -21,7 +21,7 @@ export const fallbackProjects = [
     id: "nukkad-natak",
     title: "Nukkad Natak",
     description: "An engaging street play and theatrical performance for brand awareness.",
-    coverImage: "/projects/Nukkad Natak/96A44970-0DFB-406C-BA15-812787B09071_qxcare.jpg", 
+    coverImage: "/projects/Nukkad Natak/96A44970-0DFB-406C-BA15-812787B09071.jpg", 
     tag: "Nukkad_Natak",
     color: "from-red-500 to-rose-400",
     category: "Nukkad Natak"
